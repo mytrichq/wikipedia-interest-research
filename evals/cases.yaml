@@ -1,0 +1,198 @@
+# E2E scenarios for the agent. Each case is run in a fresh temporary workspace.
+#
+# turns:    user messages sent one after another in the same session (multi-turn follow-ups).
+# envs:     where the case runs — baseline (no skill), clean (skill only), realistic (all user skills).
+# checks:   deterministic assertions, evaluated by evals/run.py from the transcript and files.
+# rubric:   criteria for the LLM judge (score 1-5 each, with a justification).
+# notes:    ground truth we verified by hand, so the judge and reviewers know the trap.
+#
+# Check vocabulary (implemented in evals/run.py):
+#   skill_triggered, used_cli, artifacts_exist, pdf_one_page, numbers_match_study,
+#   no_invented_titles, mentions_trust, mentions_limitations, answer_language,
+#   max_tool_calls, followup_is_incremental, asks_clarification_or_states_assumption,
+#   skill_not_triggered, cli_commands (list of regexes that must appear in Bash calls)
+
+defaults:
+  envs: [baseline, clean, realistic]
+  runs: 3
+  max_tool_calls: 15
+
+cases:
+  # ---------- The three examples from the assignment ----------
+  - id: fasting-pl-cs
+    source: assignment-example-1
+    turns:
+      - "Порівняй зростання інтересу до інтервального голодування в польськомовній та чеськомовній Wikipedia за останні два роки."
+    checks:
+      skill_triggered: true
+      used_cli: true
+      artifacts_exist: [summary.md]
+      numbers_match_study: true
+      no_invented_titles: true
+      mentions_trust: true
+      mentions_limitations: true
+      answer_language: uk
+    notes: >
+      TRAP verified 2026-09-23: Polish Wikipedia has NO dedicated article (Wikidata Q1666254
+      has cs "Přerušovaný půst" but no plwiki sitelink; "post przerywany" is only a red link).
+      A correct answer says so explicitly, may use a clearly labelled proxy (e.g. "Głodówka
+      lecznicza") and must not invent a Polish title or compare non-comparable numbers silently.
+    rubric:
+      - "States that Polish Wikipedia has no dedicated article instead of inventing one."
+      - "If a proxy article is used, it is labelled as a proxy with its caveat."
+      - "Growth figures are compared for the same period and normalised or caveated for edition size."
+
+  - id: astronomy-uk-trust
+    source: assignment-example-2
+    turns:
+      - "Ми думаємо додати курс з астрономії до освітнього застосунку. Чи зростає інтерес до цієї теми в україномовній Wikipedia, і наскільки цьому зростанню можна довіряти?"
+    checks:
+      skill_triggered: true
+      used_cli: true
+      artifacts_exist: [summary.md]
+      numbers_match_study: true
+      mentions_trust: true
+      mentions_limitations: true
+      answer_language: uk
+    notes: >
+      Verified 2026-09-23: uk "Астрономія" fell from ~3,700 views/month (Jan 2024) to ~300
+      (mid 2026) with strong September peaks (school year). Correct answer: interest is NOT
+      growing; September peaks are seasonal, not growth.
+    rubric:
+      - "Does not claim growth; identifies the decline (or at best no growth)."
+      - "Explains that September peaks are seasonal (school year), not a trend."
+      - "Gives a trust level and explains why, in plain language."
+
+  - id: english-learning-report
+    source: assignment-example-3
+    turns:
+      - "Ми створюємо застосунок для вивчення мов. Порівняй інтерес до вивчення англійської в польському, турецькому, в'єтнамському, португальському та українському розділах Wikipedia і підготуй короткий звіт: які аудиторії варто дослідити наступними й чому?"
+    checks:
+      skill_triggered: true
+      used_cli: true
+      artifacts_exist: [report.pdf, summary.md]
+      pdf_one_page: true
+      numbers_match_study: true
+      no_invented_titles: true
+      mentions_trust: true
+      mentions_limitations: true
+      answer_language: uk
+      max_tool_calls: 20
+    rubric:
+      - "Ranks the audiences and justifies the order with data (volume, relative interest, momentum, trust)."
+      - "Notes that a language edition is not a country (e.g. Portuguese = Brazil + Portugal)."
+      - "Recommends concrete next audiences to validate, not a final go/no-go."
+
+  - id: english-learning-no-langs
+    source: assignment-example-3-verbatim
+    turns:
+      - "Ми створюємо застосунок для вивчення мов. Порівняй інтерес до вивчення англійської у вибраних нами мовних розділах та підготуй короткий звіт: які аудиторії варто дослідити наступними й чому?"
+    envs: [clean, realistic]
+    checks:
+      skill_triggered: true
+      asks_clarification_or_states_assumption: true
+    notes: "The languages are not named. The agent must ask which ones, or pick a default set and say so explicitly."
+
+  # ---------- Follow-ups and memory ----------
+  - id: followup-add-lang
+    turns:
+      - "Порівняй інтерес до астрономії в українській та польській Wikipedia за останні два роки."
+      - "Додай ще словацьку."
+      - "А тепер візьми період три роки."
+    envs: [clean, realistic]
+    checks:
+      skill_triggered: true
+      used_cli: true
+      cli_commands: ["study new", "study update .*--add-lang", "study update .*--period"]
+      followup_is_incremental: true
+      numbers_match_study: true
+      max_tool_calls: 25
+
+  - id: resume-session
+    setup: "Pre-create study 'astronomy-uk-pl' with `scripts/wir study new` before the session starts."
+    turns:
+      - "Продовж наше дослідження astronomy-uk-pl: яка з двох мов перспективніша?"
+    envs: [clean]
+    checks:
+      skill_triggered: true
+      cli_commands: ["study (show|list)"]
+      numbers_match_study: true
+
+  - id: custom-weights
+    turns:
+      - "Порівняй інтерес до астрономії в українській, польській і чеській Wikipedia."
+      - "Для нас темп росту важливіший за розмір аудиторії. Перерахуй рейтинг."
+    envs: [clean]
+    checks:
+      skill_triggered: true
+      cli_commands: ["study update .*--weights"]
+      numbers_match_study: true
+
+  # ---------- Edge cases ----------
+  - id: ambiguous-topic
+    turns:
+      - "Чи росте інтерес до Меркурія в українській Wikipedia?"
+    envs: [clean, realistic]
+    checks:
+      skill_triggered: true
+      asks_clarification_or_states_assumption: true
+    notes: "Меркурій = planet / chemical element (ртуть is separate) / Roman god. Must ask or state the chosen meaning."
+
+  - id: missing-article
+    turns:
+      - "Порівняй інтерес до піклболу в українській, польській і португальській Wikipedia."
+    envs: [clean]
+    checks:
+      skill_triggered: true
+      used_cli: true
+      no_invented_titles: true
+      mentions_limitations: true
+    notes: "Verified 2026-09-23: Q866224 has uk 'Піклбол' and pt 'Pickleball' but no plwiki article."
+
+  - id: low-volume
+    turns:
+      - "Чи зростає інтерес до піклболу в українській Wikipedia?"
+    envs: [clean]
+    checks:
+      skill_triggered: true
+      mentions_trust: true
+    notes: "Low monthly volume: trust must be Low with a 'too little data' reason."
+
+  - id: news-spike
+    turns:
+      - "Чи зростає інтерес до теми конклаву в польській та українській Wikipedia за останні два роки?"
+    envs: [clean]
+    checks:
+      skill_triggered: true
+      mentions_trust: true
+      numbers_match_study: true
+    notes: "May 2025 papal conclave caused a one-off spike. It must not be presented as sustained growth."
+    rubric:
+      - "Identifies the spike as a one-off news event (May 2025 conclave), not a trend."
+
+  - id: english-query
+    turns:
+      - "Is interest in astronomy growing on Ukrainian Wikipedia? Give me a one-page report."
+    envs: [clean]
+    checks:
+      skill_triggered: true
+      artifacts_exist: [report.pdf]
+      pdf_one_page: true
+      answer_language: en
+
+  - id: offline-cache
+    setup: "Warm the cache with the astronomy-uk study, then block network access for the session (WIR_OFFLINE=1)."
+    turns:
+      - "Чи зростає інтерес до астрономії в українській Wikipedia?"
+    envs: [clean]
+    checks:
+      skill_triggered: true
+      used_cli: true
+
+  # ---------- Negative ----------
+  - id: negative-unrelated
+    turns:
+      - "Напиши функцію на Python, яка рахує медіану списку чисел."
+    envs: [clean, realistic]
+    checks:
+      skill_not_triggered: true

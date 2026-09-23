@@ -1,0 +1,64 @@
+{
+  "case": "english-learning-report",
+  "env": "baseline",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "ToolSearch",
+      "input": {
+        "query": "select:WebFetch,WebSearch",
+        "max_results": 2
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "English language learning interest Poland statistics 2024 2025"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "English language learning Turkey interest demand statistics"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "English language learning Vietnam interest statistics 2024"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "English language learning Portugal Brazil interest statistics"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "English language learning Ukraine interest demand statistics"
+      }
+    }
+  ],
+  "n_tool_calls": 6,
+  "skills_used": [],
+  "final_answers": [
+    "## 📊 Звіт: Інтерес до вивчення англійської мови в різних мовних спільнотах\n\nНа основі дослідження статистики та трендів, ось порівняння аудиторій:\n\n### **Поточний стан інтересу**\n\n| Регіон | Інтерес | Размір ринку | Профіль |\n|--------|---------|--------------|---------|\n| **Польща** | 🟢 Дуже високий | 4,9 млн учнів | Зрілий, насичений ринок |\n| **Туреччина** | 🟢 Високий | Зростаючий | Висока мотивація, низька профіль |\n| **В'єтнам** | 🟢🔥 Дуже високий | 86% інтересу | Швидкозростаючий, молодіжна аудиторія |\n| **Україна** | 🟡 Зростаючий | 93% батьків хочуть | Стрімкий ріст з 2022р. |\n| **Португалія/Бразилія** | 🟡 Помірний | Низька профіль | Низька пенетрація, великий потенціал |\n\n---\n\n### **Ключові висновки**\n\n#### **Найперспективніші для дослідження наступними:**\n\n1. **🥇 В'єтнам** ← *Рекомендація #1*\n   - **Чому:** Ринок цифрового навчання англійської зростає на 12% щорічно, прогноз $120М до 2033р.\n   - **Аудиторія:** Молоді люди (49% самостійного навчання), батьки інвестують в дітей, 3.2М Duolingo-завантажень\n   - **Можливість:** Невеликий конкурентний натиск, велика невикористана аудиторія поза великими містами\n\n2. **🥈 Туреччина** ← *Рекомендація #2*\n   - **Чому:** Висока мотивація через кар'єрні потреби + низька профіль (33-є місце в Європі)\n   - **Аудиторія:** Дорослі в приватному секторі, зростаючий попит на вчителів\n   - **Можливість:** Розрив між мотивацією та інструментами – ідеально для локалізованого додатку\n\n3. **🥉 Україна** ← *Рекомендація #3*\n   - **Чому:** Стрімкий ріст попиту з 2022р., 93% батьків хочуть навчання дітей\n   - **Аудиторія:** Переважно дорослі (60% запитів) + студенти; мотивація: навчання за кордоном, робота\n   - **Можливість:** Молодий, гарячий ринок; потреба в якісних локальних ресурсах\n\n#### **Нижче пріоритету:**\n- **Польща:** Насичений ринок, вже матуре екосистема\n- **Португалія/Бразилія:** Низька цифрова пенетрація, дані обмежені\n\n---\n\n### **Стратегічна рекомендація**\n\nДля додатку мовного навчання **почніть з В'єтнама** – найбільший потенціал за мінімальної конкуренції. Параллельно дослідіть Туреччину (дорослий сегмент) і Україну (молода, мотивована аудиторія із специфічними потребами).\n\n---\n\n### Sources:\n- [Foreign languages in Poland - Statista](https://www.statista.com/topics/8898/foreign-languages-in-poland/)\n- [Turkey National Needs Assessment - British Council](https://www.britishcouncil.org.tr/sites/default/files/turkey_national_needs_assessment_of_state_school_english_language_teaching.pdf)\n- [Vietnam Digital English Learning Market - IMARC Group](https://www.imarcgroup.com/vietnam-digital-english-language-learning-market)\n- [Vietnam English Education Market - Vietnam Briefing](https://www.vietnam-briefing.com/news/vietnams-english-education-market-2023.html/)\n- [Brazil's English Learning Market - British Council](https://www.britishcouncil.org.br/sites/default/files/learning_english_in_brazil.pdf)\n- [Ukraine's English Language Push - Atlantic Council](https://www.atlanticcouncil.org/blogs/ukrainealert/ukraine-officially-embraces-english-as-historic-westward-pivot-continues/)\n- [Teaching English in Ukraine - Rubryka](https://rubryka.com/en/article/biznes-z-vykladannya-anglijskoyi/)"
+  ],
+  "cost_usd": 0.1589,
+  "duration_s": 35.1,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 2508,
+    "cache_read_input_tokens": 61555
+  },
+  "errors": []
+}

@@ -1,0 +1,28 @@
+# Triggering eval: does the skill activate when it should, and stay quiet when it should not?
+# Method (agentskills.io/skill-creation/optimizing-descriptions): each query is run 3 times;
+# should_trigger passes when trigger rate > 0.5, should_not_trigger passes when it is < 0.5.
+# Negatives are deliberate near-misses: they mention Wikipedia, languages, trends or courses.
+
+should_trigger:
+  - "Чи росте інтерес до йоги в польській Wikipedia?"
+  - "Which language should we localize our meditation app into next: Polish, Czech or Romanian? Use Wikipedia interest data."
+  - "Порівняй перегляди статей про криптовалюту в німецькій і французькій Вікіпедії за 3 роки."
+  - "Ми обираємо тему наступного курсу: фотографія чи програмування. Що цікавіше україномовній аудиторії?"
+  - "How many pageviews does the Spanish Wikipedia article on stoicism get, and is it trending up?"
+  - "Зроби PDF-звіт про інтерес до шахів у турецькій та в'єтнамській Wikipedia."
+  - "Is the interest in intermittent fasting growing in Portugal and Brazil? We sell a fasting app."
+  - "Порівняй, наскільки популярна тема ментального здоров'я в різних мовних розділах Вікіпедії."
+  - "Наскільки можна довіряти зростанню інтересу до штучного інтелекту в чеській Wikipedia?"
+  - "Which markets show rising curiosity about learning Japanese? Check Wikipedia views across a few languages."
+
+should_not_trigger:
+  - "Відредагуй статтю Wikipedia про мій стартап, щоб вона була нейтральнішою."
+  - "Summarize the English Wikipedia article about black holes for a 10-year-old."
+  - "Переклади інтерфейс мого застосунку польською мовою."
+  - "Скільки людей у світі говорить чеською?"
+  - "Show me Google Trends for 'pickleball' in the US."
+  - "У моєму застосунку лічильник переглядів сторінок рахує двічі — знайди баг у цьому коді."
+  - "Як завантажити повний дамп української Вікіпедії для навчання мовної моделі?"
+  - "Build a React chart component that shows monthly active users."
+  - "Порадь, яку мову програмування вивчати першою."
+  - "Who founded Wikipedia and when?"
