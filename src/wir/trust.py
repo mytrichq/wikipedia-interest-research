@@ -39,9 +39,10 @@ def _consistency(reasons: list, m: dict) -> None:
         text = f"{m['months']} months of data: no full year-over-year comparison."
         reasons.append(("short_history", -30, text))
         return
+    p_value = growth["p_value"]
+    p_text = "p<0.001" if p_value < 0.001 else f"p={p_value:.3f}"
     detail = (
-        f"{growth['months_up']} of 12 months were above the same month a year earlier "
-        f"(p={growth['p_value']})"
+        f"{growth['months_up']} of 12 months were above the same month a year earlier ({p_text})"
     )
     if m["verdict"] == "unclear":
         reasons.append(("not_significant", -35, f"No consistent direction: {detail}."))
@@ -59,7 +60,7 @@ def _consistency(reasons: list, m: dict) -> None:
 def _spikes_and_bots(reasons: list, m: dict) -> None:
     cleaned, spikes = m["growth_without_one_offs"], m["spikes"]
     yoy, clean = m["growth"]["yoy_pct"], cleaned["yoy_pct"]
-    one_offs = ", ".join(f"{o['month']} (×{o['times_typical']})" for o in cleaned["one_off_months"])
+    one_offs = ", ".join(f"{o['month']} ×{o['times_typical']}" for o in cleaned["one_off_months"])
     if (
         yoy is not None
         and clean is not None

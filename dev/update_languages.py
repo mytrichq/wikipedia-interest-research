@@ -22,12 +22,14 @@ def main() -> None:
             continue
         for site in lang.get("site", []):
             if site.get("code") == "wiki" and not site.get("closed"):
-                editions.append({
-                    "code": site["url"].removeprefix("https://").split(".")[0],
-                    "name": lang.get("localname") or lang["code"],
-                    "native_name": lang.get("name") or lang["code"],
-                    "dbname": site["dbname"],
-                })  # fmt: skip
+                editions.append(
+                    {
+                        "code": site["url"].removeprefix("https://").split(".")[0],
+                        "name": lang.get("localname") or lang["code"],
+                        "native_name": lang.get("name") or lang["code"],
+                        "dbname": site["dbname"],
+                    }
+                )
     editions.sort(key=lambda e: e["code"])
     out = Path(DATA_DIR) / "wikipedias.json"
     out.parent.mkdir(exist_ok=True)

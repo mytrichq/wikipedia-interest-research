@@ -22,9 +22,16 @@ CASES_FILE = SKILL_DIR / "evals" / "cases.yaml"
 ALLOWED_TOOLS = "Bash Read Write Edit Glob Grep WebFetch WebSearch Skill"
 RESULT_PREVIEW = 1500
 SHIPPED = [
-    "SKILL.md", "LICENSE", "pyproject.toml", "uv.lock", ".python-version",
-    "scripts", "src", "references", "assets",
-]  # fmt: skip
+    "SKILL.md",
+    "LICENSE",
+    "pyproject.toml",
+    "uv.lock",
+    ".python-version",
+    "scripts",
+    "src",
+    "references",
+    "assets",
+]
 
 
 def load_case(case_id: str) -> dict:
@@ -61,12 +68,19 @@ def claude_command(
     env: str, model: str, prompt: str, resume: str | None, persist: bool
 ) -> list[str]:
     cmd = [
-        "claude", "-p", prompt,
-        "--model", model,
-        "--output-format", "stream-json", "--verbose",
-        "--allowedTools", ALLOWED_TOOLS,
-        "--max-turns", "40",
-    ]  # fmt: skip
+        "claude",
+        "-p",
+        prompt,
+        "--model",
+        model,
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--allowedTools",
+        ALLOWED_TOOLS,
+        "--max-turns",
+        "40",
+    ]
     if env in ("baseline", "clean"):
         cmd += ["--setting-sources", "project", "--strict-mcp-config"]
     if resume:
@@ -113,8 +127,13 @@ def summarize(events: list[dict]) -> dict:
         if event.get("type") == "assistant":
             for block in event["message"].get("content", []):
                 if block.get("type") == "tool_use":
-                    tool_calls.append({"turn": event["_turn"], "tool": block["name"],
-                                       "input": block.get("input", {})})  # fmt: skip
+                    tool_calls.append(
+                        {
+                            "turn": event["_turn"],
+                            "tool": block["name"],
+                            "input": block.get("input", {}),
+                        }
+                    )
                     if block["name"] == "Skill":
                         skills_used.append(block.get("input", {}).get("skill"))
         elif event.get("type") == "result":
@@ -170,8 +189,15 @@ def render_markdown(case: dict, env: str, model: str, events: list[dict], summar
                     if len(text) > RESULT_PREVIEW:
                         cut = len(text) - RESULT_PREVIEW
                         text = text[:RESULT_PREVIEW] + f"\n… [{cut} chars cut]"
-                    out += ["<details><summary>Tool result</summary>", "", "```", text, "```",
-                            "</details>", ""]  # fmt: skip
+                    out += [
+                        "<details><summary>Tool result</summary>",
+                        "",
+                        "```",
+                        text,
+                        "```",
+                        "</details>",
+                        "",
+                    ]
         elif kind == "result":
             out += ["### Final answer", "", event.get("result", ""), ""]
         elif kind == "error":
@@ -210,14 +236,16 @@ def main() -> int:
             {"case": args.case, "env": args.env, "model": args.model, "run": args.run, **summary},
             ensure_ascii=False,
             indent=2,
-        ),  # fmt: skip
+        ),
         encoding="utf-8",
     )
     (run_dir / "transcript.md").write_text(
         render_markdown(case, args.env, args.model, events, summary), encoding="utf-8"
     )
-    print(f"{run_dir}: {summary['n_tool_calls']} tool calls, ${summary['cost_usd']}, "
-          f"{summary['duration_s']} s")  # fmt: skip
+    print(
+        f"{run_dir}: {summary['n_tool_calls']} tool calls, ${summary['cost_usd']}, "
+        f"{summary['duration_s']} s"
+    )
     return 0
 
 

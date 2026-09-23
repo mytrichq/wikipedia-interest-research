@@ -175,18 +175,20 @@ def detect_spikes(user: pd.Series, desktop: pd.Series) -> tuple[dict, pd.Series]
     for _, days in user[is_spike].groupby((~is_spike).cumsum()[is_spike]):
         excess = float((days - baseline[days.index]).sum())
         desktop_share = float(desktop[days.index].sum() / max(days.sum(), 1))
-        events.append({
-            "start": days.index[0].strftime("%Y-%m-%d"),
-            "days": len(days),
-            "peak_views": int(days.max()),
-            "times_baseline": round(float(days.max() / max(baseline[days.idxmax()], 1)), 1),
-            "excess_views": int(excess),
-            "desktop_share": round(desktop_share, 2),
-            "bot_like": bool(
-                desktop_share >= BOT_DESKTOP_SHARE
-                and desktop_share - normal_desktop >= BOT_DESKTOP_JUMP
-            ),
-        })  # fmt: skip
+        events.append(
+            {
+                "start": days.index[0].strftime("%Y-%m-%d"),
+                "days": len(days),
+                "peak_views": int(days.max()),
+                "times_baseline": round(float(days.max() / max(baseline[days.idxmax()], 1)), 1),
+                "excess_views": int(excess),
+                "desktop_share": round(desktop_share, 2),
+                "bot_like": bool(
+                    desktop_share >= BOT_DESKTOP_SHARE
+                    and desktop_share - normal_desktop >= BOT_DESKTOP_JUMP
+                ),
+            }
+        )
     total = max(int(user.sum()), 1)
     excess_total = sum(e["excess_views"] for e in events)
     bot_excess = sum(e["excess_views"] for e in events if e["bot_like"])

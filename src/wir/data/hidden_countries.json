@@ -1,0 +1,199 @@
+{
+ "source": "https://foundation.wikimedia.org/wiki/Legal:Wikimedia_Foundation_Country_and_Territory_Protection_List",
+ "as_of": "2026 designations, read 2026-09-23",
+ "note": "Readers from these countries are absent from country-level pageview data (checked: top-by-country omits all three categories).",
+ "countries": {
+  "not_published": {
+   "AF": "Afghanistan",
+   "BY": "Belarus",
+   "CN": "China",
+   "CU": "Cuba",
+   "ER": "Eritrea",
+   "HK": "Hong Kong",
+   "IR": "Iran",
+   "MO": "Macao",
+   "MM": "Myanmar",
+   "KP": "North Korea",
+   "RU": "Russia",
+   "SA": "Saudi Arabia",
+   "SY": "Syria",
+   "TM": "Turkmenistan",
+   "VN": "Vietnam",
+   "VE": "Venezuela"
+  },
+  "higher_risk": {
+   "AZ": "Azerbaijan",
+   "BH": "Bahrain",
+   "DJ": "Djibouti",
+   "EG": "Egypt",
+   "NI": "Nicaragua",
+   "PK": "Pakistan",
+   "PS": "Palestine",
+   "SD": "Sudan",
+   "TJ": "Tajikistan",
+   "TR": "Türkiye",
+   "AE": "United Arab Emirates",
+   "UZ": "Uzbekistan",
+   "YE": "Yemen"
+  },
+  "medium_risk": {
+   "BD": "Bangladesh",
+   "BT": "Bhutan",
+   "KH": "Cambodia",
+   "ET": "Ethiopia",
+   "HN": "Honduras",
+   "IQ": "Iraq",
+   "KZ": "Kazakhstan",
+   "LA": "Laos",
+   "RW": "Rwanda"
+  }
+ },
+ "languages": {
+  "tr": [
+   "TR"
+  ],
+  "vi": [
+   "VN"
+  ],
+  "ru": [
+   "RU",
+   "BY",
+   "KZ"
+  ],
+  "be": [
+   "BY"
+  ],
+  "be-tarask": [
+   "BY"
+  ],
+  "zh": [
+   "CN",
+   "HK",
+   "MO"
+  ],
+  "zh-yue": [
+   "HK",
+   "MO",
+   "CN"
+  ],
+  "wuu": [
+   "CN"
+  ],
+  "zh-classical": [
+   "CN"
+  ],
+  "zh-min-nan": [
+   "CN"
+  ],
+  "fa": [
+   "IR",
+   "AF",
+   "TJ"
+  ],
+  "ps": [
+   "AF"
+  ],
+  "azb": [
+   "IR"
+  ],
+  "mzn": [
+   "IR"
+  ],
+  "glk": [
+   "IR"
+  ],
+  "ar": [
+   "EG",
+   "SA",
+   "IQ",
+   "SY",
+   "AE",
+   "YE",
+   "BH",
+   "SD",
+   "PS",
+   "DJ"
+  ],
+  "arz": [
+   "EG"
+  ],
+  "ckb": [
+   "IQ"
+  ],
+  "ku": [
+   "IQ",
+   "SY",
+   "TR"
+  ],
+  "ur": [
+   "PK"
+  ],
+  "pnb": [
+   "PK"
+  ],
+  "sd": [
+   "PK"
+  ],
+  "bn": [
+   "BD"
+  ],
+  "dz": [
+   "BT"
+  ],
+  "km": [
+   "KH"
+  ],
+  "am": [
+   "ET"
+  ],
+  "om": [
+   "ET"
+  ],
+  "ti": [
+   "ER",
+   "ET"
+  ],
+  "lo": [
+   "LA"
+  ],
+  "rw": [
+   "RW"
+  ],
+  "kk": [
+   "KZ"
+  ],
+  "az": [
+   "AZ"
+  ],
+  "tg": [
+   "TJ"
+  ],
+  "uz": [
+   "UZ"
+  ],
+  "tk": [
+   "TM"
+  ],
+  "my": [
+   "MM"
+  ],
+  "ko": [
+   "KP"
+  ],
+  "es": [
+   "CU",
+   "VE",
+   "HN",
+   "NI"
+  ],
+  "ug": [
+   "CN"
+  ],
+  "bo": [
+   "CN"
+  ],
+  "crh": [
+   "UZ"
+  ]
+ }
+}

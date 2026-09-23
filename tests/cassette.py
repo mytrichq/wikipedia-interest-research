@@ -1,7 +1,8 @@
-"""Recorded API responses. Re-record with: WIR_RECORD=1 uv run pytest tests/test_resolve.py"""
+"""Recorded API responses (gzipped JSONL). Re-record: WIR_RECORD=1 uv run pytest -k <test>"""
 
 from __future__ import annotations
 
+import gzip
 import json
 import os
 from pathlib import Path
@@ -15,11 +16,11 @@ CASSETTES = Path(__file__).parent / "fixtures" / "cassettes"
 
 class CassetteTransport(httpx.BaseTransport):
     def __init__(self, name: str):
-        self.path = CASSETTES / f"{name}.jsonl"
+        self.path = CASSETTES / f"{name}.jsonl.gz"
         self.record = os.environ.get("WIR_RECORD") == "1"
         self.entries: dict[str, dict] = {}
         if self.path.exists() and not self.record:
-            for line in self.path.read_text(encoding="utf-8").splitlines():
+            for line in gzip.decompress(self.path.read_bytes()).decode("utf-8").splitlines():
                 entry = json.loads(line)
                 self.entries[entry["url"]] = entry
         self._live = httpx.HTTPTransport() if self.record else None
@@ -43,4 +44,5 @@ class CassetteTransport(httpx.BaseTransport):
     def _save(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         lines = [json.dumps(e, ensure_ascii=False) for e in self._recorded]
-        self.path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        payload = ("\n".join(lines) + "\n").encode("utf-8")
+        self.path.write_bytes(gzip.compress(payload, mtime=0))

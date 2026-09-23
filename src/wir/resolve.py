@@ -120,19 +120,34 @@ def search_candidates(client: WikimediaClient, topic: str, topic_lang: str) -> l
     folded = topic.casefold()
 
     hits = client.wikidata(
-        action="wbsearchentities", search=topic, language=topic_lang, uselang=topic_lang,
-        type="item", limit=10,
-    ).get("search", [])  # fmt: skip
+        action="wbsearchentities",
+        search=topic,
+        language=topic_lang,
+        uselang=topic_lang,
+        type="item",
+        limit=10,
+    ).get("search", [])
     for position, hit in enumerate(hits):
         match = hit.get("match", {})
         exact = match.get("text", "").casefold() == folded
         score = (2 if match.get("type") == "label" else 1) if exact else 0
         found[hit["id"]] = Candidate(qid=hit["id"], match=score, search_rank=position)
 
-    pages = client.action(
-        topic_lang, action="query", generator="search", gsrsearch=topic, gsrlimit=5,
-        gsrnamespace=0, prop="pageprops", ppprop="wikibase_item|disambiguation", redirects=1,
-    ).get("query", {}).get("pages", [])  # fmt: skip
+    pages = (
+        client.action(
+            topic_lang,
+            action="query",
+            generator="search",
+            gsrsearch=topic,
+            gsrlimit=5,
+            gsrnamespace=0,
+            prop="pageprops",
+            ppprop="wikibase_item|disambiguation",
+            redirects=1,
+        )
+        .get("query", {})
+        .get("pages", [])
+    )
     for page in pages:
         props = page.get("pageprops", {})
         qid = props.get("wikibase_item")
@@ -155,9 +170,11 @@ def load_entities(
     wikipedia_dbnames = languages.dbnames()
     label_langs = sorted({topic_lang, "en", *(e.code for e in editions)})
     entities = client.wikidata(
-        action="wbgetentities", ids="|".join(c.qid for c in candidates),
-        props="sitelinks|labels|descriptions", languages="|".join(label_langs),
-    ).get("entities", {})  # fmt: skip
+        action="wbgetentities",
+        ids="|".join(c.qid for c in candidates),
+        props="sitelinks|labels|descriptions",
+        languages="|".join(label_langs),
+    ).get("entities", {})
     for candidate in candidates:
         entity = entities.get(candidate.qid, {})
         candidate.sitelinks = {
@@ -197,10 +214,19 @@ def proxy_search(client: WikimediaClient, edition: Edition, concept: Candidate) 
     term = concept.labels.get(edition.code) or concept.labels.get("en") or concept.label
     if not term:
         return []
-    results = client.action(
-        edition.code, action="query", list="search", srsearch=term, srlimit=3,
-        srnamespace=0, srprop="snippet",
-    ).get("query", {}).get("search", [])  # fmt: skip
+    results = (
+        client.action(
+            edition.code,
+            action="query",
+            list="search",
+            srsearch=term,
+            srlimit=3,
+            srnamespace=0,
+            srprop="snippet",
+        )
+        .get("query", {})
+        .get("search", [])
+    )
     return [
         {"title": r["title"], "snippet": _clean_snippet(r.get("snippet", "")), "searched_for": term}
         for r in results
@@ -245,9 +271,13 @@ def resolve_topic(
 def check_title(client: WikimediaClient, edition: Edition, title: str) -> dict:
     """Canonical title of a user-supplied article, following redirects."""
     body = client.action(
-        edition.code, action="query", titles=title, redirects=1,
-        prop="pageprops", ppprop="wikibase_item|disambiguation",
-    )  # fmt: skip
+        edition.code,
+        action="query",
+        titles=title,
+        redirects=1,
+        prop="pageprops",
+        ppprop="wikibase_item|disambiguation",
+    )
     page = body.get("query", {}).get("pages", [{}])[0]
     if page.get("missing") or page.get("invalid"):
         return {"lang": edition.code, "title": title, "exists": False}
@@ -264,11 +294,37 @@ def check_title(client: WikimediaClient, edition: Edition, title: str) -> dict:
 def redirects(client: WikimediaClient, edition: Edition, title: str) -> list[str]:
     """Titles that redirect to an article; their pageviews are counted separately by the API."""
     body = client.action(
-        edition.code, action="query", titles=title, prop="redirects",
-        rdnamespace=0, rdlimit=MAX_REDIRECTS, rdprop="title",
-    )  # fmt: skip
+        edition.code,
+        action="query",
+        titles=title,
+        prop="redirects",
+        rdnamespace=0,
+        rdlimit=MAX_REDIRECTS,
+        rdprop="title",
+    )
     page = body.get("query", {}).get("pages", [{}])[0]
     return [r["title"] for r in page.get("redirects", [])]
+
+
+def recent_views(client: WikimediaClient, edition: Edition, titles: list[str]) -> dict[str, int]:
+    """Views over the last ~60 days for many titles at once (one request per 50 titles)."""
+    totals: dict[str, int] = {}
+    for start in range(0, len(titles), 50):
+        batch = "|".join(titles[start : start + 50])
+        extra: dict = {}
+        while True:
+            body = client.action(
+                edition.code, action="query", titles=batch, prop="pageviews", pvipdays=60, **extra
+            )
+            for page in body.get("query", {}).get("pages", []):
+                views = page.get("pageviews") or {}
+                totals[page["title"]] = totals.get(page["title"], 0) + sum(
+                    v or 0 for v in views.values()
+                )
+            if "continue" not in body:
+                break
+            extra = {k: v for k, v in body["continue"].items() if k != "continue"}
+    return totals
 
 
 def _clean_snippet(snippet: str) -> str:

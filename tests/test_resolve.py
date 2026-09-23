@@ -84,22 +84,26 @@ def candidate(qid, match, editions, rank_=0, description="topic"):
 
 
 def test_rank_prefers_exact_label_then_notability():
-    ranked = rank([
-        candidate("Q1", match=0, editions=300),
-        candidate("Q2", match=1, editions=250),
-        candidate("Q3", match=2, editions=80),
-        candidate("Q4", match=2, editions=200),
-    ])  # fmt: skip
+    ranked = rank(
+        [
+            candidate("Q1", match=0, editions=300),
+            candidate("Q2", match=1, editions=250),
+            candidate("Q3", match=2, editions=80),
+            candidate("Q4", match=2, editions=200),
+        ]
+    )
     assert [c.qid for c in ranked] == ["Q4", "Q3", "Q2", "Q1"]
 
 
 def test_rank_drops_non_articles():
-    ranked = rank([
-        candidate("Q1", 2, 0),
-        candidate("Q2", 2, 50, description="Wikimedia disambiguation page"),
-        candidate("Q3", 2, 5, description="scholarly article published in 2019"),
-        candidate("Q4", 0, 10),
-    ])  # fmt: skip
+    ranked = rank(
+        [
+            candidate("Q1", 2, 0),
+            candidate("Q2", 2, 50, description="Wikimedia disambiguation page"),
+            candidate("Q3", 2, 5, description="scholarly article published in 2019"),
+            candidate("Q4", 0, 10),
+        ]
+    )
     assert [c.qid for c in ranked] == ["Q4"]
 
 

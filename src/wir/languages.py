@@ -56,6 +56,17 @@ def get(value: str) -> Edition:
     )
 
 
+@cache
+def _hidden() -> dict:
+    return json.loads((DATA_DIR / "hidden_countries.json").read_text(encoding="utf-8"))
+
+
+def hidden_reader_countries(code: str) -> list[str]:
+    """Countries where this language is widely read but whose readers Wikimedia does not publish."""
+    names = {k: v for group in _hidden()["countries"].values() for k, v in group.items()}
+    return [f"{names[c]} ({c})" for c in _hidden()["languages"].get(code, [])]
+
+
 def parse_list(value: str) -> list[Edition]:
     seen: dict[str, Edition] = {}
     for part in value.replace(";", ",").split(","):

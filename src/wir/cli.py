@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import platform
 import re
@@ -9,7 +10,7 @@ import time
 from collections.abc import Callable
 from pathlib import Path
 
-from wir import __version__, config, languages, periods, series, trust
+from wir import __version__, config, languages, periods, series, study, trust
 from wir.cache import Cache
 from wir.collect import analysis_window, collect, significant_titles
 from wir.metrics import analyze
@@ -65,9 +66,13 @@ def cmd_views(args: argparse.Namespace, client: WikimediaClient) -> int:
         )
         return EXIT_NOT_FOUND
     rows = client.per_article(
-        edition.project, page["title"], period.start, period.end,
-        access=args.access, agent=args.agent,
-    )  # fmt: skip
+        edition.project,
+        page["title"],
+        period.start,
+        period.end,
+        access=args.access,
+        agent=args.agent,
+    )
     daily_views = series.daily(rows, period.start, period.end)
     monthly_views = series.monthly(daily_views)
     payload = {
@@ -121,6 +126,127 @@ def cmd_analyze(args: argparse.Namespace, client: WikimediaClient) -> int:
             "trust": trust.assess(metrics),
         }
     )
+    return EXIT_OK
+
+
+def _now() -> str:
+    return dt.datetime.now().isoformat(timespec="seconds")
+
+
+def _emit_study(document: dict, client: WikimediaClient, extra: dict | None = None) -> None:
+    summary = study.summarize(document)
+    emit({"status": "ok", **(extra or {}), **summary, "requests": client.stats.summary()})
+
+
+def cmd_study_new(args: argparse.Namespace, client: WikimediaClient) -> int:
+    editions = languages.parse_list(args.langs)
+    topic_lang = languages.get(args.topic_lang).code
+    periods.parse(args.period)
+    inputs = study.parse_topic_inputs(args.topic)
+    try:
+        topics = study.resolve_topics(client, inputs, topic_lang, editions)
+    except study.NeedsChoice as choice:
+        emit(choice.payload)
+        return EXIT_OK
+    spec = study.Spec(
+        topics=topics,
+        langs=[e.code for e in editions],
+        period=args.period,
+        weights=study.parse_weights(args.weights),
+        proxies=[study.parse_proxy(a, len(topics)) for a in args.article or []],
+        question=args.question or "",
+        topic_lang=topic_lang,
+    )
+    study_id = args.id or study.slugify("-".join([t.label or t.input for t in topics] + spec.langs))
+    if study.study_dir(study_id).exists() and not args.replace:
+        raise ValueError(
+            f"Study '{study_id}' already exists. Change it with `scripts/wir study update "
+            f"{study_id} ...`, pick another --id, or pass --replace to start over."
+        )
+    results, data = study.compute(client, spec)
+    history = [{"at": _now(), "action": "new", "change": "created"}]
+    study.write(study_id, spec, results, data, history)
+    _emit_study(study.load(study_id), client)
+    return EXIT_OK
+
+
+def cmd_study_update(args: argparse.Namespace, client: WikimediaClient) -> int:
+    document = study.load(args.id)
+    spec = study.spec_from(document)
+    changes = []
+    if args.add_lang:
+        added = [e.code for e in languages.parse_list(args.add_lang) if e.code not in spec.langs]
+        spec.langs += added
+        changes += [f"added language {code}" for code in added]
+    if args.remove_lang:
+        removed = [e.code for e in languages.parse_list(args.remove_lang)]
+        spec.langs = [code for code in spec.langs if code not in removed]
+        spec.proxies = [p for p in spec.proxies if p["lang"] not in removed]
+        changes += [f"removed language {code}" for code in removed]
+    if args.add_topic:
+        editions = [languages.get(code) for code in spec.langs]
+        try:
+            new = study.resolve_topics(client, args.add_topic, spec.topic_lang, editions)
+        except study.NeedsChoice as choice:
+            emit(choice.payload)
+            return EXIT_OK
+        spec.topics += new
+        changes += [f"added topic {t.input} ({'+'.join(t.qids)})" for t in new]
+    if args.remove_topic:
+        index = int(args.remove_topic) - 1
+        if not 0 <= index < len(spec.topics):
+            raise ValueError(f"Topic number must be 1..{len(spec.topics)}.")
+        changes.append(f"removed topic {spec.topics.pop(index).input}")
+        spec.proxies = [
+            {**p, "topic": p["topic"] - (p["topic"] > index)}
+            for p in spec.proxies
+            if p["topic"] != index
+        ]
+    if args.period:
+        periods.parse(args.period)
+        changes.append(f"period {spec.period} -> {args.period}")
+        spec.period = args.period
+    if args.weights:
+        spec.weights = study.parse_weights(args.weights)
+        changes.append(f"weights -> {args.weights}")
+    for value in args.article or []:
+        proxy = study.parse_proxy(value, len(spec.topics))
+        spec.proxies.append(proxy)
+        changes.append(f"proxy article {proxy['lang']}:{proxy['title']}")
+    for value in args.drop_article or []:
+        target = study.parse_proxy(value, len(spec.topics))
+        spec.proxies = [p for p in spec.proxies if p != target]
+        changes.append(f"dropped proxy {target['lang']}:{target['title']}")
+    if args.question:
+        spec.question = args.question
+        changes.append("question updated")
+    if not spec.langs or not spec.topics:
+        raise ValueError("A study needs at least one language and one topic.")
+    if not changes:
+        raise ValueError(
+            "Nothing to change. Use --add-lang, --remove-lang, --add-topic, --remove-topic, "
+            "--period, --weights, --article or --question."
+        )
+    results, data = study.compute(client, spec)
+    history = document["history"] + [
+        {"at": _now(), "action": "update", "change": c} for c in changes
+    ]
+    study.write(args.id, spec, results, data, history)
+    _emit_study(study.load(args.id), client, {"changes": changes})
+    return EXIT_OK
+
+
+def cmd_study_show(args: argparse.Namespace, client: WikimediaClient) -> int:
+    document = study.load(args.id)
+    if args.full:
+        emit(document)
+    else:
+        _emit_study(document, client, {"history": [h["change"] for h in document["history"]]})
+    return EXIT_OK
+
+
+def cmd_study_list(args: argparse.Namespace, client: WikimediaClient) -> int:
+    emit({"status": "ok", "folder": str(study.STUDIES_DIR), "studies": study.list_studies()})
     return EXIT_OK
 
 
@@ -221,6 +347,67 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--period", default="24m", help="'24m', '2y' or 'YYYY-MM..YYYY-MM'")
     p.add_argument("--no-redirects", action="store_true", help="ignore views of redirect titles")
     p.set_defaults(handler=cmd_analyze)
+
+    p = sub.add_parser(
+        "study",
+        help="create, update and inspect studies (the main workflow)",
+        description=(
+            "A study compares interest in one or more topics across languages. It is saved in "
+            "./wiki-studies/<id>/ (study.json + data/monthly.csv) so follow-up questions reuse it."
+        ),
+    )
+    study_sub = p.add_subparsers(dest="study_command", metavar="<action>", required=True)
+
+    q = study_sub.add_parser(
+        "new",
+        help="resolve topics, fetch data, analyze and rank",
+        description=(
+            "Create a study. Topics are best given in English; several concepts can form one "
+            "topic with '+', and Wikidata ids (Q333) pin exact concepts."
+        ),
+    )
+    q.add_argument(
+        "--topic",
+        action="append",
+        required=True,
+        help="topic; repeat to compare topics; 'A + B' or 'Q1860+Q130192' for a cluster",
+    )
+    q.add_argument("--langs", required=True, help="comma-separated language codes, e.g. uk,pl,cs")
+    q.add_argument("--period", default="24m", help="'24m', '3y' or 'YYYY-MM..YYYY-MM'")
+    q.add_argument("--topic-lang", default="en", help="language of the topic text (default: en)")
+    q.add_argument("--weights", help="ranking weights, e.g. growth=0.5,size=0.3,trust=0.2")
+    q.add_argument(
+        "--article",
+        action="append",
+        help="clearly labelled proxy for a language without an article: pl:'Title'",
+    )
+    q.add_argument("--question", help="the user's question, stored with the study")
+    q.add_argument("--id", help="study id (default: derived from topics and languages)")
+    q.add_argument(
+        "--replace", action="store_true", help="overwrite an existing study with this id"
+    )
+    q.set_defaults(handler=cmd_study_new)
+
+    q = study_sub.add_parser("update", help="change a study; only new data is downloaded")
+    q.add_argument("id")
+    q.add_argument("--add-lang", help="e.g. sk or sk,hu")
+    q.add_argument("--remove-lang")
+    q.add_argument("--add-topic", action="append")
+    q.add_argument("--remove-topic", help="topic number (1-based, as listed)")
+    q.add_argument("--period")
+    q.add_argument("--weights")
+    q.add_argument("--article", action="append", help="add a proxy article: pl:'Title'")
+    q.add_argument("--drop-article", action="append", help="remove a proxy article: pl:'Title'")
+    q.add_argument("--question")
+    q.set_defaults(handler=cmd_study_update)
+
+    q = study_sub.add_parser("show", help="print a saved study (no network)")
+    q.add_argument("id")
+    q.add_argument("--full", action="store_true", help="print the whole study.json")
+    q.set_defaults(handler=cmd_study_show)
+
+    q = study_sub.add_parser("list", help="list studies in ./wiki-studies")
+    q.set_defaults(handler=cmd_study_list)
 
     p = sub.add_parser("doctor", help="check the environment, cache and API access")
     p.set_defaults(handler=cmd_doctor)

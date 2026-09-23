@@ -1,16 +1,19 @@
 from __future__ import annotations
 
+import datetime as dt
+
 import pandas as pd
 
 from wir import series
 from wir.languages import Edition
 from wir.metrics import MIN_MONTHS_FOR_YOY, ArticleData
 from wir.periods import AUTOMATED_AGENT_START, DATA_START, Period, add_months
-from wir.resolve import redirects
+from wir.resolve import recent_views, redirects
 from wir.wikimedia import WikimediaClient
 
-MAX_REDIRECTS_CHECKED = 20
+MAX_REDIRECTS_CHECKED = 50
 REDIRECT_MIN_SHARE = 0.01
+RENAME_GRACE = dt.timedelta(days=45)
 
 
 def analysis_window(period: Period) -> Period:
@@ -24,19 +27,37 @@ def analysis_window(period: Period) -> Period:
 def significant_titles(
     client: WikimediaClient, edition: Edition, title: str, window: Period
 ) -> list[dict]:
-    """The article plus redirects carrying ≥1% of its views (e.g. its title before a rename)."""
-    main = client.per_article(
-        edition.project, title, window.start, window.end, granularity="monthly"
+    """The article plus redirects carrying ≥1% of its views (e.g. its title before a rename).
+
+    Redirects are screened with one batched request for recent views. Only when the article
+    itself is new in the window (a likely rename) is each redirect's full history checked.
+    """
+    main = series.daily(
+        client.per_article(edition.project, title, window.start, window.end),
+        window.start,
+        window.end,
     )
-    main_total = sum(v for _, v in main)
-    titles = [{"title": title, "views": main_total, "redirect": False}]
-    for alias in redirects(client, edition, title)[:MAX_REDIRECTS_CHECKED]:
-        rows = client.per_article(
-            edition.project, alias, window.start, window.end, granularity="monthly"
-        )
-        total = sum(v for _, v in rows)
-        if total > 0 and total >= REDIRECT_MIN_SHARE * max(main_total, 1):
-            titles.append({"title": alias, "views": total, "redirect": True})
+    titles = [{"title": title, "views": int(main.sum()), "redirect": False}]
+    aliases = redirects(client, edition, title)[:MAX_REDIRECTS_CHECKED]
+    if not aliases:
+        return titles
+    nonzero = main[main > 0]
+    renamed = nonzero.empty or nonzero.index[0].date() > window.start + RENAME_GRACE
+    if renamed:
+        for alias in aliases:
+            rows = client.per_article(
+                edition.project, alias, window.start, window.end, granularity="monthly"
+            )
+            total = sum(v for _, v in rows)
+            if total > 0 and total >= REDIRECT_MIN_SHARE * max(int(main.sum()), 1):
+                titles.append({"title": alias, "views": total, "redirect": True})
+        return titles
+    recent = recent_views(client, edition, [title, *aliases])
+    base = max(recent.get(title, 0), 1)
+    for alias in aliases:
+        views = recent.get(alias, 0)
+        if views > 0 and views >= REDIRECT_MIN_SHARE * base:
+            titles.append({"title": alias, "views": views, "redirect": True})
     return titles
 
 

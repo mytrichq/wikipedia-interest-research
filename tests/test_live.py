@@ -22,9 +22,14 @@ def test_daily_sums_match_monthly_endpoint(client):
     period = periods.parse("12m", config.today())
     project, title = "uk.wikipedia", "Астрономія"
     ours = series.month_rows(
-        series.monthly(series.daily(client.per_article(project, title, period.start, period.end),
-                                    period.start, period.end))
-    )  # fmt: skip
+        series.monthly(
+            series.daily(
+                client.per_article(project, title, period.start, period.end),
+                period.start,
+                period.end,
+            )
+        )
+    )
     url = (
         f"{REST_BASE}/pageviews/per-article/{project}/all-access/user/{encode_title(title)}"
         f"/monthly/{ymd(period.start)}/{ymd(period.end)}"

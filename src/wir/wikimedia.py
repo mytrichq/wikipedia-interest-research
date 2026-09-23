@@ -129,6 +129,23 @@ class WikimediaClient:
         final = end <= config.today() - dt.timedelta(days=FINAL_AFTER_DAYS)
         return None if final else TTL_RECENT
 
+    def _year_chunks(self, start: dt.date, end: dt.date) -> list[tuple[dt.date, dt.date]]:
+        """Whole calendar years where possible, so any window reuses the same cached requests."""
+        final = config.today() - dt.timedelta(days=FINAL_AFTER_DAYS)
+        chunks = []
+        for year in range(start.year, end.year + 1):
+            year_end = dt.date(year, 12, 31)
+            chunks.append((dt.date(year, 1, 1), year_end if year_end <= final else end))
+        return chunks
+
+    def _pageviews(self, path: str, start: dt.date, end: dt.date) -> list[tuple[dt.date, int]]:
+        rows = []
+        for chunk_start, chunk_end in self._year_chunks(start, end):
+            url = f"{REST_BASE}/pageviews/{path}/{ymd(chunk_start)}/{ymd(chunk_end)}"
+            body = self.get_json(url, ttl=self._pageviews_ttl(chunk_end))
+            rows += [row for row in _parse_items(body, "views") if start <= row[0] <= end]
+        return rows
+
     def per_article(
         self,
         project: str,
@@ -140,11 +157,8 @@ class WikimediaClient:
         access: str = "all-access",
         agent: str = "user",
     ) -> list[tuple[dt.date, int]]:
-        url = (
-            f"{REST_BASE}/pageviews/per-article/{project}/{access}/{agent}/"
-            f"{encode_title(title)}/{granularity}/{ymd(start)}/{ymd(end)}"
-        )
-        return _parse_items(self.get_json(url, ttl=self._pageviews_ttl(end)), "views")
+        path = f"per-article/{project}/{access}/{agent}/{encode_title(title)}/{granularity}"
+        return self._pageviews(path, start, end)
 
     def aggregate(
         self,
@@ -156,11 +170,7 @@ class WikimediaClient:
         access: str = "all-access",
         agent: str = "user",
     ) -> list[tuple[dt.date, int]]:
-        url = (
-            f"{REST_BASE}/pageviews/aggregate/{project}/{access}/{agent}/"
-            f"{granularity}/{ymd(start)}/{ymd(end)}"
-        )
-        return _parse_items(self.get_json(url, ttl=self._pageviews_ttl(end)), "views")
+        return self._pageviews(f"aggregate/{project}/{access}/{agent}/{granularity}", start, end)
 
     def unique_devices(
         self, project: str, start: dt.date, end: dt.date, *, access_site: str = "all-sites"

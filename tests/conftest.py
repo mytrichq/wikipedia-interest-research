@@ -23,7 +23,7 @@ def cassette_client(tmp_path):
 
     def make(name: str) -> WikimediaClient:
         client = WikimediaClient(
-            Cache(tmp_path / f"{name}.sqlite"),
+            Cache(tmp_path / "cache.sqlite"),
             transport=CassetteTransport(name),
             sleep=lambda _: None,
         )

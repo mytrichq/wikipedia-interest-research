@@ -58,12 +58,14 @@ def rank(entries: list[dict], weights: dict[str, float]) -> list[dict]:
         strongest = sorted(
             (k for k in contributions if weights[k] > 0), key=contributions.get, reverse=True
         )
-        rows.append({
-            "key": entry["key"],
-            "score": round(score, 1),
-            "components": {k: round(v, 2) for k, v in parts.items()},
-            "strongest": strongest[:2],
-        })  # fmt: skip
+        rows.append(
+            {
+                "key": entry["key"],
+                "score": round(score, 1),
+                "components": {k: round(v, 2) for k, v in parts.items()},
+                "strongest": strongest[:2],
+            }
+        )
     rows.sort(key=lambda r: r["score"], reverse=True)
     for position, row in enumerate(rows, start=1):
         row["rank"] = position

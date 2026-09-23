@@ -17,6 +17,8 @@
 | cs: Přerušovaný půst | 6 939 | 270 | 119 | [відкрити](https://pageviews.wmcloud.org/?project=cs.wikipedia.org&platform=all-access&agent=user&redirects=0&start=2024-09-01&end=2026-08-31&pages=Přerušovaný_půst) |
 | pl: Język angielski | 215 775 | 8 458 | 7 119 | [відкрити](https://pageviews.wmcloud.org/?project=pl.wikipedia.org&platform=all-access&agent=user&redirects=0&start=2024-09-01&end=2026-08-31&pages=Język_angielski) |
 
+✅ **Автор вручну звірив uk: Астрономія в Pageviews Analysis 2026-09-23: сума 23 322 і вересень 2025 = 1 642 збіглися.**
+
 ## 2. Статистика збігається з еталонною реалізацією
 
 Mann–Kendall і Theil–Sen (з довірчим інтервалом) написані власноруч на numpy, щоб не тягнути SciPy в залежності. Порівняння зі SciPy на 500 випадкових рядах із повторами значень:

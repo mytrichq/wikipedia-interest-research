@@ -128,3 +128,31 @@ def test_action_api_errors_are_raised(tmp_path):
     client, _ = make_client(tmp_path, lambda r: httpx.Response(200, json=body))
     with pytest.raises(WikimediaError, match="badvalue"):
         client.action("uk", action="query", list="nonsense")
+
+
+def test_requests_are_split_into_calendar_years_and_reused(tmp_path):
+    seen = []
+
+    def handler(request):
+        seen.append(request.url.path.rsplit("/", 2)[-2:])
+        return httpx.Response(200, json={"items": []})
+
+    client, _ = make_client(tmp_path, handler)
+    client.per_article("uk.wikipedia", "X", dt.date(2024, 9, 1), dt.date(2026, 8, 31))
+    assert seen == [
+        ["20240101", "20241231"],
+        ["20250101", "20251231"],
+        ["20260101", "20260831"],
+    ]
+    client.per_article("uk.wikipedia", "X", dt.date(2023, 9, 1), dt.date(2026, 8, 31))
+    assert seen[3:] == [["20230101", "20231231"]]
+    assert client.stats.network == 4
+
+
+def test_rows_outside_the_window_are_dropped(tmp_path):
+    items = {"items": [{"timestamp": f"2025{m:02d}0100", "views": m} for m in range(1, 13)]}
+    client, _ = make_client(tmp_path, lambda r: httpx.Response(200, json=items))
+    rows = client.per_article(
+        "uk.wikipedia", "X", dt.date(2025, 3, 1), dt.date(2025, 4, 30), granularity="monthly"
+    )
+    assert rows == [(dt.date(2025, 3, 1), 3), (dt.date(2025, 4, 1), 4)]

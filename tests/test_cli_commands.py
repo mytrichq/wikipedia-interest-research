@@ -40,9 +40,15 @@ def test_unknown_language_is_bad_input_with_hint(run):
 
 def test_views_monthly(run):
     code, out, _ = run(
-        "cli_views", "views", "--lang", "uk", "--article", "Астрономія",
-        "--period", "2024-01..2026-08",
-    )  # fmt: skip
+        "cli_views",
+        "views",
+        "--lang",
+        "uk",
+        "--article",
+        "Астрономія",
+        "--period",
+        "2024-01..2026-08",
+    )
     assert code == cli.EXIT_OK
     assert out["monthly"][0] == ["2024-01", 3700]
     assert out["monthly"][-1] == ["2026-08", 360]
@@ -58,9 +64,17 @@ def test_views_unknown_article(run):
 
 def test_views_daily_refuses_to_flood_the_terminal(run):
     code, _, err = run(
-        "cli_views", "views", "--lang", "uk", "--article", "Астрономія",
-        "--period", "2024-01..2026-08", "--granularity", "daily",
-    )  # fmt: skip
+        "cli_views",
+        "views",
+        "--lang",
+        "uk",
+        "--article",
+        "Астрономія",
+        "--period",
+        "2024-01..2026-08",
+        "--granularity",
+        "daily",
+    )
     assert code == cli.EXIT_BAD_INPUT
     assert "--csv" in err
 
@@ -68,9 +82,19 @@ def test_views_daily_refuses_to_flood_the_terminal(run):
 def test_views_daily_csv(run, tmp_path):
     target = tmp_path / "daily.csv"
     code, out, _ = run(
-        "cli_views", "views", "--lang", "uk", "--article", "Астрономія",
-        "--period", "2024-01..2026-08", "--granularity", "daily", "--csv", str(target),
-    )  # fmt: skip
+        "cli_views",
+        "views",
+        "--lang",
+        "uk",
+        "--article",
+        "Астрономія",
+        "--period",
+        "2024-01..2026-08",
+        "--granularity",
+        "daily",
+        "--csv",
+        str(target),
+    )
     assert code == cli.EXIT_OK
     lines = target.read_text().splitlines()
     assert lines[0] == "date,views"
@@ -80,9 +104,15 @@ def test_views_daily_csv(run, tmp_path):
 
 def test_analyze_uk_astronomy_is_a_trusted_seasonal_decline(run):
     code, out, _ = run(
-        "cli_analyze", "analyze", "--lang", "uk", "--article", "Астрономія",
-        "--period", "2024-09..2026-08",
-    )  # fmt: skip
+        "cli_analyze",
+        "analyze",
+        "--lang",
+        "uk",
+        "--article",
+        "Астрономія",
+        "--period",
+        "2024-09..2026-08",
+    )
     assert code == cli.EXIT_OK
     assert out["verdict"] == "declining"
     assert out["seasonality"]["peak_month"] == "September"
