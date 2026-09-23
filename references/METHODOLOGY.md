@@ -88,6 +88,7 @@ Trust means how much the user can rely on the verdict. It starts at 100, and eac
 | `edition_effect` | −35 | absolute and relative directions disagree |
 | `new_article` | −30 | article created or renamed inside the window |
 | `pre_2020_bots` | −5 | window starts before May 2020 (no bot separation) |
+| `proxy_article` | −30 | a clearly labelled proxy article (a different concept) is used |
 | `narrow_breadth` | −15 | multi-article topic: < 50% of articles move the same way |
 | `dominant_article` | −5 | multi-article topic: one article has ≥ 90% of views |
 

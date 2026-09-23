@@ -121,7 +121,12 @@ def _data(reasons: list, m: dict) -> None:
 
 
 def _cluster(reasons: list, cluster: dict | None) -> None:
-    if not cluster or cluster.get("articles", 1) <= 1:
+    if not cluster:
+        return
+    if cluster.get("proxy"):
+        text = "Uses a PROXY article, a different (usually broader) concept than the topic."
+        reasons.append(("proxy_article", -30, text))
+    if cluster.get("articles", 1) <= 1:
         return
     if cluster.get("breadth", 1) < NARROW_BREADTH:
         text = f"Only {cluster['breadth']:.0%} of the topic's articles move in the same direction."

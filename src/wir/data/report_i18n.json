@@ -1,0 +1,120 @@
+{
+ "en": {
+  "title": "Interest in {topic} on Wikipedia",
+  "meta": "{langs} · {period} · data as of {today}",
+  "trend_title": "Monthly views, index (average month of the first year = 100)",
+  "trend_title_single": "Monthly views",
+  "views_axis": "views / month",
+  "index_axis": "index",
+  "one_off": "one-off",
+  "table": [
+   "#",
+   "Language",
+   "Article",
+   "Views/mo",
+   "Change y/y",
+   "vs. edition",
+   "Edition y/y",
+   "Verdict",
+   "Trust"
+  ],
+  "findings": "Key findings",
+  "next_steps": "What to research next",
+  "limitations": "Assumptions and limitations",
+  "verdicts": {
+   "growing": "growing",
+   "declining": "declining",
+   "stable": "stable",
+   "unclear": "unclear"
+  },
+  "missing": "no article",
+  "proxy": "proxy",
+  "auto_note": "Summary generated automatically from the data.",
+  "auto_headline": "Interest in {topic}: {summary}.",
+  "auto_cell": "{key}: {verdict}, {yoy} year over year ({up} of 12 months above the year before); trust {trust}.",
+  "auto_missing": "{key}: no article on this topic — a content gap, not zero interest.",
+  "auto_next": "Validate {key} next: highest combined score ({score}) on the chosen criteria.",
+  "auto_next_none": "Collect other signals (search trends, surveys) before deciding.",
+  "summary_word": {
+   "growing": "growing in {n} of {total} editions",
+   "declining": "declining in {n} of {total} editions",
+   "stable": "stable in {n} of {total} editions",
+   "unclear": "no clear trend in {n} of {total} editions"
+  },
+  "lim_fixed": [
+   "Interest in an encyclopedia article is not willingness to pay; use it to choose what to test, not as proof of demand.",
+   "A language edition is not a country.",
+   "Views: humans only (agent=user), all devices, whole months; redirects with ≥1% of views included."
+  ],
+  "lim_edition": "Whole-edition traffic changed year over year: {items}. Relative figures correct for this.",
+  "lim_readers": "Readers by country: {items}.",
+  "lim_hidden": "{lang}: Wikimedia hides readers from {countries} (privacy protection list), so the country split is incomplete.",
+  "lim_proxy": "{lang} has no article on this topic; '{title}' is used as a PROXY and is not the same concept.",
+  "lim_missing": "{lang}: no article on this topic.",
+  "source": "Source: Wikimedia Analytics API (pageviews), Wikidata · wikipedia-interest-research {version} · study '{study}'",
+  "trust_levels": {
+   "High": "High",
+   "Medium": "Medium",
+   "Low": "Low"
+  }
+ },
+ "uk": {
+  "title": "Інтерес до теми «{topic}» у Wikipedia",
+  "meta": "{langs} · {period} · дані на {today}",
+  "trend_title": "Перегляди за місяць, індекс (середній місяць першого року = 100)",
+  "trend_title_single": "Перегляди за місяць",
+  "views_axis": "переглядів / міс",
+  "index_axis": "індекс",
+  "one_off": "разовий",
+  "table": [
+   "#",
+   "Мова",
+   "Стаття",
+   "Перегл./міс",
+   "Зміна р/р",
+   "Відносно розділу",
+   "Розділ р/р",
+   "Висновок",
+   "Довіра"
+  ],
+  "findings": "Ключові спостереження",
+  "next_steps": "Що дослідити далі",
+  "limitations": "Припущення та обмеження",
+  "verdicts": {
+   "growing": "росте",
+   "declining": "спадає",
+   "stable": "стабільно",
+   "unclear": "неоднозначно"
+  },
+  "missing": "немає статті",
+  "proxy": "проксі",
+  "auto_note": "Підсумок згенеровано автоматично з даних.",
+  "auto_headline": "Інтерес до теми «{topic}»: {summary}.",
+  "auto_cell": "{key}: {verdict}, {yoy} рік до року ({up} з 12 місяців вище, ніж рік тому); довіра {trust}.",
+  "auto_missing": "{key}: статті на цю тему немає — це прогалина в контенті, а не нульовий інтерес.",
+  "auto_next": "Наступною варто перевірити аудиторію {key}: найвищий сумарний бал ({score}) за обраними критеріями.",
+  "auto_next_none": "Перед рішенням зберіть інші сигнали (пошукові тренди, опитування).",
+  "summary_word": {
+   "growing": "росте в {n} з {total} мовних розділів",
+   "declining": "спадає в {n} з {total} мовних розділів",
+   "stable": "стабільний у {n} з {total} мовних розділів",
+   "unclear": "без чіткого тренду в {n} з {total} мовних розділів"
+  },
+  "lim_fixed": [
+   "Інтерес до статті в енциклопедії ≠ готовність платити: це підказка, що перевіряти, а не доказ попиту.",
+   "Мовний розділ ≠ країна.",
+   "Перегляди: лише люди (agent=user), усі пристрої, повні місяці; враховано редиректи з ≥1% переглядів."
+  ],
+  "lim_edition": "Трафік усього мовного розділу за рік: {items}. Відносні показники це враховують.",
+  "lim_readers": "Читачі за країнами: {items}.",
+  "lim_hidden": "{lang}: Wikimedia приховує читачів з {countries} (список захисту приватності), тож розподіл за країнами неповний.",
+  "lim_proxy": "{lang}: статті на цю тему немає; «{title}» використано як ПРОКСІ — це не те саме поняття.",
+  "lim_missing": "{lang}: статті на цю тему немає.",
+  "source": "Джерело: Wikimedia Analytics API (перегляди), Wikidata · wikipedia-interest-research {version} · дослідження «{study}»",
+  "trust_levels": {
+   "High": "висока",
+   "Medium": "середня",
+   "Low": "низька"
+  }
+ }
+}

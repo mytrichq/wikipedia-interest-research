@@ -6,8 +6,10 @@ license = "MIT"
 requires-python = ">=3.11,<3.14"
 dependencies = [
     "httpx>=0.28",
+    "matplotlib>=3.9",
     "numpy>=2.0",
     "pandas>=2.2",
+    "reportlab>=4.2",
 ]
 
 [project.scripts]
@@ -15,6 +17,7 @@ wir = "wir.cli:main"
 
 [dependency-groups]
 dev = [
+    "pypdf>=5.0",
     "pytest>=8.3",
     "pyyaml>=6.0",
     "ruff>=0.8",

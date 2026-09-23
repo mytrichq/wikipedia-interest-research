@@ -10,7 +10,7 @@ import time
 from collections.abc import Callable
 from pathlib import Path
 
-from wir import __version__, config, languages, periods, series, study, trust
+from wir import __version__, config, factcheck, languages, periods, report, series, study, trust
 from wir.cache import Cache
 from wir.collect import analysis_window, collect, significant_titles
 from wir.metrics import analyze
@@ -22,6 +22,7 @@ EXIT_BAD_INPUT = 2
 EXIT_NOT_FOUND = 3
 EXIT_API_ERROR = 4
 EXIT_OFFLINE_MISS = 5
+EXIT_FACTCHECK = 6
 DAILY_ROWS_LIMIT = 62
 ACTION_PROBE = "https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json"
 WIKIDATA_PROBE = (
@@ -250,6 +251,19 @@ def cmd_study_list(args: argparse.Namespace, client: WikimediaClient) -> int:
     return EXIT_OK
 
 
+def cmd_report(args: argparse.Namespace, client: WikimediaClient) -> int:
+    emit(report.build(args.id, Path(args.narrative) if args.narrative else None, args.lang))
+    return EXIT_OK
+
+
+def cmd_check(args: argparse.Namespace, client: WikimediaClient) -> int:
+    document = study.load(args.id)
+    text = Path(args.file).read_text(encoding="utf-8") if args.file else sys.stdin.read()
+    result = factcheck.check(text, document)
+    emit({"status": "ok" if result["ok"] else "failed", **result})
+    return EXIT_OK if result["ok"] else EXIT_FACTCHECK
+
+
 def cmd_doctor(args: argparse.Namespace, client: WikimediaClient) -> int:
     checks = []
 
@@ -409,6 +423,29 @@ def build_parser() -> argparse.ArgumentParser:
     q = study_sub.add_parser("list", help="list studies in ./wiki-studies")
     q.set_defaults(handler=cmd_study_list)
 
+    p = sub.add_parser(
+        "report",
+        help="one-page PDF + summary.md + charts for a study",
+        description=(
+            "Build wiki-studies/<id>/report.pdf (one A4 page), summary.md and charts/*.png. "
+            "With --narrative, your text (see assets/narrative_template.md) is fact-checked "
+            "against the study first; without it, a neutral summary is generated from the data."
+        ),
+    )
+    p.add_argument("id")
+    p.add_argument("--narrative", help="markdown file with # Headline, ## Findings, ## Next steps")
+    p.add_argument("--lang", choices=["uk", "en"], help="report language (default: detected)")
+    p.set_defaults(handler=cmd_report)
+
+    p = sub.add_parser(
+        "check",
+        help="fact-check a draft answer against a study",
+        description="Every number in the text must match the study (rounding allowed).",
+    )
+    p.add_argument("id")
+    p.add_argument("--file", help="text file to check (default: stdin)")
+    p.set_defaults(handler=cmd_check)
+
     p = sub.add_parser("doctor", help="check the environment, cache and API access")
     p.set_defaults(handler=cmd_doctor)
     return parser
@@ -423,6 +460,9 @@ def main(argv: list[str] | None = None) -> int:
     client = open_client()
     try:
         return args.handler(args, client)
+    except report.FactCheckError as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        return EXIT_FACTCHECK
     except (ValueError, languages.UnknownLanguage) as exc:
         print(f"Error: {exc}", file=sys.stderr)
         return EXIT_BAD_INPUT

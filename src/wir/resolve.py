@@ -168,7 +168,7 @@ def load_entities(
     if not candidates:
         return
     wikipedia_dbnames = languages.dbnames()
-    label_langs = sorted({topic_lang, "en", *(e.code for e in editions)})
+    label_langs = sorted({topic_lang, "en", "uk", *(e.code for e in editions)})
     entities = client.wikidata(
         action="wbgetentities",
         ids="|".join(c.qid for c in candidates),

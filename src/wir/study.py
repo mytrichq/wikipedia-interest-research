@@ -22,6 +22,7 @@ STUDIES_DIR = Path("wiki-studies")
 QID = re.compile(r"^[Qq]\d+$")
 TOP_COUNTRIES = 3
 MAX_REASONS = 2
+REPORT_LANGUAGES = ("uk", "en")
 RAW_GAP_PP = 10
 
 
@@ -36,6 +37,7 @@ class Topic:
     input: str
     qids: list[str]
     label: str = ""
+    labels: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -122,12 +124,17 @@ def load_concepts(
     client: WikimediaClient, topic: Topic, editions: list[Edition]
 ) -> list[Candidate]:
     concepts = [Candidate(qid=q) for q in topic.qids]
-    load_entities(client, concepts, editions, "en")
+    load_entities(client, concepts, editions, REPORT_LANGUAGES[0])
     for concept in concepts:
         if not concept.sitelinks:
             raise ValueError(f"{concept.qid} has no Wikipedia articles; check the id.")
     if not topic.label:
         topic.label = " + ".join(c.labels.get("en") or c.label or c.qid for c in concepts)
+    codes = {*REPORT_LANGUAGES, *(e.code for e in editions)}
+    topic.labels = {
+        code: " + ".join(c.labels.get(code) or c.labels.get("en") or c.qid for c in concepts)
+        for code in sorted(codes)
+    }
     return concepts
 
 
@@ -206,7 +213,7 @@ def compute_cell(
     data = collect(client, edition, all_titles, window)
     metrics = analyze(data)
     total = series.monthly(data.user)
-    cluster = _breadth(per_article, total)
+    cluster = {**_breadth(per_article, total), "proxy": any(a["proxy"] for a in articles)}
     for article, monthly in zip(articles, per_article, strict=True):
         article["views"] = int(monthly.sum())
     cell = {
