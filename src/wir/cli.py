@@ -9,8 +9,10 @@ import time
 from collections.abc import Callable
 from pathlib import Path
 
-from wir import __version__, config, languages, periods, series
+from wir import __version__, config, languages, periods, series, trust
 from wir.cache import Cache
+from wir.collect import analysis_window, collect, significant_titles
+from wir.metrics import analyze
 from wir.resolve import check_title, resolve_topic
 from wir.wikimedia import OfflineCacheMiss, WikimediaClient, WikimediaError
 
@@ -92,6 +94,33 @@ def cmd_views(args: argparse.Namespace, client: WikimediaClient) -> int:
         payload["csv"] = str(Path(args.csv).resolve())
         payload.pop("daily", None)
     emit(payload)
+    return EXIT_OK
+
+
+def cmd_analyze(args: argparse.Namespace, client: WikimediaClient) -> int:
+    edition = languages.get(args.lang)
+    period = periods.parse(args.period)
+    page = check_title(client, edition, args.article)
+    if not page["exists"]:
+        emit({"status": "not_found", "lang": edition.code, "article": args.article})
+        return EXIT_NOT_FOUND
+    window = analysis_window(period)
+    if args.no_redirects:
+        titles = [{"title": page["title"], "redirect": False}]
+    else:
+        titles = significant_titles(client, edition, page["title"], window)
+    metrics = analyze(collect(client, edition, [t["title"] for t in titles], window))
+    emit(
+        {
+            "status": "ok",
+            "lang": edition.code,
+            "article": page["title"],
+            "titles_included": [t["title"] for t in titles],
+            "period_requested": period.label(),
+            **metrics,
+            "trust": trust.assess(metrics),
+        }
+    )
     return EXIT_OK
 
 
@@ -178,6 +207,20 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--csv", help="also write the series to this CSV file")
     p.set_defaults(handler=cmd_views)
+
+    p = sub.add_parser(
+        "analyze",
+        help="trend, seasonality, spikes and trust for one article",
+        description=(
+            "Analyze one article: year-over-year change, significance, seasonality, spikes, "
+            "bot-like traffic, change relative to the whole edition, and a trust level."
+        ),
+    )
+    p.add_argument("--lang", required=True, help="language code, e.g. uk")
+    p.add_argument("--article", required=True, help="article title, e.g. 'Астрономія'")
+    p.add_argument("--period", default="24m", help="'24m', '2y' or 'YYYY-MM..YYYY-MM'")
+    p.add_argument("--no-redirects", action="store_true", help="ignore views of redirect titles")
+    p.set_defaults(handler=cmd_analyze)
 
     p = sub.add_parser("doctor", help="check the environment, cache and API access")
     p.set_defaults(handler=cmd_doctor)

@@ -76,3 +76,17 @@ def test_views_daily_csv(run, tmp_path):
     assert lines[0] == "date,views"
     assert len(lines) == 1 + 974
     assert "daily" not in out
+
+
+def test_analyze_uk_astronomy_is_a_trusted_seasonal_decline(run):
+    code, out, _ = run(
+        "cli_analyze", "analyze", "--lang", "uk", "--article", "Астрономія",
+        "--period", "2024-09..2026-08",
+    )  # fmt: skip
+    assert code == cli.EXIT_OK
+    assert out["verdict"] == "declining"
+    assert out["seasonality"]["peak_month"] == "September"
+    assert out["seasonality"]["strong"] is True
+    assert out["growth"]["months_up"] <= 1
+    assert out["trust"]["level"] == "High"
+    assert len(out["monthly"]) == 24
