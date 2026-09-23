@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Agent entry point: runs the wir CLI inside the skill's own pinned uv environment.
+# Works from any working directory; study folders are created in the caller's cwd.
+set -euo pipefail
+
+SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+if ! command -v uv >/dev/null 2>&1; then
+  echo "Error: 'uv' is not installed, and this skill needs it to run its Python code." >&2
+  echo "Install it with:  curl -LsSf https://astral.sh/uv/install.sh | sh   (or: brew install uv)" >&2
+  exit 127
+fi
+
+exec uv run --quiet --frozen --no-dev --project "$SKILL_DIR" wir "$@"

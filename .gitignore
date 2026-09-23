@@ -1,0 +1,17 @@
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+
+# Secrets
+.env
+
+# Runtime output (studies are created in the caller's working directory)
+wiki-studies/
+evals/results/runs/
+
+# OS
+.DS_Store

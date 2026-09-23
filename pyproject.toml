@@ -1,0 +1,37 @@
+[project]
+name = "wikipedia-interest-research"
+version = "0.1.0"
+description = "Agent skill: measure and compare audience interest in topics across Wikipedia language editions."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11,<3.14"
+dependencies = []
+
+[project.scripts]
+wir = "wir.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.8",
+]
+
+[build-system]
+requires = ["uv_build>=0.8,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "wir"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: hits the real Wikimedia API (deselect with -m 'not live')",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]

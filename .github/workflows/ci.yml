@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The skill name must match its directory, so check out under that name.
+          path: wikipedia-interest-research
+      - uses: astral-sh/setup-uv@v6
+      - name: Install (locked)
+        working-directory: wikipedia-interest-research
+        run: uv sync --locked
+      - name: Lint
+        working-directory: wikipedia-interest-research
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+      - name: Tests (offline)
+        working-directory: wikipedia-interest-research
+        run: uv run pytest -m "not live"
