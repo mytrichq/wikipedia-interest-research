@@ -151,6 +151,7 @@ def edition_context(client: WikimediaClient, edition: Edition) -> dict:
         "language": edition.name,
         "top_reader_countries": top,
         "hidden_countries": languages.hidden_reader_countries(edition.code),
+        "hidden_country_codes": languages.hidden_country_codes(edition.code),
         "monthly_unique_devices": devices[0][1] if devices else None,
         "month": f"{last:%Y-%m}",
     }

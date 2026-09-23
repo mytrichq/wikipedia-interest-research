@@ -67,7 +67,19 @@ def test_report_with_narrative_is_one_page_with_all_sections(run, tmp_path):
     ]:
         assert needle in text, needle
     summary = (tmp_path / "wiki-studies" / "intermittent-fasting-pl-cs" / "summary.md").read_text()
-    assert "Přerušovaný půst" in summary and "PROXY" in summary
+    assert "[Přerušovaný půst](https://cs.wikipedia.org/wiki/" in summary
+    assert "(проксі)" in summary and "Польська" in summary
+
+
+def test_pdf_uses_language_names_and_links_to_articles(run, tmp_path):
+    (tmp_path / "n.md").write_text(GOOD, encoding="utf-8")
+    _, out, _ = run("report", "intermittent-fasting-pl-cs", "--narrative", "n.md")
+    _, text = pdf_text(out["pdf"])
+    assert "Польська" in text and "Чеська" in text
+    page = PdfReader(out["pdf"]).pages[0]
+    uris = [a.get_object()["/A"]["/URI"] for a in page.get("/Annots", [])]
+    assert any(u.startswith("https://cs.wikipedia.org/wiki/P") for u in uris)
+    assert any(u.startswith("https://pl.wikipedia.org/wiki/G") for u in uris)
 
 
 def test_invented_number_blocks_the_report(run, tmp_path):

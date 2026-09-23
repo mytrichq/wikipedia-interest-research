@@ -61,10 +61,30 @@ def _hidden() -> dict:
     return json.loads((DATA_DIR / "hidden_countries.json").read_text(encoding="utf-8"))
 
 
-def hidden_reader_countries(code: str) -> list[str]:
+def hidden_country_codes(code: str) -> list[str]:
     """Countries where this language is widely read but whose readers Wikimedia does not publish."""
+    return list(_hidden()["languages"].get(code, []))
+
+
+def hidden_reader_countries(code: str) -> list[str]:
     names = {k: v for group in _hidden()["countries"].values() for k, v in group.items()}
-    return [f"{names[c]} ({c})" for c in _hidden()["languages"].get(code, [])]
+    return [f"{names[c]} ({c})" for c in hidden_country_codes(code)]
+
+
+@cache
+def _names() -> dict:
+    return json.loads((DATA_DIR / "names.json").read_text(encoding="utf-8"))
+
+
+def display_name(code: str, ui: str = "en") -> str:
+    """Language name in the report's language: 'pl' -> 'польська' (uk) or 'Polish' (en)."""
+    names = _names()["languages"]
+    return names.get(ui, names["en"]).get(code) or names["en"].get(code) or code
+
+
+def country_name(code: str, ui: str = "en") -> str:
+    names = _names()["countries"]
+    return names.get(ui, names["en"]).get(code) or code
 
 
 def parse_list(value: str) -> list[Edition]:
