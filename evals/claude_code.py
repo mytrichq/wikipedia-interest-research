@@ -1,22 +1,6 @@
-"""Run one eval case through headless Claude Code and record a readable transcript.
+"""Runs one eval case in headless Claude Code, isolated from the repo (see docs/TEST_PLAN.md).
 
-Usage:
-    uv run python evals/claude_code.py --case astronomy-uk-trust --env baseline --model haiku
-
-Environments (see docs/TEST_PLAN.md, section 4):
-    baseline   empty workspace, stock Claude Code, no user skills/plugins/MCP — our skill absent
-    clean      workspace with the packaged skill in .claude/skills/, otherwise same as baseline
-    realistic  workspace with the packaged skill and the user's full setup (skills, plugins, MCP)
-
-Isolation: every run happens in a fresh temp directory OUTSIDE the repository, and the agent
-gets only the shipped part of the skill (SHIPPED below) — never evals/, docs/ or tests/, which
-contain expected answers. Created files are copied back to the results folder afterwards.
-
-Outputs in --out/<case>__<env>__<model>__<run>/:
-    events.jsonl   raw stream-json events from Claude Code
-    transcript.md  human-readable transcript (tool calls, results, final answer, usage)
-    run.json       machine-readable summary used by evals/run.py
-    workspace/     files the agent created
+Usage: uv run python evals/claude_code.py --case astronomy-uk-trust --env baseline --model haiku
 """
 
 from __future__ import annotations
@@ -37,7 +21,6 @@ SKILL_NAME = SKILL_DIR.name
 CASES_FILE = SKILL_DIR / "evals" / "cases.yaml"
 ALLOWED_TOOLS = "Bash Read Write Edit Glob Grep WebFetch WebSearch Skill"
 RESULT_PREVIEW = 1500
-# What a user receives when they install the skill. Everything else is development material.
 SHIPPED = [
     "SKILL.md", "LICENSE", "pyproject.toml", "uv.lock", ".python-version",
     "scripts", "src", "references", "assets",
@@ -54,7 +37,6 @@ def load_case(case_id: str) -> dict:
 
 
 def package_skill(dest: Path) -> None:
-    """Copy only the shipped files of the skill into dest (a directory named like the skill)."""
     ignore = shutil.ignore_patterns("__pycache__", ".venv", "*.pyc")
     dest.mkdir(parents=True)
     for item in SHIPPED:

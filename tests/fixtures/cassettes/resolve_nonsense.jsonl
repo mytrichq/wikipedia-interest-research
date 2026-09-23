@@ -1,0 +1,2 @@
+{"url": "https://www.wikidata.org/w/api.php?action=wbsearchentities&search=qwzxkjv+plorf&language=en&uselang=en&type=item&limit=10&format=json&formatversion=2", "status": 200, "body": {"searchinfo": {"search": "qwzxkjv plorf"}, "search": [], "success": 1}}
+{"url": "https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=qwzxkjv+plorf&gsrlimit=5&gsrnamespace=0&prop=pageprops&ppprop=wikibase_item%7Cdisambiguation&redirects=1&format=json&formatversion=2", "status": 200, "body": {"batchcomplete": true}}

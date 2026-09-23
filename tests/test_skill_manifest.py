@@ -1,5 +1,3 @@
-"""Checks SKILL.md against the Agent Skills specification (agentskills.io/specification)."""
-
 import re
 from pathlib import Path
 

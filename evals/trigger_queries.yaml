@@ -1,7 +1,4 @@
-# Triggering eval: does the skill activate when it should, and stay quiet when it should not?
-# Method (agentskills.io/skill-creation/optimizing-descriptions): each query is run 3 times;
-# should_trigger passes when trigger rate > 0.5, should_not_trigger passes when it is < 0.5.
-# Negatives are deliberate near-misses: they mention Wikipedia, languages, trends or courses.
+# Each query runs 3 times; pass = trigger rate > 0.5 (should) or < 0.5 (should not).
 
 should_trigger:
   - "Чи росте інтерес до йоги в польській Wikipedia?"

@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Agent skill: measure and compare audience interest in topics across Wikipedia language editions."
 license = "MIT"
 requires-python = ">=3.11,<3.14"
-dependencies = []
+dependencies = [
+    "httpx>=0.28",
+    "pandas>=2.2",
+]
 
 [project.scripts]
 wir = "wir.cli:main"
@@ -25,8 +28,10 @@ module-name = "wir"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = [".", "evals"]
+addopts = "-m 'not live'"
 markers = [
-    "live: hits the real Wikimedia API (deselect with -m 'not live')",
+    "live: hits the real Wikimedia API; run with: uv run pytest -m live",
 ]
 
 [tool.ruff]

@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Agent entry point: runs the wir CLI inside the skill's own pinned uv environment.
-# Works from any working directory; study folders are created in the caller's cwd.
 set -euo pipefail
 
 SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

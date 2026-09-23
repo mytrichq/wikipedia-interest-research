@@ -1,0 +1,2090 @@
+[
+ {
+  "code": "ab",
+  "name": "Abkhazian",
+  "native_name": "аԥсшәа",
+  "dbname": "abwiki"
+ },
+ {
+  "code": "ace",
+  "name": "Acehnese",
+  "native_name": "Acèh",
+  "dbname": "acewiki"
+ },
+ {
+  "code": "ady",
+  "name": "Adyghe",
+  "native_name": "адыгабзэ",
+  "dbname": "adywiki"
+ },
+ {
+  "code": "af",
+  "name": "Afrikaans",
+  "native_name": "Afrikaans",
+  "dbname": "afwiki"
+ },
+ {
+  "code": "als",
+  "name": "Alemannic",
+  "native_name": "Alemannisch",
+  "dbname": "alswiki"
+ },
+ {
+  "code": "alt",
+  "name": "Southern Altai",
+  "native_name": "алтай тил",
+  "dbname": "altwiki"
+ },
+ {
+  "code": "am",
+  "name": "Amharic",
+  "native_name": "አማርኛ",
+  "dbname": "amwiki"
+ },
+ {
+  "code": "ami",
+  "name": "Amis",
+  "native_name": "Pangcah",
+  "dbname": "amiwiki"
+ },
+ {
+  "code": "an",
+  "name": "Aragonese",
+  "native_name": "aragonés",
+  "dbname": "anwiki"
+ },
+ {
+  "code": "ang",
+  "name": "Old English",
+  "native_name": "Ænglisc",
+  "dbname": "angwiki"
+ },
+ {
+  "code": "ann",
+  "name": "Obolo",
+  "native_name": "Obolo",
+  "dbname": "annwiki"
+ },
+ {
+  "code": "anp",
+  "name": "Angika",
+  "native_name": "अंगिका",
+  "dbname": "anpwiki"
+ },
+ {
+  "code": "ar",
+  "name": "Arabic",
+  "native_name": "العربية",
+  "dbname": "arwiki"
+ },
+ {
+  "code": "arc",
+  "name": "Aramaic",
+  "native_name": "ܐܪܡܝܐ",
+  "dbname": "arcwiki"
+ },
+ {
+  "code": "ary",
+  "name": "Moroccan Arabic",
+  "native_name": "الدارجة",
+  "dbname": "arywiki"
+ },
+ {
+  "code": "arz",
+  "name": "Egyptian Arabic",
+  "native_name": "مصرى",
+  "dbname": "arzwiki"
+ },
+ {
+  "code": "as",
+  "name": "Assamese",
+  "native_name": "অসমীয়া",
+  "dbname": "aswiki"
+ },
+ {
+  "code": "ast",
+  "name": "Asturian",
+  "native_name": "asturianu",
+  "dbname": "astwiki"
+ },
+ {
+  "code": "atj",
+  "name": "Atikamekw",
+  "native_name": "Atikamekw",
+  "dbname": "atjwiki"
+ },
+ {
+  "code": "av",
+  "name": "Avaric",
+  "native_name": "авар",
+  "dbname": "avwiki"
+ },
+ {
+  "code": "avk",
+  "name": "Kotava",
+  "native_name": "Kotava",
+  "dbname": "avkwiki"
+ },
+ {
+  "code": "awa",
+  "name": "Awadhi",
+  "native_name": "अवधी",
+  "dbname": "awawiki"
+ },
+ {
+  "code": "ay",
+  "name": "Aymara",
+  "native_name": "Aymar aru",
+  "dbname": "aywiki"
+ },
+ {
+  "code": "az",
+  "name": "Azerbaijani",
+  "native_name": "azərbaycanca",
+  "dbname": "azwiki"
+ },
+ {
+  "code": "azb",
+  "name": "South Azerbaijani",
+  "native_name": "تۆرکجه",
+  "dbname": "azbwiki"
+ },
+ {
+  "code": "ba",
+  "name": "Bashkir",
+  "native_name": "башҡортса",
+  "dbname": "bawiki"
+ },
+ {
+  "code": "ban",
+  "name": "Balinese",
+  "native_name": "Basa Bali",
+  "dbname": "banwiki"
+ },
+ {
+  "code": "bar",
+  "name": "Bavarian",
+  "native_name": "Boarisch",
+  "dbname": "barwiki"
+ },
+ {
+  "code": "bat-smg",
+  "name": "Samogitian",
+  "native_name": "žemaitėška",
+  "dbname": "bat_smgwiki"
+ },
+ {
+  "code": "bbc",
+  "name": "Batak Toba",
+  "native_name": "Batak Toba",
+  "dbname": "bbcwiki"
+ },
+ {
+  "code": "bcl",
+  "name": "Central Bikol",
+  "native_name": "Bikol Central",
+  "dbname": "bclwiki"
+ },
+ {
+  "code": "bdr",
+  "name": "West Coast Bajau",
+  "native_name": "Bajau Sama",
+  "dbname": "bdrwiki"
+ },
+ {
+  "code": "be",
+  "name": "Belarusian",
+  "native_name": "беларуская",
+  "dbname": "bewiki"
+ },
+ {
+  "code": "be-tarask",
+  "name": "Belarusian (Taraškievica orthography)",
+  "native_name": "беларуская (тарашкевіца)",
+  "dbname": "be_x_oldwiki"
+ },
+ {
+  "code": "bew",
+  "name": "Betawi",
+  "native_name": "Betawi",
+  "dbname": "bewwiki"
+ },
+ {
+  "code": "bg",
+  "name": "Bulgarian",
+  "native_name": "български",
+  "dbname": "bgwiki"
+ },
+ {
+  "code": "bh",
+  "name": "Bhojpuri",
+  "native_name": "भोजपुरी",
+  "dbname": "bhwiki"
+ },
+ {
+  "code": "bi",
+  "name": "Bislama",
+  "native_name": "Bislama",
+  "dbname": "biwiki"
+ },
+ {
+  "code": "bjn",
+  "name": "Banjar",
+  "native_name": "Banjar",
+  "dbname": "bjnwiki"
+ },
+ {
+  "code": "blk",
+  "name": "Pa'O",
+  "native_name": "ပအိုဝ်ႏဘာႏသာႏ",
+  "dbname": "blkwiki"
+ },
+ {
+  "code": "bm",
+  "name": "Bambara",
+  "native_name": "bamanankan",
+  "dbname": "bmwiki"
+ },
+ {
+  "code": "bn",
+  "name": "Bangla",
+  "native_name": "বাংলা",
+  "dbname": "bnwiki"
+ },
+ {
+  "code": "bo",
+  "name": "Tibetan",
+  "native_name": "བོད་ཡིག",
+  "dbname": "bowiki"
+ },
+ {
+  "code": "bol",
+  "name": "Bole",
+  "native_name": "bòo pìkkà",
+  "dbname": "bolwiki"
+ },
+ {
+  "code": "bpy",
+  "name": "Bishnupriya",
+  "native_name": "বিষ্ণুপ্রিয়া মণিপুরী",
+  "dbname": "bpywiki"
+ },
+ {
+  "code": "br",
+  "name": "Breton",
+  "native_name": "brezhoneg",
+  "dbname": "brwiki"
+ },
+ {
+  "code": "bs",
+  "name": "Bosnian",
+  "native_name": "bosanski",
+  "dbname": "bswiki"
+ },
+ {
+  "code": "btm",
+  "name": "Batak Mandailing",
+  "native_name": "Batak Mandailing",
+  "dbname": "btmwiki"
+ },
+ {
+  "code": "bug",
+  "name": "Buginese",
+  "native_name": "Basa Ugi",
+  "dbname": "bugwiki"
+ },
+ {
+  "code": "bxr",
+  "name": "Russia Buriat",
+  "native_name": "буряад",
+  "dbname": "bxrwiki"
+ },
+ {
+  "code": "ca",
+  "name": "Catalan",
+  "native_name": "català",
+  "dbname": "cawiki"
+ },
+ {
+  "code": "cbk-zam",
+  "name": "Chavacano",
+  "native_name": "Chavacano de Zamboanga",
+  "dbname": "cbk_zamwiki"
+ },
+ {
+  "code": "cdo",
+  "name": "Mindong",
+  "native_name": "閩東語 / Mìng-dĕ̤ng-ngṳ̄",
+  "dbname": "cdowiki"
+ },
+ {
+  "code": "ce",
+  "name": "Chechen",
+  "native_name": "нохчийн",
+  "dbname": "cewiki"
+ },
+ {
+  "code": "ceb",
+  "name": "Cebuano",
+  "native_name": "Cebuano",
+  "dbname": "cebwiki"
+ },
+ {
+  "code": "ch",
+  "name": "Chamorro",
+  "native_name": "Chamoru",
+  "dbname": "chwiki"
+ },
+ {
+  "code": "chr",
+  "name": "Cherokee",
+  "native_name": "ᏣᎳᎩ",
+  "dbname": "chrwiki"
+ },
+ {
+  "code": "chy",
+  "name": "Cheyenne",
+  "native_name": "Tsetsêhestâhese",
+  "dbname": "chywiki"
+ },
+ {
+  "code": "ckb",
+  "name": "Central Kurdish",
+  "native_name": "کوردی",
+  "dbname": "ckbwiki"
+ },
+ {
+  "code": "co",
+  "name": "Corsican",
+  "native_name": "corsu",
+  "dbname": "cowiki"
+ },
+ {
+  "code": "crh",
+  "name": "Crimean Tatar",
+  "native_name": "qırımtatarca",
+  "dbname": "crhwiki"
+ },
+ {
+  "code": "cs",
+  "name": "Czech",
+  "native_name": "čeština",
+  "dbname": "cswiki"
+ },
+ {
+  "code": "csb",
+  "name": "Kashubian",
+  "native_name": "kaszëbsczi",
+  "dbname": "csbwiki"
+ },
+ {
+  "code": "cu",
+  "name": "Church Slavic",
+  "native_name": "словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ",
+  "dbname": "cuwiki"
+ },
+ {
+  "code": "cv",
+  "name": "Chuvash",
+  "native_name": "чӑвашла",
+  "dbname": "cvwiki"
+ },
+ {
+  "code": "cy",
+  "name": "Welsh",
+  "native_name": "Cymraeg",
+  "dbname": "cywiki"
+ },
+ {
+  "code": "da",
+  "name": "Danish",
+  "native_name": "dansk",
+  "dbname": "dawiki"
+ },
+ {
+  "code": "dag",
+  "name": "Dagbani",
+  "native_name": "dagbanli",
+  "dbname": "dagwiki"
+ },
+ {
+  "code": "de",
+  "name": "German",
+  "native_name": "Deutsch",
+  "dbname": "dewiki"
+ },
+ {
+  "code": "dga",
+  "name": "Southern Dagaare",
+  "native_name": "Dagaare",
+  "dbname": "dgawiki"
+ },
+ {
+  "code": "din",
+  "name": "Dinka",
+  "native_name": "Thuɔŋjäŋ",
+  "dbname": "dinwiki"
+ },
+ {
+  "code": "diq",
+  "name": "Dimli",
+  "native_name": "Zazaki",
+  "dbname": "diqwiki"
+ },
+ {
+  "code": "dsb",
+  "name": "Lower Sorbian",
+  "native_name": "dolnoserbski",
+  "dbname": "dsbwiki"
+ },
+ {
+  "code": "dtp",
+  "name": "Central Dusun",
+  "native_name": "Kadazandusun",
+  "dbname": "dtpwiki"
+ },
+ {
+  "code": "dty",
+  "name": "Doteli",
+  "native_name": "डोटेली",
+  "dbname": "dtywiki"
+ },
+ {
+  "code": "dv",
+  "name": "Divehi",
+  "native_name": "ދިވެހިބަސް",
+  "dbname": "dvwiki"
+ },
+ {
+  "code": "dz",
+  "name": "Dzongkha",
+  "native_name": "ཇོང་ཁ",
+  "dbname": "dzwiki"
+ },
+ {
+  "code": "ee",
+  "name": "Ewe",
+  "native_name": "eʋegbe",
+  "dbname": "eewiki"
+ },
+ {
+  "code": "el",
+  "name": "Greek",
+  "native_name": "Ελληνικά",
+  "dbname": "elwiki"
+ },
+ {
+  "code": "eml",
+  "name": "Emiliano-Romagnolo",
+  "native_name": "emiliàn e rumagnòl",
+  "dbname": "emlwiki"
+ },
+ {
+  "code": "en",
+  "name": "English",
+  "native_name": "English",
+  "dbname": "enwiki"
+ },
+ {
+  "code": "eo",
+  "name": "Esperanto",
+  "native_name": "Esperanto",
+  "dbname": "eowiki"
+ },
+ {
+  "code": "es",
+  "name": "Spanish",
+  "native_name": "español",
+  "dbname": "eswiki"
+ },
+ {
+  "code": "et",
+  "name": "Estonian",
+  "native_name": "eesti",
+  "dbname": "etwiki"
+ },
+ {
+  "code": "eu",
+  "name": "Basque",
+  "native_name": "euskara",
+  "dbname": "euwiki"
+ },
+ {
+  "code": "ext",
+  "name": "Extremaduran",
+  "native_name": "estremeñu",
+  "dbname": "extwiki"
+ },
+ {
+  "code": "fa",
+  "name": "Persian",
+  "native_name": "فارسی",
+  "dbname": "fawiki"
+ },
+ {
+  "code": "fat",
+  "name": "Fanti",
+  "native_name": "mfantse",
+  "dbname": "fatwiki"
+ },
+ {
+  "code": "ff",
+  "name": "Fula",
+  "native_name": "Fulfulde",
+  "dbname": "ffwiki"
+ },
+ {
+  "code": "fi",
+  "name": "Finnish",
+  "native_name": "suomi",
+  "dbname": "fiwiki"
+ },
+ {
+  "code": "fiu-vro",
+  "name": "Võro",
+  "native_name": "võro",
+  "dbname": "fiu_vrowiki"
+ },
+ {
+  "code": "fj",
+  "name": "Fijian",
+  "native_name": "Na Vosa Vakaviti",
+  "dbname": "fjwiki"
+ },
+ {
+  "code": "fo",
+  "name": "Faroese",
+  "native_name": "føroyskt",
+  "dbname": "fowiki"
+ },
+ {
+  "code": "fon",
+  "name": "Fon",
+  "native_name": "fɔ̀ngbè",
+  "dbname": "fonwiki"
+ },
+ {
+  "code": "fr",
+  "name": "French",
+  "native_name": "français",
+  "dbname": "frwiki"
+ },
+ {
+  "code": "frp",
+  "name": "Arpitan",
+  "native_name": "arpetan",
+  "dbname": "frpwiki"
+ },
+ {
+  "code": "frr",
+  "name": "Northern Frisian",
+  "native_name": "Nordfriisk",
+  "dbname": "frrwiki"
+ },
+ {
+  "code": "fur",
+  "name": "Friulian",
+  "native_name": "furlan",
+  "dbname": "furwiki"
+ },
+ {
+  "code": "fy",
+  "name": "Western Frisian",
+  "native_name": "Frysk",
+  "dbname": "fywiki"
+ },
+ {
+  "code": "ga",
+  "name": "Irish",
+  "native_name": "Gaeilge",
+  "dbname": "gawiki"
+ },
+ {
+  "code": "gag",
+  "name": "Gagauz",
+  "native_name": "Gagauz",
+  "dbname": "gagwiki"
+ },
+ {
+  "code": "gan",
+  "name": "Gan",
+  "native_name": "贛語",
+  "dbname": "ganwiki"
+ },
+ {
+  "code": "gcr",
+  "name": "Guianan Creole",
+  "native_name": "kriyòl gwiyannen",
+  "dbname": "gcrwiki"
+ },
+ {
+  "code": "gd",
+  "name": "Scottish Gaelic",
+  "native_name": "Gàidhlig",
+  "dbname": "gdwiki"
+ },
+ {
+  "code": "gl",
+  "name": "Galician",
+  "native_name": "galego",
+  "dbname": "glwiki"
+ },
+ {
+  "code": "glk",
+  "name": "Gilaki",
+  "native_name": "گیلکی",
+  "dbname": "glkwiki"
+ },
+ {
+  "code": "gn",
+  "name": "Guarani",
+  "native_name": "Avañe'ẽ",
+  "dbname": "gnwiki"
+ },
+ {
+  "code": "gom",
+  "name": "Goan Konkani",
+  "native_name": "गोंयची कोंकणी / Gõychi Konknni",
+  "dbname": "gomwiki"
+ },
+ {
+  "code": "gor",
+  "name": "Gorontalo",
+  "native_name": "Bahasa Hulontalo",
+  "dbname": "gorwiki"
+ },
+ {
+  "code": "got",
+  "name": "Gothic",
+  "native_name": "𐌲𐌿𐍄𐌹𐍃𐌺",
+  "dbname": "gotwiki"
+ },
+ {
+  "code": "gpe",
+  "name": "Ghanaian Pidgin",
+  "native_name": "Ghanaian Pidgin",
+  "dbname": "gpewiki"
+ },
+ {
+  "code": "gu",
+  "name": "Gujarati",
+  "native_name": "ગુજરાતી",
+  "dbname": "guwiki"
+ },
+ {
+  "code": "guc",
+  "name": "Wayuu",
+  "native_name": "wayuunaiki",
+  "dbname": "gucwiki"
+ },
+ {
+  "code": "gur",
+  "name": "Frafra",
+  "native_name": "farefare",
+  "dbname": "gurwiki"
+ },
+ {
+  "code": "guw",
+  "name": "Gun",
+  "native_name": "gungbe",
+  "dbname": "guwwiki"
+ },
+ {
+  "code": "gv",
+  "name": "Manx",
+  "native_name": "Gaelg",
+  "dbname": "gvwiki"
+ },
+ {
+  "code": "ha",
+  "name": "Hausa",
+  "native_name": "Hausa",
+  "dbname": "hawiki"
+ },
+ {
+  "code": "hak",
+  "name": "Hakka Chinese",
+  "native_name": "客家語 / Hak-kâ-ngî",
+  "dbname": "hakwiki"
+ },
+ {
+  "code": "haw",
+  "name": "Hawaiian",
+  "native_name": "Hawaiʻi",
+  "dbname": "hawwiki"
+ },
+ {
+  "code": "he",
+  "name": "Hebrew",
+  "native_name": "עברית",
+  "dbname": "hewiki"
+ },
+ {
+  "code": "hi",
+  "name": "Hindi",
+  "native_name": "हिन्दी",
+  "dbname": "hiwiki"
+ },
+ {
+  "code": "hif",
+  "name": "Fiji Hindi",
+  "native_name": "Fiji Hindi",
+  "dbname": "hifwiki"
+ },
+ {
+  "code": "hr",
+  "name": "Croatian",
+  "native_name": "hrvatski",
+  "dbname": "hrwiki"
+ },
+ {
+  "code": "hsb",
+  "name": "Upper Sorbian",
+  "native_name": "hornjoserbsce",
+  "dbname": "hsbwiki"
+ },
+ {
+  "code": "ht",
+  "name": "Haitian Creole",
+  "native_name": "Kreyòl ayisyen",
+  "dbname": "htwiki"
+ },
+ {
+  "code": "hu",
+  "name": "Hungarian",
+  "native_name": "magyar",
+  "dbname": "huwiki"
+ },
+ {
+  "code": "hy",
+  "name": "Armenian",
+  "native_name": "հայերեն",
+  "dbname": "hywiki"
+ },
+ {
+  "code": "hyw",
+  "name": "Western Armenian",
+  "native_name": "Արեւմտահայերէն",
+  "dbname": "hywwiki"
+ },
+ {
+  "code": "ia",
+  "name": "Interlingua",
+  "native_name": "interlingua",
+  "dbname": "iawiki"
+ },
+ {
+  "code": "iba",
+  "name": "Iban",
+  "native_name": "Jaku Iban",
+  "dbname": "ibawiki"
+ },
+ {
+  "code": "id",
+  "name": "Indonesian",
+  "native_name": "Bahasa Indonesia",
+  "dbname": "idwiki"
+ },
+ {
+  "code": "ie",
+  "name": "Interlingue",
+  "native_name": "Interlingue",
+  "dbname": "iewiki"
+ },
+ {
+  "code": "ig",
+  "name": "Igbo",
+  "native_name": "Igbo",
+  "dbname": "igwiki"
+ },
+ {
+  "code": "igl",
+  "name": "Igala",
+  "native_name": "Igala",
+  "dbname": "iglwiki"
+ },
+ {
+  "code": "ik",
+  "name": "Inupiaq",
+  "native_name": "Iñupiatun",
+  "dbname": "ikwiki"
+ },
+ {
+  "code": "ilo",
+  "name": "Iloko",
+  "native_name": "Ilokano",
+  "dbname": "ilowiki"
+ },
+ {
+  "code": "inh",
+  "name": "Ingush",
+  "native_name": "гӀалгӀай",
+  "dbname": "inhwiki"
+ },
+ {
+  "code": "io",
+  "name": "Ido",
+  "native_name": "Ido",
+  "dbname": "iowiki"
+ },
+ {
+  "code": "is",
+  "name": "Icelandic",
+  "native_name": "íslenska",
+  "dbname": "iswiki"
+ },
+ {
+  "code": "isv",
+  "name": "Interslavic",
+  "native_name": "medžuslovjansky",
+  "dbname": "isvwiki"
+ },
+ {
+  "code": "it",
+  "name": "Italian",
+  "native_name": "italiano",
+  "dbname": "itwiki"
+ },
+ {
+  "code": "iu",
+  "name": "Inuktitut",
+  "native_name": "ᐃᓄᒃᑎᑐᑦ / inuktitut",
+  "dbname": "iuwiki"
+ },
+ {
+  "code": "ja",
+  "name": "Japanese",
+  "native_name": "日本語",
+  "dbname": "jawiki"
+ },
+ {
+  "code": "jam",
+  "name": "Jamaican Creole English",
+  "native_name": "Patois",
+  "dbname": "jamwiki"
+ },
+ {
+  "code": "jbo",
+  "name": "Lojban",
+  "native_name": "la .lojban.",
+  "dbname": "jbowiki"
+ },
+ {
+  "code": "jv",
+  "name": "Javanese",
+  "native_name": "Jawa",
+  "dbname": "jvwiki"
+ },
+ {
+  "code": "ka",
+  "name": "Georgian",
+  "native_name": "ქართული",
+  "dbname": "kawiki"
+ },
+ {
+  "code": "kaa",
+  "name": "Kara-Kalpak",
+  "native_name": "Qaraqalpaqsha",
+  "dbname": "kaawiki"
+ },
+ {
+  "code": "kab",
+  "name": "Kabyle",
+  "native_name": "Taqbaylit",
+  "dbname": "kabwiki"
+ },
+ {
+  "code": "kai",
+  "name": "Karekare",
+  "native_name": "Karai-karai",
+  "dbname": "kaiwiki"
+ },
+ {
+  "code": "kaj",
+  "name": "Jju",
+  "native_name": "Jju",
+  "dbname": "kajwiki"
+ },
+ {
+  "code": "kbd",
+  "name": "Kabardian",
+  "native_name": "адыгэбзэ",
+  "dbname": "kbdwiki"
+ },
+ {
+  "code": "kbp",
+  "name": "Kabiye",
+  "native_name": "Kabɩyɛ",
+  "dbname": "kbpwiki"
+ },
+ {
+  "code": "kcg",
+  "name": "Tyap",
+  "native_name": "Tyap",
+  "dbname": "kcgwiki"
+ },
+ {
+  "code": "kg",
+  "name": "Kongo",
+  "native_name": "Kongo",
+  "dbname": "kgwiki"
+ },
+ {
+  "code": "kge",
+  "name": "Komering",
+  "native_name": "Kumoring",
+  "dbname": "kgewiki"
+ },
+ {
+  "code": "ki",
+  "name": "Kikuyu",
+  "native_name": "Gĩkũyũ",
+  "dbname": "kiwiki"
+ },
+ {
+  "code": "kk",
+  "name": "Kazakh",
+  "native_name": "қазақша",
+  "dbname": "kkwiki"
+ },
+ {
+  "code": "km",
+  "name": "Khmer",
+  "native_name": "ភាសាខ្មែរ",
+  "dbname": "kmwiki"
+ },
+ {
+  "code": "kn",
+  "name": "Kannada",
+  "native_name": "ಕನ್ನಡ",
+  "dbname": "knwiki"
+ },
+ {
+  "code": "knc",
+  "name": "Central Kanuri",
+  "native_name": "Yerwa Kanuri",
+  "dbname": "kncwiki"
+ },
+ {
+  "code": "ko",
+  "name": "Korean",
+  "native_name": "한국어",
+  "dbname": "kowiki"
+ },
+ {
+  "code": "koi",
+  "name": "Komi-Permyak",
+  "native_name": "перем коми",
+  "dbname": "koiwiki"
+ },
+ {
+  "code": "krc",
+  "name": "Karachay-Balkar",
+  "native_name": "къарачай-малкъар",
+  "dbname": "krcwiki"
+ },
+ {
+  "code": "ks",
+  "name": "Kashmiri",
+  "native_name": "کٲشُر",
+  "dbname": "kswiki"
+ },
+ {
+  "code": "ksh",
+  "name": "Colognian",
+  "native_name": "Ripoarisch",
+  "dbname": "kshwiki"
+ },
+ {
+  "code": "ku",
+  "name": "Kurdish",
+  "native_name": "kurdî",
+  "dbname": "kuwiki"
+ },
+ {
+  "code": "kus",
+  "name": "Kusaal",
+  "native_name": "Kʋsaal",
+  "dbname": "kuswiki"
+ },
+ {
+  "code": "kv",
+  "name": "Komi",
+  "native_name": "коми",
+  "dbname": "kvwiki"
+ },
+ {
+  "code": "kw",
+  "name": "Cornish",
+  "native_name": "kernowek",
+  "dbname": "kwwiki"
+ },
+ {
+  "code": "ky",
+  "name": "Kyrgyz",
+  "native_name": "кыргызча",
+  "dbname": "kywiki"
+ },
+ {
+  "code": "la",
+  "name": "Latin",
+  "native_name": "Latina",
+  "dbname": "lawiki"
+ },
+ {
+  "code": "lad",
+  "name": "Ladino",
+  "native_name": "Ladino",
+  "dbname": "ladwiki"
+ },
+ {
+  "code": "lb",
+  "name": "Luxembourgish",
+  "native_name": "Lëtzebuergesch",
+  "dbname": "lbwiki"
+ },
+ {
+  "code": "lbe",
+  "name": "Lak",
+  "native_name": "лакку",
+  "dbname": "lbewiki"
+ },
+ {
+  "code": "lez",
+  "name": "Lezghian",
+  "native_name": "лезги",
+  "dbname": "lezwiki"
+ },
+ {
+  "code": "lfn",
+  "name": "Lingua Franca Nova",
+  "native_name": "Lingua Franca Nova",
+  "dbname": "lfnwiki"
+ },
+ {
+  "code": "lg",
+  "name": "Ganda",
+  "native_name": "Luganda",
+  "dbname": "lgwiki"
+ },
+ {
+  "code": "li",
+  "name": "Limburgish",
+  "native_name": "Limburgs",
+  "dbname": "liwiki"
+ },
+ {
+  "code": "lij",
+  "name": "Ligurian",
+  "native_name": "Ligure",
+  "dbname": "lijwiki"
+ },
+ {
+  "code": "lld",
+  "name": "Ladin",
+  "native_name": "Ladin",
+  "dbname": "lldwiki"
+ },
+ {
+  "code": "lmo",
+  "name": "Lombard",
+  "native_name": "lombard",
+  "dbname": "lmowiki"
+ },
+ {
+  "code": "ln",
+  "name": "Lingala",
+  "native_name": "lingála",
+  "dbname": "lnwiki"
+ },
+ {
+  "code": "lo",
+  "name": "Lao",
+  "native_name": "ລາວ",
+  "dbname": "lowiki"
+ },
+ {
+  "code": "lt",
+  "name": "Lithuanian",
+  "native_name": "lietuvių",
+  "dbname": "ltwiki"
+ },
+ {
+  "code": "ltg",
+  "name": "Latgalian",
+  "native_name": "latgaļu",
+  "dbname": "ltgwiki"
+ },
+ {
+  "code": "lv",
+  "name": "Latvian",
+  "native_name": "latviešu",
+  "dbname": "lvwiki"
+ },
+ {
+  "code": "mad",
+  "name": "Madurese",
+  "native_name": "Madhurâ",
+  "dbname": "madwiki"
+ },
+ {
+  "code": "mag",
+  "name": "Magahi",
+  "native_name": "मगही",
+  "dbname": "magwiki"
+ },
+ {
+  "code": "mai",
+  "name": "Maithili",
+  "native_name": "मैथिली",
+  "dbname": "maiwiki"
+ },
+ {
+  "code": "map-bms",
+  "name": "Banyumasan",
+  "native_name": "Basa Banyumasan",
+  "dbname": "map_bmswiki"
+ },
+ {
+  "code": "mdf",
+  "name": "Moksha",
+  "native_name": "мокшень",
+  "dbname": "mdfwiki"
+ },
+ {
+  "code": "mg",
+  "name": "Malagasy",
+  "native_name": "Malagasy",
+  "dbname": "mgwiki"
+ },
+ {
+  "code": "mhr",
+  "name": "Eastern Mari",
+  "native_name": "олык марий",
+  "dbname": "mhrwiki"
+ },
+ {
+  "code": "mi",
+  "name": "Māori",
+  "native_name": "Māori",
+  "dbname": "miwiki"
+ },
+ {
+  "code": "min",
+  "name": "Minangkabau",
+  "native_name": "Minangkabau",
+  "dbname": "minwiki"
+ },
+ {
+  "code": "mk",
+  "name": "Macedonian",
+  "native_name": "македонски",
+  "dbname": "mkwiki"
+ },
+ {
+  "code": "ml",
+  "name": "Malayalam",
+  "native_name": "മലയാളം",
+  "dbname": "mlwiki"
+ },
+ {
+  "code": "mn",
+  "name": "Mongolian",
+  "native_name": "монгол",
+  "dbname": "mnwiki"
+ },
+ {
+  "code": "mni",
+  "name": "Manipuri",
+  "native_name": "ꯃꯤꯇꯩ ꯂꯣꯟ",
+  "dbname": "mniwiki"
+ },
+ {
+  "code": "mnw",
+  "name": "Mon",
+  "native_name": "ဘာသာမန်",
+  "dbname": "mnwwiki"
+ },
+ {
+  "code": "mos",
+  "name": "Mossi",
+  "native_name": "moore",
+  "dbname": "moswiki"
+ },
+ {
+  "code": "mr",
+  "name": "Marathi",
+  "native_name": "मराठी",
+  "dbname": "mrwiki"
+ },
+ {
+  "code": "mrj",
+  "name": "Western Mari",
+  "native_name": "кырык мары",
+  "dbname": "mrjwiki"
+ },
+ {
+  "code": "ms",
+  "name": "Malay",
+  "native_name": "Bahasa Melayu",
+  "dbname": "mswiki"
+ },
+ {
+  "code": "mt",
+  "name": "Maltese",
+  "native_name": "Malti",
+  "dbname": "mtwiki"
+ },
+ {
+  "code": "mwl",
+  "name": "Mirandese",
+  "native_name": "Mirandés",
+  "dbname": "mwlwiki"
+ },
+ {
+  "code": "my",
+  "name": "Burmese",
+  "native_name": "မြန်မာဘာသာ",
+  "dbname": "mywiki"
+ },
+ {
+  "code": "myv",
+  "name": "Erzya",
+  "native_name": "эрзянь",
+  "dbname": "myvwiki"
+ },
+ {
+  "code": "mzn",
+  "name": "Mazanderani",
+  "native_name": "مازِرونی",
+  "dbname": "mznwiki"
+ },
+ {
+  "code": "nah",
+  "name": "Nahuatl",
+  "native_name": "Nāhuatl",
+  "dbname": "nahwiki"
+ },
+ {
+  "code": "nap",
+  "name": "Neapolitan",
+  "native_name": "Napulitano",
+  "dbname": "napwiki"
+ },
+ {
+  "code": "nds",
+  "name": "Low German",
+  "native_name": "Plattdüütsch",
+  "dbname": "ndswiki"
+ },
+ {
+  "code": "nds-nl",
+  "name": "Low Saxon",
+  "native_name": "Nedersaksies",
+  "dbname": "nds_nlwiki"
+ },
+ {
+  "code": "ne",
+  "name": "Nepali",
+  "native_name": "नेपाली",
+  "dbname": "newiki"
+ },
+ {
+  "code": "new",
+  "name": "Newari",
+  "native_name": "नेपाल भाषा",
+  "dbname": "newwiki"
+ },
+ {
+  "code": "nia",
+  "name": "Nias",
+  "native_name": "Li Niha",
+  "dbname": "niawiki"
+ },
+ {
+  "code": "nl",
+  "name": "Dutch",
+  "native_name": "Nederlands",
+  "dbname": "nlwiki"
+ },
+ {
+  "code": "nn",
+  "name": "Norwegian Nynorsk",
+  "native_name": "norsk nynorsk",
+  "dbname": "nnwiki"
+ },
+ {
+  "code": "no",
+  "name": "Norwegian",
+  "native_name": "norsk",
+  "dbname": "nowiki"
+ },
+ {
+  "code": "nov",
+  "name": "Novial",
+  "native_name": "Novial",
+  "dbname": "novwiki"
+ },
+ {
+  "code": "nqo",
+  "name": "N’Ko",
+  "native_name": "ߒߞߏ",
+  "dbname": "nqowiki"
+ },
+ {
+  "code": "nr",
+  "name": "South Ndebele",
+  "native_name": "isiNdebele seSewula",
+  "dbname": "nrwiki"
+ },
+ {
+  "code": "nrm",
+  "name": "Norman",
+  "native_name": "Nouormand",
+  "dbname": "nrmwiki"
+ },
+ {
+  "code": "nso",
+  "name": "Northern Sotho",
+  "native_name": "Sesotho sa Leboa",
+  "dbname": "nsowiki"
+ },
+ {
+  "code": "nup",
+  "name": "Nupe",
+  "native_name": "Nupe",
+  "dbname": "nupwiki"
+ },
+ {
+  "code": "nv",
+  "name": "Navajo",
+  "native_name": "Diné bizaad",
+  "dbname": "nvwiki"
+ },
+ {
+  "code": "ny",
+  "name": "Nyanja",
+  "native_name": "Chi-Chewa",
+  "dbname": "nywiki"
+ },
+ {
+  "code": "oc",
+  "name": "Occitan",
+  "native_name": "occitan",
+  "dbname": "ocwiki"
+ },
+ {
+  "code": "olo",
+  "name": "Livvi-Karelian",
+  "native_name": "livvinkarjala",
+  "dbname": "olowiki"
+ },
+ {
+  "code": "om",
+  "name": "Oromo",
+  "native_name": "Oromoo",
+  "dbname": "omwiki"
+ },
+ {
+  "code": "or",
+  "name": "Odia",
+  "native_name": "ଓଡ଼ିଆ",
+  "dbname": "orwiki"
+ },
+ {
+  "code": "os",
+  "name": "Ossetic",
+  "native_name": "ирон",
+  "dbname": "oswiki"
+ },
+ {
+  "code": "pa",
+  "name": "Punjabi",
+  "native_name": "ਪੰਜਾਬੀ",
+  "dbname": "pawiki"
+ },
+ {
+  "code": "pag",
+  "name": "Pangasinan",
+  "native_name": "Pangasinan",
+  "dbname": "pagwiki"
+ },
+ {
+  "code": "pam",
+  "name": "Pampanga",
+  "native_name": "Kapampangan",
+  "dbname": "pamwiki"
+ },
+ {
+  "code": "pap",
+  "name": "Papiamento",
+  "native_name": "Papiamentu",
+  "dbname": "papwiki"
+ },
+ {
+  "code": "pcd",
+  "name": "Picard",
+  "native_name": "Picard",
+  "dbname": "pcdwiki"
+ },
+ {
+  "code": "pcm",
+  "name": "Nigerian Pidgin",
+  "native_name": "Naijá",
+  "dbname": "pcmwiki"
+ },
+ {
+  "code": "pdc",
+  "name": "Pennsylvania German",
+  "native_name": "Deitsch",
+  "dbname": "pdcwiki"
+ },
+ {
+  "code": "pfl",
+  "name": "Palatine German",
+  "native_name": "Pälzisch",
+  "dbname": "pflwiki"
+ },
+ {
+  "code": "pi",
+  "name": "Pali",
+  "native_name": "पालि",
+  "dbname": "piwiki"
+ },
+ {
+  "code": "pl",
+  "name": "Polish",
+  "native_name": "polski",
+  "dbname": "plwiki"
+ },
+ {
+  "code": "pms",
+  "name": "Piedmontese",
+  "native_name": "Piemontèis",
+  "dbname": "pmswiki"
+ },
+ {
+  "code": "pnb",
+  "name": "Western Punjabi",
+  "native_name": "پنجابی",
+  "dbname": "pnbwiki"
+ },
+ {
+  "code": "pnt",
+  "name": "Pontic",
+  "native_name": "Ποντιακά",
+  "dbname": "pntwiki"
+ },
+ {
+  "code": "ppl",
+  "name": "Nawat",
+  "native_name": "Nawat",
+  "dbname": "pplwiki"
+ },
+ {
+  "code": "ps",
+  "name": "Pashto",
+  "native_name": "پښتو",
+  "dbname": "pswiki"
+ },
+ {
+  "code": "pt",
+  "name": "Portuguese",
+  "native_name": "português",
+  "dbname": "ptwiki"
+ },
+ {
+  "code": "pwn",
+  "name": "Paiwan",
+  "native_name": "pinayuanan",
+  "dbname": "pwnwiki"
+ },
+ {
+  "code": "qu",
+  "name": "Quechua",
+  "native_name": "Runa Simi",
+  "dbname": "quwiki"
+ },
+ {
+  "code": "rki",
+  "name": "Arakanese",
+  "native_name": "ရခိုင်",
+  "dbname": "rkiwiki"
+ },
+ {
+  "code": "rm",
+  "name": "Romansh",
+  "native_name": "rumantsch",
+  "dbname": "rmwiki"
+ },
+ {
+  "code": "rmy",
+  "name": "Vlax Romani",
+  "native_name": "romani čhib",
+  "dbname": "rmywiki"
+ },
+ {
+  "code": "rn",
+  "name": "Rundi",
+  "native_name": "ikirundi",
+  "dbname": "rnwiki"
+ },
+ {
+  "code": "ro",
+  "name": "Romanian",
+  "native_name": "română",
+  "dbname": "rowiki"
+ },
+ {
+  "code": "roa-rup",
+  "name": "Aromanian",
+  "native_name": "armãneashti",
+  "dbname": "roa_rupwiki"
+ },
+ {
+  "code": "roa-tara",
+  "name": "Tarantino",
+  "native_name": "tarandíne",
+  "dbname": "roa_tarawiki"
+ },
+ {
+  "code": "rsk",
+  "name": "Pannonian Rusyn",
+  "native_name": "руски",
+  "dbname": "rskwiki"
+ },
+ {
+  "code": "ru",
+  "name": "Russian",
+  "native_name": "русский",
+  "dbname": "ruwiki"
+ },
+ {
+  "code": "rue",
+  "name": "Rusyn",
+  "native_name": "русиньскый",
+  "dbname": "ruewiki"
+ },
+ {
+  "code": "rw",
+  "name": "Kinyarwanda",
+  "native_name": "Ikinyarwanda",
+  "dbname": "rwwiki"
+ },
+ {
+  "code": "sa",
+  "name": "Sanskrit",
+  "native_name": "संस्कृतम्",
+  "dbname": "sawiki"
+ },
+ {
+  "code": "sah",
+  "name": "Yakut",
+  "native_name": "саха тыла",
+  "dbname": "sahwiki"
+ },
+ {
+  "code": "sat",
+  "name": "Santali",
+  "native_name": "ᱥᱟᱱᱛᱟᱲᱤ",
+  "dbname": "satwiki"
+ },
+ {
+  "code": "sc",
+  "name": "Sardinian",
+  "native_name": "sardu",
+  "dbname": "scwiki"
+ },
+ {
+  "code": "scn",
+  "name": "Sicilian",
+  "native_name": "sicilianu",
+  "dbname": "scnwiki"
+ },
+ {
+  "code": "sco",
+  "name": "Scots",
+  "native_name": "Scots",
+  "dbname": "scowiki"
+ },
+ {
+  "code": "sd",
+  "name": "Sindhi",
+  "native_name": "سنڌي",
+  "dbname": "sdwiki"
+ },
+ {
+  "code": "se",
+  "name": "Northern Sami",
+  "native_name": "davvisámegiella",
+  "dbname": "sewiki"
+ },
+ {
+  "code": "sg",
+  "name": "Sango",
+  "native_name": "Sängö",
+  "dbname": "sgwiki"
+ },
+ {
+  "code": "sh",
+  "name": "Serbo-Croatian",
+  "native_name": "srpskohrvatski / српскохрватски",
+  "dbname": "shwiki"
+ },
+ {
+  "code": "shi",
+  "name": "Tachelhit",
+  "native_name": "Taclḥit",
+  "dbname": "shiwiki"
+ },
+ {
+  "code": "shn",
+  "name": "Shan",
+  "native_name": "တႆး",
+  "dbname": "shnwiki"
+ },
+ {
+  "code": "si",
+  "name": "Sinhala",
+  "native_name": "සිංහල",
+  "dbname": "siwiki"
+ },
+ {
+  "code": "simple",
+  "name": "Simple English",
+  "native_name": "Simple English",
+  "dbname": "simplewiki"
+ },
+ {
+  "code": "sk",
+  "name": "Slovak",
+  "native_name": "slovenčina",
+  "dbname": "skwiki"
+ },
+ {
+  "code": "skr",
+  "name": "Saraiki",
+  "native_name": "سرائیکی",
+  "dbname": "skrwiki"
+ },
+ {
+  "code": "sl",
+  "name": "Slovenian",
+  "native_name": "slovenščina",
+  "dbname": "slwiki"
+ },
+ {
+  "code": "sm",
+  "name": "Samoan",
+  "native_name": "Gagana Samoa",
+  "dbname": "smwiki"
+ },
+ {
+  "code": "smn",
+  "name": "Inari Sami",
+  "native_name": "anarâškielâ",
+  "dbname": "smnwiki"
+ },
+ {
+  "code": "sn",
+  "name": "Shona",
+  "native_name": "chiShona",
+  "dbname": "snwiki"
+ },
+ {
+  "code": "so",
+  "name": "Somali",
+  "native_name": "Soomaaliga",
+  "dbname": "sowiki"
+ },
+ {
+  "code": "sq",
+  "name": "Albanian",
+  "native_name": "shqip",
+  "dbname": "sqwiki"
+ },
+ {
+  "code": "sr",
+  "name": "Serbian",
+  "native_name": "српски / srpski",
+  "dbname": "srwiki"
+ },
+ {
+  "code": "srn",
+  "name": "Sranan Tongo",
+  "native_name": "Sranantongo",
+  "dbname": "srnwiki"
+ },
+ {
+  "code": "ss",
+  "name": "Swati",
+  "native_name": "SiSwati",
+  "dbname": "sswiki"
+ },
+ {
+  "code": "st",
+  "name": "Southern Sotho",
+  "native_name": "Sesotho",
+  "dbname": "stwiki"
+ },
+ {
+  "code": "stq",
+  "name": "Saterland Frisian",
+  "native_name": "Seeltersk",
+  "dbname": "stqwiki"
+ },
+ {
+  "code": "su",
+  "name": "Sundanese",
+  "native_name": "Sunda",
+  "dbname": "suwiki"
+ },
+ {
+  "code": "sv",
+  "name": "Swedish",
+  "native_name": "svenska",
+  "dbname": "svwiki"
+ },
+ {
+  "code": "sw",
+  "name": "Swahili",
+  "native_name": "Kiswahili",
+  "dbname": "swwiki"
+ },
+ {
+  "code": "syl",
+  "name": "Sylheti",
+  "native_name": "ꠍꠤꠟꠐꠤ",
+  "dbname": "sylwiki"
+ },
+ {
+  "code": "szl",
+  "name": "Silesian",
+  "native_name": "ślůnski",
+  "dbname": "szlwiki"
+ },
+ {
+  "code": "szy",
+  "name": "Sakizaya",
+  "native_name": "Sakizaya",
+  "dbname": "szywiki"
+ },
+ {
+  "code": "ta",
+  "name": "Tamil",
+  "native_name": "தமிழ்",
+  "dbname": "tawiki"
+ },
+ {
+  "code": "tay",
+  "name": "Atayal",
+  "native_name": "Tayal",
+  "dbname": "taywiki"
+ },
+ {
+  "code": "tcy",
+  "name": "Tulu",
+  "native_name": "ತುಳು",
+  "dbname": "tcywiki"
+ },
+ {
+  "code": "tdd",
+  "name": "Tai Nuea",
+  "native_name": "ᥖᥭᥰ ᥖᥬᥲ ᥑᥨᥒᥰ",
+  "dbname": "tddwiki"
+ },
+ {
+  "code": "te",
+  "name": "Telugu",
+  "native_name": "తెలుగు",
+  "dbname": "tewiki"
+ },
+ {
+  "code": "tet",
+  "name": "Tetum",
+  "native_name": "tetun",
+  "dbname": "tetwiki"
+ },
+ {
+  "code": "tg",
+  "name": "Tajik",
+  "native_name": "тоҷикӣ",
+  "dbname": "tgwiki"
+ },
+ {
+  "code": "th",
+  "name": "Thai",
+  "native_name": "ไทย",
+  "dbname": "thwiki"
+ },
+ {
+  "code": "ti",
+  "name": "Tigrinya",
+  "native_name": "ትግርኛ",
+  "dbname": "tiwiki"
+ },
+ {
+  "code": "tig",
+  "name": "Tigre",
+  "native_name": "ትግሬ",
+  "dbname": "tigwiki"
+ },
+ {
+  "code": "tk",
+  "name": "Turkmen",
+  "native_name": "Türkmençe",
+  "dbname": "tkwiki"
+ },
+ {
+  "code": "tl",
+  "name": "Tagalog",
+  "native_name": "Tagalog",
+  "dbname": "tlwiki"
+ },
+ {
+  "code": "tly",
+  "name": "Talysh",
+  "native_name": "tolışi",
+  "dbname": "tlywiki"
+ },
+ {
+  "code": "tn",
+  "name": "Tswana",
+  "native_name": "Setswana",
+  "dbname": "tnwiki"
+ },
+ {
+  "code": "to",
+  "name": "Tongan",
+  "native_name": "lea faka-Tonga",
+  "dbname": "towiki"
+ },
+ {
+  "code": "tok",
+  "name": "Toki Pona",
+  "native_name": "toki pona",
+  "dbname": "tokwiki"
+ },
+ {
+  "code": "tpi",
+  "name": "Tok Pisin",
+  "native_name": "Tok Pisin",
+  "dbname": "tpiwiki"
+ },
+ {
+  "code": "tr",
+  "name": "Turkish",
+  "native_name": "Türkçe",
+  "dbname": "trwiki"
+ },
+ {
+  "code": "trv",
+  "name": "Taroko",
+  "native_name": "Seediq",
+  "dbname": "trvwiki"
+ },
+ {
+  "code": "ts",
+  "name": "Tsonga",
+  "native_name": "Xitsonga",
+  "dbname": "tswiki"
+ },
+ {
+  "code": "tt",
+  "name": "Tatar",
+  "native_name": "татарча / tatarça",
+  "dbname": "ttwiki"
+ },
+ {
+  "code": "tum",
+  "name": "Tumbuka",
+  "native_name": "chiTumbuka",
+  "dbname": "tumwiki"
+ },
+ {
+  "code": "tw",
+  "name": "Twi",
+  "native_name": "Twi",
+  "dbname": "twwiki"
+ },
+ {
+  "code": "ty",
+  "name": "Tahitian",
+  "native_name": "reo tahiti",
+  "dbname": "tywiki"
+ },
+ {
+  "code": "tyv",
+  "name": "Tuvinian",
+  "native_name": "тыва дыл",
+  "dbname": "tyvwiki"
+ },
+ {
+  "code": "udm",
+  "name": "Udmurt",
+  "native_name": "удмурт",
+  "dbname": "udmwiki"
+ },
+ {
+  "code": "ug",
+  "name": "Uyghur",
+  "native_name": "ئۇيغۇرچە / Uyghurche",
+  "dbname": "ugwiki"
+ },
+ {
+  "code": "uk",
+  "name": "Ukrainian",
+  "native_name": "українська",
+  "dbname": "ukwiki"
+ },
+ {
+  "code": "ur",
+  "name": "Urdu",
+  "native_name": "اردو",
+  "dbname": "urwiki"
+ },
+ {
+  "code": "uz",
+  "name": "Uzbek",
+  "native_name": "oʻzbekcha / ўзбекча",
+  "dbname": "uzwiki"
+ },
+ {
+  "code": "ve",
+  "name": "Venda",
+  "native_name": "Tshivenda",
+  "dbname": "vewiki"
+ },
+ {
+  "code": "vec",
+  "name": "Venetian",
+  "native_name": "vèneto",
+  "dbname": "vecwiki"
+ },
+ {
+  "code": "vep",
+  "name": "Veps",
+  "native_name": "vepsän kel’",
+  "dbname": "vepwiki"
+ },
+ {
+  "code": "vi",
+  "name": "Vietnamese",
+  "native_name": "Tiếng Việt",
+  "dbname": "viwiki"
+ },
+ {
+  "code": "vls",
+  "name": "West Flemish",
+  "native_name": "West-Vlams",
+  "dbname": "vlswiki"
+ },
+ {
+  "code": "vo",
+  "name": "Volapük",
+  "native_name": "Volapük",
+  "dbname": "vowiki"
+ },
+ {
+  "code": "wa",
+  "name": "Walloon",
+  "native_name": "walon",
+  "dbname": "wawiki"
+ },
+ {
+  "code": "war",
+  "name": "Waray",
+  "native_name": "Winaray",
+  "dbname": "warwiki"
+ },
+ {
+  "code": "wo",
+  "name": "Wolof",
+  "native_name": "Wolof",
+  "dbname": "wowiki"
+ },
+ {
+  "code": "wuu",
+  "name": "Wu",
+  "native_name": "吴语",
+  "dbname": "wuuwiki"
+ },
+ {
+  "code": "xal",
+  "name": "Kalmyk",
+  "native_name": "хальмг",
+  "dbname": "xalwiki"
+ },
+ {
+  "code": "xh",
+  "name": "Xhosa",
+  "native_name": "isiXhosa",
+  "dbname": "xhwiki"
+ },
+ {
+  "code": "xmf",
+  "name": "Mingrelian",
+  "native_name": "მარგალური",
+  "dbname": "xmfwiki"
+ },
+ {
+  "code": "yi",
+  "name": "Yiddish",
+  "native_name": "ייִדיש",
+  "dbname": "yiwiki"
+ },
+ {
+  "code": "yo",
+  "name": "Yoruba",
+  "native_name": "Yorùbá",
+  "dbname": "yowiki"
+ },
+ {
+  "code": "za",
+  "name": "Zhuang",
+  "native_name": "Vahcuengh",
+  "dbname": "zawiki"
+ },
+ {
+  "code": "zea",
+  "name": "Zeelandic",
+  "native_name": "Zeêuws",
+  "dbname": "zeawiki"
+ },
+ {
+  "code": "zgh",
+  "name": "Standard Moroccan Tamazight",
+  "native_name": "ⵜⴰⵎⴰⵣⵉⵖⵜ ⵜⴰⵏⴰⵡⴰⵢⵜ",
+  "dbname": "zghwiki"
+ },
+ {
+  "code": "zh",
+  "name": "Chinese",
+  "native_name": "中文",
+  "dbname": "zhwiki"
+ },
+ {
+  "code": "zh-classical",
+  "name": "Literary Chinese",
+  "native_name": "文言",
+  "dbname": "zh_classicalwiki"
+ },
+ {
+  "code": "zh-min-nan",
+  "name": "Minnan",
+  "native_name": "閩南語 / Bân-lâm-gí",
+  "dbname": "zh_min_nanwiki"
+ },
+ {
+  "code": "zh-yue",
+  "name": "Cantonese",
+  "native_name": "粵語",
+  "dbname": "zh_yuewiki"
+ },
+ {
+  "code": "zu",
+  "name": "Zulu",
+  "native_name": "isiZulu",
+  "dbname": "zuwiki"
+ }
+]

@@ -23,4 +23,4 @@ jobs:
           uv run ruff format --check .
       - name: Tests (offline)
         working-directory: wikipedia-interest-research
-        run: uv run pytest -m "not live"
+        run: uv run pytest

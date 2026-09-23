@@ -24,10 +24,6 @@ def test_wrapper_script_runs_from_any_cwd(tmp_path):
 
 
 def test_packaged_skill_runs_without_dev_files(tmp_path):
-    """The skill as installed (shipped files only) must work on its own."""
-    import sys
-
-    sys.path.insert(0, str(SKILL_DIR / "evals"))
     from claude_code import SKILL_NAME, package_skill
 
     packaged = tmp_path / SKILL_NAME

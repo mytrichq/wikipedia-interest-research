@@ -1,16 +1,4 @@
-# E2E scenarios for the agent. Each case is run in a fresh temporary workspace.
-#
-# turns:    user messages sent one after another in the same session (multi-turn follow-ups).
-# envs:     where the case runs — baseline (no skill), clean (skill only), realistic (all user skills).
-# checks:   deterministic assertions, evaluated by evals/run.py from the transcript and files.
-# rubric:   criteria for the LLM judge (score 1-5 each, with a justification).
-# notes:    ground truth we verified by hand, so the judge and reviewers know the trap.
-#
-# Check vocabulary (implemented in evals/run.py):
-#   skill_triggered, used_cli, artifacts_exist, pdf_one_page, numbers_match_study,
-#   no_invented_titles, mentions_trust, mentions_limitations, answer_language,
-#   max_tool_calls, followup_is_incremental, asks_clarification_or_states_assumption,
-#   skill_not_triggered, cli_commands (list of regexes that must appear in Bash calls)
+# Check names are implemented in evals/run.py; see docs/TEST_PLAN.md, sections 5-6.
 
 defaults:
   envs: [baseline, clean, realistic]
