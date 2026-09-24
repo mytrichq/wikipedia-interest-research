@@ -1,0 +1,39 @@
+{
+  "case": "astronomy-uk-trust",
+  "env": "clean",
+  "model": "haiku",
+  "run": 5,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "astronomy Ukrainian"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-xkg5q_8d/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs uk --question \"Is interest in astronomy growing in Ukrainian Wikipedia, and how trustworthy is this growth?\"",
+        "description": "Run Wikipedia interest research for astronomy in Ukrainian"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**На жаль, інтерес до астрономії на україномовній Вікіпедії **падає**, а не зростає**: -61,7% рік-до-року, довіра **висока**.\n\n- **Українська мова**: падіння, -61,7% (0 з 12 місяців перевищило рівень минулого року), довіра висока — жоден місяць останнього року не перевищив відповідний місяць минулого року (статистично значуще, p=0,002).\n- **Сезонність**: стійкий сплеск у вересні (~2,3× раза на рік), що логічно для навчальної тематики.\n- Уся украйнськомовна Вікіпедія також падає на -24,6%, але астрономія падає **швидше** — на -42,4% відносно тренду всієї платформи.\n\n**Обмеження:** інтерес до статті ≠ бажання платити за курс; украйнськомовна аудиторія — це переважно читачі з України (65%), США (11%), Польщі (4%). Дані якісні, але обсяг переглядів невеликий (559/місяць у середньому).   \n\n**Наступні кроки:** \n1. Перевірте, чи падіння — це глобальний тренд (чи астрономія падає на **всіх** Вікіпедіях).\n2. Розглядайте інші показники попиту (соціальні мережі, пошукові запити, опитування користувачів), а не тільки перегляди на Вікіпедії.\n\nЯкщо вам потрібен письмовий звіт з графіками, я можу його створити."
+  ],
+  "cost_usd": 0.0387,
+  "duration_s": 26.7,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 1741,
+    "cache_read_input_tokens": 63443
+  },
+  "errors": []
+}

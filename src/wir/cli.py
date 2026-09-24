@@ -247,7 +247,8 @@ def cmd_study_show(args: argparse.Namespace, client: WikimediaClient) -> int:
 
 
 def cmd_study_list(args: argparse.Namespace, client: WikimediaClient) -> int:
-    emit({"status": "ok", "folder": str(study.STUDIES_DIR), "studies": study.list_studies()})
+    root = str(config.studies_root().resolve())
+    emit({"status": "ok", "folder": root, "studies": study.list_studies()})
     return EXIT_OK
 
 

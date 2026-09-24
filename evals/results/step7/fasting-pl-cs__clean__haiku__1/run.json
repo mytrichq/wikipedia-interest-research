@@ -1,0 +1,39 @@
+{
+  "case": "fasting-pl-cs",
+  "env": "clean",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "{\"topic\": \"intermittent fasting\", \"languages\": [\"pl\", \"cs\"], \"time_period\": \"2 years\"}"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-zxylr6w7/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"intermittent fasting\" --langs pl,cs --period 24m --question \"Порівняння зростання інтересу до інтервального голодування в польській та чеській Wikipedia\"",
+        "description": "Run Wikipedia interest research study comparing intermittent fasting in Polish and Czech Wikipedia"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Польська Wikipedia немає статті на цю тему**, отже порівняння можливе тільки для чеської. Інтерес до інтервального голодування в чеській Wikipedia **активно падає**: -48,7% рік-на-рік, довіра висока.\n\n- **Чеська (чс)**: падіння -48,7% рік на рік, у жодному з 12 останніх місяців не було зростання порівняно з аналогічним місяцем минулого року, довіра висока (80) — обсяг малий (~183 переглядів/місяць), тому навіть маленькі коливання виглядають великими; 16% переглядів прийшло від одноразових новинних сплесків. Сезонна закономірність: січень отримує ~2,17× більше переглядів, ніж в середньому. Релятивне падіння -30,5% (відносно цілого чеського видання).\n\n- **Польська**: **немає статті** на цю тему на польській Wikipedia — це прогалина контенту.\n\n**Обмеження**: Інтерес до статті ≠ реальне практикування; мала кількість переглядів означає, що цифри чутливі до одиничних новинних подій. Українська та російська Wikipedia у цьому дослідженні не включені.\n\n**Наступний крок**: якщо потрібна деталізація — можна перевірити наявність статей в інших слов'янських мовах (українська, словацька, словенська) або побудувати PDF-звіт про чеські тренди."
+  ],
+  "cost_usd": 0.0367,
+  "duration_s": 29.3,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 1529,
+    "cache_read_input_tokens": 63178
+  },
+  "errors": []
+}

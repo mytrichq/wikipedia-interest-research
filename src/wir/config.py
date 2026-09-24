@@ -10,6 +10,7 @@ from wir import __version__
 
 PROJECT_URL = "https://github.com/mytrichq/wikipedia-interest-research"
 DATA_DIR = Path(__file__).resolve().parent / "data"
+SKILL_ROOT = Path(__file__).resolve().parents[2]
 
 
 def user_agent() -> str:
@@ -32,3 +33,21 @@ def offline() -> bool:
 def today() -> dt.date:
     pinned = os.environ.get("WIR_TODAY")
     return dt.date.fromisoformat(pinned) if pinned else dt.date.today()
+
+
+def studies_root() -> Path:
+    """Where studies are saved: the user's project, even if the agent cd'ed into the skill."""
+    custom = os.environ.get("WIR_STUDIES")
+    if custom:
+        return Path(custom).expanduser()
+    physical = Path.cwd().resolve()
+    logical = Path(os.environ.get("PWD") or physical)
+    if logical.resolve() != physical:
+        logical = physical
+    parts = logical.parts
+    for i in range(len(parts) - 1):
+        if parts[i] == ".claude" and parts[i + 1] == "skills":
+            return Path(*parts[:i]) / "wiki-studies"
+    if physical == SKILL_ROOT or SKILL_ROOT in physical.parents:
+        return Path.home() / "wiki-studies"
+    return physical / "wiki-studies"

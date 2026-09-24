@@ -1,0 +1,39 @@
+{
+  "case": "english-learning-report",
+  "env": "clean",
+  "model": "haiku",
+  "run": 4,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Compare interest in learning English across Polish, Turkish, Vietnamese, Portuguese, and Ukrainian Wikipedia editions. Focus on pages related to English language learning, English language, English studies, language education. Generate a short report identifying which audiences to explore next for a language learning app and why."
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-30056zqm/workspace/.claude/skills/wikipedia-interest-research && ./scripts/wir study new --topic \"English language\" --langs pl,tr,vi,pt,uk --question \"Which audiences show the most interest in learning English, and which markets should we prioritize for a language learning app?\"",
+        "description": "Create a Wikipedia interest research study comparing English language article views across five language editions"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "Результати готові! Ось короткий звіт з аналізом:\n\n---\n\n## 📊 Порівняння інтересу до англійської мови на Wikipedia\n\n**Основний висновок**: Інтерес до статті про англійську мову падає у всіх п'яти мовних розділах, але це частково пояснюється загальним падінням трафіку в самих виданнях. Три ринки варто дослідити перш за все.\n\n### Детальний аналіз по мовам:\n\n| Мова | Темп зміни | Середньомісячні переглядання | Довіра | Висновок |\n|------|-----------|---------------------------|--------|----------|\n| **В'єтнамська** | −24,0% | 12 478 | Середня | Найбільший абсолютний обсяг, але неоднозначна тенденція |\n| **Турецька** | −13,5% | 7 080 | Середня | Найменший спад у порівнянні з падінням видання (−16,3%) |\n| **Португальська** | −33,7% | 9 178 | **Висока** | Найрізкіший спад, але дані надійні |\n| **Українська** | −37,3% | 6 730 | **Висока** | Найсильніший спад, ніяких позитивних місяців |\n| **Польська** | −19,4% | 8 087 | Середня | Помірний спад, відносно видання стабільна |\n\n### 🎯 Які аудиторії дослідити наступними:\n\n**1. В'єтнамська (найвища пріоритет)**\n- **Чому**: Найбільший абсолютний обсяг переглядань (12,5K/міс.), що вказує на великий потенційний ринок\n- **Застереження**: Wikimedia приховує читачів з В'єтнаму, тому справжня аудиторія може бути значно більшою, ніж показують дані\n\n**2. Португальська (висока пріоритет)**\n- **Чому**: Надійні дані (висока довіра), великий ринок (74% читачів з Бразилії)\n- **Порт**: Найбільший спад (−33,7%), але потенціал для переривання тренду\n\n**3. Турецька (середня пріоритет)**\n- **Чому**: Порівняно з падінням видання (−16,3%) тема росте (+5,3% відносно), що свідчить про відносне зростання інтересу\n- **Застереження**: Wikimedia приховує читачів з Туреччини, справжня аудиторія невідома\n\n### ⚠️ Обмеження даних:\n- Interesse до Wikipedia-статті ≠ готовність платити за навчання\n- Турецька і в'єтнамська: основна аудиторія прихована системою Wikimedia\n- Португальська розділ обслуговує в основному Бразилію, не Португалію\n\n### 📋 Рекомендації для валідації:\n1. **Опитувати користувачів у В'єтнамі та Туреччині напряму** — Wikipedia показує тільки закордонних читачів\n2. **Перевірити браз­ильський ринок окремо** — португальськомовна аудиторія – це переважно Бразилія, не Португалія\n3. **Дослідити причини спаду** — чи люди переходять на інші джерела (YouTube, Duolingo, Coursera)?\n\nХотіли б ви PDF-звіту з графіками для презентації?"
+  ],
+  "cost_usd": 0.0451,
+  "duration_s": 39.1,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 2507,
+    "cache_read_input_tokens": 63685
+  },
+  "errors": []
+}

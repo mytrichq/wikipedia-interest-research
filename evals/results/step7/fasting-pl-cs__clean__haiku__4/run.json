@@ -1,0 +1,39 @@
+{
+  "case": "fasting-pl-cs",
+  "env": "clean",
+  "model": "haiku",
+  "run": 4,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Compare interest in \"intermittent fasting\" across Polish and Czech Wikipedia editions over the last two years (2024-2026), rank which language edition shows stronger growth trend, assess trend reliability."
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-bonn_z9v/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"intermittent fasting\" --langs pl,cs --question \"Compare interest in intermittent fasting across Polish and Czech Wikipedia editions over the last two years\"",
+        "description": "Run Wikipedia interest research for intermittent fasting across Polish and Czech editions"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Прямої відповіді немає: польськомовна Wikipedia не має статті про інтервальне голодування, тому порівняння неможливе.**\n\n- **Польська Wikipedia**: немає статті про інтервальне голодування — це розрив у вмісті, а не нульовий інтерес. Аналог статей про пов'язані теми («Лікувальний голод», «Палеолітичний спосіб життя») не охоплюють цю концепцію.\n\n- **Чеська Wikipedia** («Přerušovaný půst»): скорочується, -48,7% рік до року, довіра висока — жодний з останніх 12 місяців не перевищив відповідний період попереднього року. Навіть відносно до 12,6 % спаду всього чеського видання, статті впала на -30,5 %. Щомісяця близько 183 переглядів; січень щороку піку близько 2,17× від річного середнього.\n\n**Обмеження:** майже 180 переглядів/місяць — низький обсяг, тому малі зміни виглядають як великі (довіра середня за критеріями обсягу). 16 % переглядів походять від новинних всплесків, видалених із основного числа. Чеські читачі (80% CZ, 5% SK, 5% US) відрізняються від польських (87% PL, 4% US, 2% DE). Читання січневого піку важливе для повторних заходів.\n\n**Далі:** \n1. Перевіріть, чому польськомовна Wikipedia ще не має статті на цю тему; це можливість для розширення контенту.\n2. Для чеської版 з'ясуйте, чи січневий піку-впадок відбивають реальні коливання інтересу (новий рік, рішення щодо здоров'я) або поведінку користувачів.\n\nХочете звіт PDF для поширення?"
+  ],
+  "cost_usd": 0.0395,
+  "duration_s": 31.4,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 1872,
+    "cache_read_input_tokens": 63388
+  },
+  "errors": []
+}

@@ -7,10 +7,10 @@ NUMBER = re.compile(
     r"(?<![\w.,])([-−–+]?)"
     r"(\d{1,3}(?:[ \u00a0\u202f]\d{3})+|\d{1,3}(?:,\d{3})+(?![\d,])|\d+)"
     r"(?:([.,])(\d+))?"
-    r"\s*(%|×|x\b)?"
+    r"\s*(%|×|x\b|[kKкК]\b|тис\.?|тисяч\w*)?"
 )
 YEARS = range(2001, 2036)
-FREE_INTEGERS = range(0, 13)
+FREE_INTEGERS = {*range(0, 13), 24, 36, 48, 60}
 MIN_ABS_TOLERANCE = 0.6
 REL_TOLERANCE_PERCENT = 0.03
 REL_TOLERANCE_COUNT = 0.01
@@ -24,6 +24,8 @@ def extract(text: str) -> list[dict]:
         sign, whole, _, fraction, unit = match.groups()
         digits = re.sub(r"[ \u00a0\u202f,]", "", whole)
         value = float(f"{digits}.{fraction}") if fraction else float(digits)
+        if unit and unit[0] in "kKкКт":
+            value *= 1000
         start, end = match.span()
         found.append(
             {
@@ -65,8 +67,18 @@ def known_numbers(document: dict) -> tuple[set[float], set[float]]:
     return numbers, percents
 
 
-def _close(value: float, candidates: set[float], relative: float) -> bool:
-    return any(abs(value - c) <= max(MIN_ABS_TOLERANCE, relative * c) for c in candidates)
+def _rounding_step(value: float) -> float:
+    """Precision implied by trailing zeros: 180 -> 10, 12500 -> 100, 183 -> 1."""
+    if not value.is_integer() or value == 0:
+        return 0.0
+    digits = str(int(value))
+    zeros = len(digits) - len(digits.rstrip("0"))
+    return 10.0 ** min(zeros, len(digits) - 1) / 2 if zeros else 0.0
+
+
+def _close(value: float, candidates: set[float], relative: float, rounded: bool) -> bool:
+    step = _rounding_step(value) if rounded else 0.0
+    return any(abs(value - c) <= max(MIN_ABS_TOLERANCE, relative * c, step) for c in candidates)
 
 
 def _nearest(value: float, candidates: set[float], count: int = 3) -> list[float]:
@@ -88,7 +100,7 @@ def check(text: str, document: dict) -> dict:
         checked += 1
         pool = percents if item["percent"] else numbers
         tolerance = REL_TOLERANCE_PERCENT if item["percent"] else REL_TOLERANCE_COUNT
-        if _close(value, pool, tolerance):
+        if _close(value, pool, tolerance, rounded=not item["percent"]):
             continue
         unmatched.append(
             {

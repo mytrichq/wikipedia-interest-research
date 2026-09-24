@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from wir import __version__, languages, periods, series, trust
+from wir import __version__, config, languages, periods, series, trust
 from wir.collect import analysis_window, collect, significant_titles
 from wir.languages import Edition
 from wir.metrics import analyze, yoy
@@ -18,10 +18,10 @@ from wir.rank import parse_weights, rank
 from wir.resolve import Candidate, load_entities, proxy_search, resolve_topic
 from wir.wikimedia import WikimediaClient
 
-STUDIES_DIR = Path("wiki-studies")
 QID = re.compile(r"^[Qq]\d+$")
 TOP_COUNTRIES = 3
 MAX_REASONS = 2
+STABLE_BAND_PCT = 10.0
 REPORT_LANGUAGES = ("uk", "en")
 RAW_GAP_PP = 10
 
@@ -57,7 +57,7 @@ def slugify(text: str) -> str:
 
 
 def study_dir(study_id: str) -> Path:
-    return STUDIES_DIR / study_id
+    return config.studies_root() / study_id
 
 
 def parse_topic_inputs(values: list[str]) -> list[str]:
@@ -105,6 +105,9 @@ def resolve_topics(
             else:
                 problems.append({"topic": part, **result.to_dict()})
         topics.append(Topic(input=text, qids=qids, label=" + ".join(labels)))
+    for topic in topics:
+        if not topic.label and topic.qids:
+            load_concepts(client, topic, editions)
     if problems:
         raise NeedsChoice(
             {
@@ -164,7 +167,8 @@ def readers_text(context: dict) -> str:
         return shares
     return (
         f"MISLEADING WITHOUT CAVEAT: Wikimedia hides readers from {', '.join(hidden)} "
-        f"(country protection list), so the visible split ({shares}) leaves out the main audience."
+        f"(country protection list), so the visible split ({shares}) leaves out the main "
+        "audience. Its size is unknown: do not claim it is larger or smaller."
     )
 
 
@@ -325,9 +329,10 @@ def write(study_id: str, spec: Spec, results: dict, data: pd.DataFrame, history:
 def load(study_id: str) -> dict:
     path = study_dir(study_id) / "study.json"
     if not path.exists():
-        known = [p.name for p in STUDIES_DIR.glob("*") if (p / "study.json").exists()]
+        root = config.studies_root()
+        known = [p.name for p in root.glob("*") if (p / "study.json").exists()]
         raise ValueError(
-            f"No study '{study_id}' in {STUDIES_DIR}/ (current directory). "
+            f"No study '{study_id}' in {root}. "
             f"Known studies: {', '.join(known) or 'none'}. Run `scripts/wir study list`."
         )
     return json.loads(path.read_text(encoding="utf-8"))
@@ -340,7 +345,7 @@ def spec_from(document: dict) -> Spec:
 
 def list_studies() -> list[dict]:
     rows = []
-    for path in sorted(STUDIES_DIR.glob("*/study.json")):
+    for path in sorted(config.studies_root().glob("*/study.json")):
         doc = json.loads(path.read_text(encoding="utf-8"))
         rows.append(
             {
@@ -353,6 +358,35 @@ def list_studies() -> list[dict]:
             }
         )
     return rows
+
+
+REPORT_WORDS = re.compile(r"звіт|report|pdf|документ|document|презентац|share|поділит", re.I)
+
+
+def _relative_note(relative: dict) -> dict:
+    value = relative["yoy_pct"]
+    if value is None or abs(value) >= STABLE_BAND_PCT:
+        return {}
+    return {
+        "relative_note": (
+            f"{value:+.1f}% relative to the edition is within ±{STABLE_BAND_PCT:.0f}%: "
+            "call it stable relative to the edition, not growth or decline."
+        )
+    }
+
+
+def _next_steps(document: dict) -> list[str]:
+    report = (
+        f"scripts/wir report {document['id']} --narrative <file> "
+        "(fill assets/narrative_template.md first)"
+    )
+    steps = [
+        "Answer using only numbers from this output; name each trust level and its reasons.",
+        "Say plainly when a language has no article (missing) instead of guessing.",
+    ]
+    if REPORT_WORDS.search(document["spec"].get("question", "")):
+        return [f"THE USER ASKED FOR A REPORT: build it now with {report}.", *steps]
+    return [*steps, f"Offer a shareable one-page PDF: {report}"]
 
 
 def summarize(document: dict) -> dict:
@@ -383,6 +417,8 @@ def summarize(document: dict) -> dict:
             "avg_monthly_views": m["volume"]["avg_monthly_last12"],
             "per_million_views": m["relative"]["per_million_last12"],
             "relative_yoy_pct": m["relative"]["yoy_pct"],
+            "relative_verdict": m["relative"]["verdict"],
+            **_relative_note(m["relative"]),
             "edition_yoy_pct": m["relative"]["edition_views_yoy_pct"],
             "trust": f"{t['level']} ({t['score']})",
             "trust_reasons": [r["text"] for r in reasons],
@@ -390,7 +426,10 @@ def summarize(document: dict) -> dict:
         raw = m["growth"]["yoy_pct"]
         robust = clean["robust_yoy_pct"]
         if raw is not None and robust is not None and abs(raw - robust) >= RAW_GAP_PP:
-            row["raw_yoy_pct"] = raw
+            row["note"] = (
+                f"yoy_pct ({robust:+.1f}%) excludes one-off spikes; counting every view "
+                f"as is, the change would be {raw:+.1f}%. Quote yoy_pct as the main figure."
+            )
         if season.get("strong"):
             row["seasonality"] = f"{season['peak_month']} peak ≈{season['peak_factor']}× every year"
         if clean["one_off_months"]:
@@ -398,7 +437,7 @@ def summarize(document: dict) -> dict:
         rows.append(row)
     return {
         "study": document["id"],
-        "folder": str(study_dir(document["id"])),
+        "folder": str(study_dir(document["id"]).resolve()),
         "question": document["spec"].get("question", ""),
         "period": results["period"],
         "stats_window": results["window"],
@@ -411,9 +450,5 @@ def summarize(document: dict) -> dict:
             code: readers_text(ctx) for code, ctx in results["editions"].items()
         },
         "assumptions": document["assumptions"],
-        "next_steps": [
-            "Answer using only numbers from this output; name the trust level and its reasons.",
-            "Say plainly when a language has no article (missing) instead of guessing.",
-            f"For a shareable one-page PDF: scripts/wir report {document['id']}",
-        ],
+        "next_steps": _next_steps(document),
     }

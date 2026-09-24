@@ -26,20 +26,21 @@ First use on a machine, or when something fails: `scripts/wir doctor`.
 - [ ] 2. Run `study new` (or `study show` / `study update` for follow-ups)
 - [ ] 3. Handle the status: needs_choice / missing articles / concept check
 - [ ] 4. Answer in chat with the template below, using only numbers from the output
-- [ ] 5. If a report is wanted: write the narrative file, run `report`, give the PDF path
+- [ ] 5. Report asked for (звіт / report / PDF)? Build it now: narrative file → `report` → PDF path
 ```
 
 ### 1. Extract the inputs
 
 - **Topic**: pass the English name of the encyclopedia concept ("intermittent fasting", "astronomy"). The user may write in any language; translate the concept, not the sentence. For "interest in learning <language>", use that language's article, e.g. English = `Q1860`.
 - **Languages**: Wikipedia language codes, comma-separated: `uk,pl,cs`. Map names yourself: польська→pl, чеська→cs, українська→uk, португальська→pt, турецька→tr, в'єтнамська→vi. If the user named no languages, ask one short question before running.
-- **Period**: default `24m` (last 24 complete months). "Останні три роки" → `36m`. Explicit ranges look like `2024-01..2026-06`.
+- **Period**: default `24m` (last 24 complete months). "Останні три роки" → `36m`. Use the `Nm` form for "last N years/months"; do not compute dates yourself. Explicit ranges (`2024-01..2026-06`) are only for periods the user names.
 - **What matters**: if the user cares more about growth than size (or the reverse), pass weights: `--weights growth=0.5,size=0.3,trust=0.2`. Otherwise keep the defaults.
+- **Report wanted?** Any request for a звіт / report / PDF / document / something to share means you build the PDF in step 5. A chat answer alone is not a report.
 
 ### 2. Run the study
 
 ```bash
-scripts/wir study new --topic "intermittent fasting" --langs pl,cs --question "<the user's question, verbatim>"
+scripts/wir study new --topic "intermittent fasting" --langs pl,cs --question "<the user's question, verbatim, in their language — do not translate>"
 ```
 
 - **Compare topics** in one language: repeat `--topic` (`--topic photography --topic "computer programming" --langs uk`).
@@ -57,7 +58,7 @@ scripts/wir study new --topic "intermittent fasting" --langs pl,cs --question "<
 
 ### 4. Answer in chat
 
-Reply in the user's language. Use language names, not codes (польська, not pl). Quote **only** numbers that appear in the command output; rounding is fine. Template:
+Reply in the user's language, in natural wording and with no words from other languages. Name editions by **language** ("польськомовна Вікіпедія", "Polish Wikipedia"), never by country ("Польща", "Poland"). Quote **only** numbers that appear in the command output; rounding is fine. Do not compute new numbers such as ratios or differences. Translate the trust level (High/Medium/Low → висока/середня/низька). Template:
 
 ```
 **<Direct answer in one sentence>**: <verdict>, <yoy_pct>% year over year, trust <level>.
@@ -67,10 +68,14 @@ Reply in the user's language. Use language names, not codes (польська, n
 - Seasonality / one-off events, if reported.
 - The whole edition changed <edition_yoy_pct>%; relative to it the topic moved <relative_yoy_pct>%.
 
-**Limitations:** interest in an article ≠ willingness to pay; a language ≠ a country (<readers_by_country>); <any proxy, missing article, low volume or hidden-country caveat>.
+**Limitations:** interest in an article ≠ willingness to pay; a language ≠ a country (<readers_by_country>); <any proxy, missing article, low volume or hidden-country caveat>.   ← always include this line
 
-**Next:** <1–2 concrete things to validate>. I can prepare a one-page PDF report.
+**Next:** <1–2 concrete things to validate>.
 ```
+
+**If the user asked for a report** (звіт, PDF, document, something to share), do step 5 **now**, in the same turn, and end with the PDF path. Do not just offer it. Keep the Limitations line in the chat answer. Otherwise, end with a one-line offer of a PDF report.
+
+Before sending, re-check each language's **trust level and verdict** against the output: they are easy to mix up between languages.
 
 To double-check a draft answer, save it to a file and run `scripts/wir check <id> --file answer.md`. It lists any number that is not in the study.
 
@@ -91,7 +96,8 @@ To double-check a draft answer, save it to a file and run `scripts/wir check <id
 | `verdict` | `growing` / `declining` / `stable` / `unclear`, computed after removing one-off spikes |
 | `yoy_pct` | Robust year-over-year change, in %: the main number to quote |
 | `months_up_of_12` | How many of the last 12 months beat the same month a year earlier |
-| `relative_yoy_pct`, `edition_yoy_pct` | The change relative to the whole language edition, and the edition's own change. Whole editions are shrinking, so relative figures show topic-specific interest |
+| `relative_yoy_pct`, `relative_verdict`, `edition_yoy_pct` | The change relative to the whole language edition, and the edition's own change. Whole editions are shrinking, so relative figures show topic-specific interest. A `relative_verdict` of `stable` (within ±10%) is **not** growth |
+| `note` | Present when one-off spikes change the picture; it gives the figure with spikes included. The main figure stays `yoy_pct` |
 | `trust` + `trust_reasons` | High / Medium / Low with the reasons. Always pass the reasons on |
 | `seasonality`, `one_off_months` | Recurring peaks, e.g. September for school topics, and news events that were neutralised |
 | `ranking` | Order by combined score; `strongest` names the criteria that drove it |
@@ -103,8 +109,9 @@ To double-check a draft answer, save it to a file and run `scripts/wir check <id
 - **Exact names can hit the wrong concept.** "Learning English" matches a VOA program. Read the concept's description in the assumptions.
 - **Low volume.** Under ~100 views/month the trust is Low. Say the data is too thin rather than calling a trend.
 - **Growth driven by one event** (a conclave, a death, a film) is flagged `spike_driven` / `one_off_months`. Do not present it as rising interest.
-- **A language is not a market.** Portuguese = Brazil + Portugal; English = the world. Some editions (tr, vi, ru, fa, ar, kk…) hide their main country's readers.
+- **A language is not a market.** Portuguese = Brazil + Portugal; English = the world. Some editions (tr, vi, ru, fa, ar, kk…) hide their main country's readers. A hidden country means the split is **unknown**, not that the audience is bigger.
 - **Do not add languages, topics or numbers** the user did not ask for and the tool did not return.
+- **Say periods correctly**: `36m` is three **years** (36 months), and "year over year" compares the last 12 months with the 12 before them.
 - **Exit codes**: 2 = bad input (the message says how to fix it), 3 = not found, 4 = API or network error, 5 = offline cache miss, 6 = fact-check failed.
 
 ## References (read only when needed)

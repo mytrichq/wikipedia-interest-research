@@ -39,6 +39,10 @@ SECTION_WORDS = {
     "findings": ("finding", "спостереж", "знахідк", "результат"),
     "next": ("next", "далі", "кроки", "рекоменд"),
 }
+TEMPLATE = (
+    "# Headline\n<one sentence answer>\n\n## Findings\n- <bullet>\n- <bullet>\n\n"
+    "## Next steps\n- <bullet>"
+)
 TRUST_COLORS = {"High": "#0ca30c", "Medium": "#fab219", "Low": "#d03b3b"}
 HEADER, WASH, ACCENT = charts.HEADER, charts.WASH, charts.RECENT
 INK, INK2, MUTED = charts.INK, charts.INK_SECONDARY, charts.MUTED
@@ -93,10 +97,13 @@ def parse_narrative(text: str) -> Narrative:
         if not line:
             continue
         if line.startswith("#"):
-            title = line.lstrip("#").strip().lower()
+            title = line.lstrip("#").strip()
             section = next(
-                (k for k, words in SECTION_WORDS.items() if any(w in title for w in words)), None
+                (k for k, words in SECTION_WORDS.items() if any(w in title.lower() for w in words)),
+                None,
             )
+            if section is None and not narrative.headline and len(title) > 20:
+                narrative.headline = title
             continue
         item = re.sub(r"^([-*•]|\d+[.)])\s+", "", line)
         if section == "headline":
@@ -121,9 +128,7 @@ def parse_narrative(text: str) -> Narrative:
         problems.append(f"{len(long)} bullet(s) longer than {MAX_BULLET} chars; shorten them")
     if problems:
         raise NarrativeError(
-            "Narrative file problems: "
-            + "; ".join(problems)
-            + ". Follow assets/narrative_template.md."
+            "Narrative file problems: " + "; ".join(problems) + ". Expected format:\n" + TEMPLATE
         )
     return narrative
 
@@ -278,9 +283,11 @@ def _covered(text: str, font: str = "Inter") -> bool:
 
 
 def _t(text: str) -> str:
-    """Escape for Paragraph markup; switch to a fallback font for scripts Inter lacks."""
+    """Paragraph-safe text: **bold** is kept, scripts Inter lacks use the fallback font."""
+    plain = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
     escaped = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-    return escaped if _covered(text) else f'<font name="Fallback">{escaped}</font>'
+    escaped = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", escaped)
+    return escaped if _covered(plain) else f'<font name="Fallback">{escaped}</font>'
 
 
 def _styles(scale: float) -> dict[str, ParagraphStyle]:
@@ -884,5 +891,7 @@ def build(study_id: str, narrative_path: Path | None, lang: str | None) -> dict:
         "data_csv": str((folder / "data" / "monthly.csv").resolve()),
         "narrative": "automatic (no --narrative given)" if narrative.automatic else "from file",
         "factcheck": {"ok": check["ok"], "numbers_checked": check["numbers_checked"]},
+        "limitations_for_chat": limitations(document, summary, lang),
+        "reminder": "Keep a short Limitations line in your chat reply (see limitations_for_chat).",
         "generated": dt.datetime.now().isoformat(timespec="seconds"),
     }

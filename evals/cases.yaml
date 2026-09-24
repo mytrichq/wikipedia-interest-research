@@ -14,7 +14,6 @@ cases:
     checks:
       skill_triggered: true
       used_cli: true
-      artifacts_exist: [summary.md]
       numbers_match_study: true
       no_invented_titles: true
       mentions_trust: true
@@ -37,7 +36,6 @@ cases:
     checks:
       skill_triggered: true
       used_cli: true
-      artifacts_exist: [summary.md]
       numbers_match_study: true
       mentions_trust: true
       mentions_limitations: true

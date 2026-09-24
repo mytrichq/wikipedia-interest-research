@@ -126,3 +126,18 @@ def test_ukrainian_headings_are_accepted():
 def test_language_detection():
     assert report.detect_language("Інтерес спадає") == "uk"
     assert report.detect_language("Interest is falling") == "en"
+
+
+def test_a_free_form_first_heading_becomes_the_headline():
+    text = "# Інтерес до астрономії падає: −62% за рік\n## Findings\n- a"
+    assert report.parse_narrative(text).headline == "Інтерес до астрономії падає: −62% за рік"
+
+
+def test_format_error_shows_the_expected_template():
+    with pytest.raises(report.NarrativeError, match="## Next steps"):
+        report.parse_narrative("some text without sections")
+
+
+def test_markdown_bold_is_rendered_not_printed():
+    report._register_fonts()
+    assert report._t("**Польська**: спад") == "<b>Польська</b>: спад"
