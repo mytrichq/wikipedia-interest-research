@@ -315,7 +315,7 @@ def _styles(scale: float) -> dict[str, ParagraphStyle]:
         "link": style("link", 7.4, color=ACCENT),
         "step_head": style("step_head", 7.5, "Inter-Bold", "#ffffff", alignment=1),
         "step_body": style("step_body", 7.8, color=INK),
-        "small": style("small", 6.6, color=INK2, leading=1.35),
+        "small": style("small", 7.6, color=INK2, leading=1.35),
         "footer": style("footer", 6.3, color=MUTED),
     }
 
