@@ -24,3 +24,6 @@ jobs:
       - name: Tests (offline)
         working-directory: wikipedia-interest-research
         run: uv run pytest
+      - name: Validate skill (Agent Skills spec)
+        working-directory: wikipedia-interest-research
+        run: uvx --from "git+https://github.com/agentskills/agentskills#subdirectory=skills-ref" skills-ref validate "$PWD"
