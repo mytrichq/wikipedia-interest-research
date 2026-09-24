@@ -1,0 +1,60 @@
+{
+  "case": "astronomy-uk-trust",
+  "env": "clean",
+  "model": "nvidia/nemotron-3-super-120b-a12b:free",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "path": "<tmp>/wir-eval-2qdw4bq2/workspace/.claude/skills/wikipedia-interest-research/SKILL.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-2qdw4bq2/workspace && .claude/skills/wikipedia-interest-research/scripts/wir study new --topic astronomy --langs uk --question \"Ми думаємо додати курс з астрономії до освітнього застосунку. Чи зростає інтерес до цієї теми в україномовній Wikipedia, і наскільки цьому зростанню можна довіряти?\"",
+        "timeout": 120
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Заперечно**: інтерес до астрономії в україномовній Вікіпедії падає, змінка річ річ −61,7%, довериво висока.\n\n- україномовна Вікіпедія: падає, −61,7% (0 з 12 місяців вище минулого року), довериво висока — 0 з 12 місяців вище того ж місяця року раніше (p=0,002).\n- Визначена сезонтисть: вересень пик ≈2,3× кожного року.\n- Ціла редакція змінилась −24,6%; відносно неї тема zmieniła −42,4%.\n\n**Обмеження:** інтерес у статті ≠ готовність платити; мова ≠ країна (читачі: UA 65%, US 11%, PL 4%); немає проксі, відсутньої статті, низького обсягу або прихованої країни печери.\n\n**Далі:** перевірити тренд у Google Trends або через опитування потенційних слухачів курсу; порівняти з іншими природничою науками (фізика, космонавтика) у той же період."
+  ],
+  "cost_usd": 0.0,
+  "duration_s": 73.0,
+  "usage": {
+    "input_tokens": 9436,
+    "output_tokens": 2467
+  },
+  "errors": [
+    {
+      "type": "retry",
+      "attempt": 0,
+      "error": {
+        "message": "Upstream error from Nvidia: Service temporarily overloaded",
+        "code": 503,
+        "metadata": {
+          "error_type": "provider_overloaded"
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 1,
+      "error": {
+        "message": "Upstream error from Nvidia: Service temporarily overloaded",
+        "code": 503,
+        "metadata": {
+          "error_type": "provider_overloaded"
+        }
+      }
+    }
+  ]
+}

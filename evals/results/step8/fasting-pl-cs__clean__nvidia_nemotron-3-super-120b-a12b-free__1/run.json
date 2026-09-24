@@ -1,0 +1,88 @@
+{
+  "case": "fasting-pl-cs",
+  "env": "clean",
+  "model": "nvidia/nemotron-3-super-120b-a12b:free",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "path": "<tmp>/wir-eval-iagkd4d5/workspace/.claude/skills/wikipedia-interest-research/SKILL.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-iagkd4d5/workspace"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "./.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"intermittent fasting\" --langs pl,cs --question \"Порівняй зростання інтересу до інтервального голодування в польськомовній та чеськомовній Wikipedia за останні два роки.\""
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Write",
+      "input": {
+        "content": "**Висновок**: спад, -48.7% річний змін, довіра висока.\n\n- Польськомовна Вікіпедія: немає статті — пробіл у змісті.\n- Чеськомовна Вікіпедія: спад, -48.7% (0 з 12 місяців вище за минулий рік), довіра висока — ~183 переглядів на місяць: малі зміни виглядають великими.; 16% переглядів потрапило на короткі новиноподібні вибухи.\n- Сезонність: січневий пик ≈2.17× кожного року.\n- Вона змінила весь розділ на -12.6%; відносно неї тема змінилась на -30.5%.\n\n**Обмеження:** Закон interés у статті ≠ готовність платити; мова ≠ країна (польськомовна Вікіпедія: PL 87%, US 4%, DE 2%; чеськомовна Вікіпедія: CZ 80%, US 5%, SK 5%); відсутність статті для польської, низький обсяг для чеської (~183 переглядів на місяць).\n\n**Далі:** Можу підготувати односторінковий PDF-звіт.",
+        "path": "<tmp>/wir-eval-iagkd4d5/workspace/answer.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "./.claude/skills/wikipedia-interest-research/scripts/wir check intermittent-fasting-pl-cs --file answer.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "path": "<tmp>/wir-eval-iagkd4d5/workspace/answer.md"
+      }
+    }
+  ],
+  "n_tool_calls": 6,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Висновок**: спад, -48.7% річний змін, довіра висока.\n\n- Польськомовна Вікіпедія: немає статті — пробіл у змісті.\n- Чеськомовна Вікіпедія: спад, -48.7% (0 з 12 місяців вище за минулий рік), довіра висока — ~183 переглядів на місяць: малі зміни виглядають великими.; 16% переглядів потрапило на короткі новиноподібні вибухи.\n- Сезонність: січневий пик ≈2.17× кожного року.\n- Вона змінила весь розділ на -12.6%; відносно неї тема змінилась на -30.5%.\n\n**Обмеження:** Закон interés у статті ≠ готовність платити; мова ≠ країна (польськомовна Вікіпедія: PL 87%, US 4%, DE 2%; чеськомовна Вікіпедія: CZ 80%, US 5%, SK 5%); відсутність статті для польської, низький обсяг для чеської (~183 переглядів на місяць).\n\n**Далі:** Можу підготувати односторінковий PDF-звіт."
+  ],
+  "cost_usd": 0.0,
+  "duration_s": 109.4,
+  "usage": {
+    "input_tokens": 29965,
+    "output_tokens": 6124
+  },
+  "errors": [
+    {
+      "type": "retry",
+      "attempt": 0,
+      "error": {
+        "message": "Upstream error from Nvidia: Service temporarily overloaded",
+        "code": 503,
+        "metadata": {
+          "error_type": "provider_overloaded"
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 0,
+      "error": {
+        "message": "Upstream error from Nvidia: Service temporarily overloaded",
+        "code": 503,
+        "metadata": {
+          "error_type": "provider_overloaded"
+        }
+      }
+    }
+  ]
+}

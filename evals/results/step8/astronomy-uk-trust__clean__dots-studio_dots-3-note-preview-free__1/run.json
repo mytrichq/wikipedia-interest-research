@@ -1,0 +1,50 @@
+{
+  "case": "astronomy-uk-trust",
+  "env": "clean",
+  "model": "dots-studio/dots-3-note-preview:free",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "path": "<tmp>/wir-eval-ugjxh39f/workspace/.claude/skills/wikipedia-interest-research/SKILL.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "ls <tmp>/wir-eval-ugjxh39f/workspace/.claude/skills/wikipedia-interest-research/"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-ugjxh39f/workspace/.claude/skills/wikipedia-interest-research && ./scripts/wir doctor 2>&1 | head -50"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-ugjxh39f/workspace/.claude/skills/wikipedia-interest-research && ./scripts/wir study new --topic \"astronomy\" --langs uk --question \"Чи зростає інтерес до астрономії в україномовній Вікіпедії, і наскільки цьому зростанню можна довіряти?\" 2>&1"
+      }
+    }
+  ],
+  "n_tool_calls": 4,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "\n\nОсь результати дослідження.\n\n**Відповідь**: Ні, інтерес не зростає — він **падає**, і цей спад можна довіряти (висока довірчість).\n\n- **Астрономія (укр)**: спад, **−61.7%** рік у рік, **0 з 12 місяців** вищі за минулий рік, довірчість **висока** — жоден місяць останніх 12 не перевищив відповідний місяць роком раніше (p=0.002). Середній місячний перегляд — 559.\n- Сезонність: щорічний пік у вересні (≈2.3×).\n- Відносно всієї україномовної Вікіпедії, яка сама впала на **−24.6%**, тема рухалася **−42.4%** — тобто падіння сильніше середнього по енциклопедії.\n\n**Обмеження**: інтерес до статті ≠ бажання платити за курс; мова ≠ ринок (читачів з України 65%, з США 11%, з Польщі 4%); середня кількість переглядів невелика (559/місяць), але тренд стійний, тому довірчість висока.\n\n**Наступні кроки**: перевірити, чи є підстави для курсу поза Вікіпедією (наприклад, за даними Google Trends або опитувань); якщо так — зробити порівняння з іншими темами; інтерес у Вікіпедії сам по собі не є доказом попиту на освітній продукт.\n\nХочете звіт у вигляді PDF? Можу згенерувати: `scripts/wir report astronomy-uk --narrative narrative.md`."
+  ],
+  "cost_usd": 0.0,
+  "duration_s": 28.9,
+  "usage": {
+    "input_tokens": 13704,
+    "output_tokens": 1522
+  },
+  "errors": []
+}

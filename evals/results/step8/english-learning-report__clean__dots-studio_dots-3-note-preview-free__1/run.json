@@ -1,0 +1,79 @@
+{
+  "case": "english-learning-report",
+  "env": "clean",
+  "model": "dots-studio/dots-3-note-preview:free",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "path": "<tmp>/wir-eval-vrdsaizy/workspace/.claude/skills/wikipedia-interest-research/SKILL.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-vrdsaizy/workspace/.claude/skills/wikipedia-interest-research/scripts/wir doctor"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-vrdsaizy/workspace/.claude/skills/wikipedia-interest-research/scripts/wir resolve --topic \"learning English\" --langs pl,tr,vi,pt,uk"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-vrdsaizy/workspace/.claude/skills/wikipedia-interest-research/scripts/wir resolve --topic \"Q130192\" --langs pl,tr,vi,pt,uk"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-vrdsaizy/workspace/.claude/skills/wikipedia-interest-research/scripts/wir resolve --topic \"Q1860\" --langs pl,tr,vi,pt,uk"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-vrdsaizy/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"Q1860\" --langs pl,tr,vi,pt,uk --period 24m --question \"Порівняй інтерес до вивчення англійської мови в польському, турецькому, в'єтнамському, португальському та українському розділах Wikipedia: які аудиторії варто дослідити наступними й чому?\""
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cat <tmp>/wir-eval-vrdsaizy/workspace/.claude/skills/wikipedia-interest-research/assets/narrative_template.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Write",
+      "input": {
+        "path": "<tmp>/wir-eval-vrdsaizy/workspace/wiki-studies/english-pl-tr-vi-pt-uk/narrative.md",
+        "content": "# Headline\nІнтерес до вивчення англійської мови в усіх п'яти розділах Wikipedia скорочується (yoY −13…−37%), і найбільш обережними до подальшого дослідження є українська та в'єтнамська аудиторії через їхній розмір і відсутність прихованих даних про країни.\n\n## Findings\n- В'єтнамська Вікіпедія — найбільша аудиторія (12 478 переглядів на місяць, 255 на мільйон), але інтерес скоротився на −24,0% (середня довіра).\n- Українська Вікіпедія — друга за розміром (6730, 119 на мільйон) з найстрімшим спадом −37,3% (висока довіра, 0 з 12 місяців вище рівня минулого року).\n- Португальська Вікіпедія — спад −33,7% (висока довіра), що вище середнього по розділу, але аудиторія переважно бразильська (74%).\n- Польська Вікіпедія — найменший спад −19,4% (середня довіра), але інтерес вже впав із 2024 року, і 87% читачів — з Польщі.\n- Турецька Вікіпедія — спад −13,5% (середня довіра); основну аудиторію приховують, тому розподіл за країнами невідомий.\n- Усі розділи скорочуються: від −8,8% (pl) до −24,6% (uk) рівнем цілого розділу, що означає, що тема відстежує загальні тенденції, а не росте.\n\n## Next steps\n- Перевірити, чи є у в'єтнамській та українській Вікіпедії окремі статті з вивчення англійської (наприклад, \"Tiếng Anh như ngoại ngữ\" чи \"Англійська як іноземна мова\"), щоб зробити точніший вимір.\n- Зіставити інтерес до англійської мови з інтересом до інших іноземних мов (німецька, іспанська) в тих самих розділах, щоб з'ясувати, чи є спад специфічним саме для англійської.\n- Дослідити сезонність: чи припадає пік інтересу до англійської мови на вересень/шкільний рік у польському, українському та португальському розділах."
+      }
+    }
+  ],
+  "n_tool_calls": 8,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0,
+  "duration_s": 68.7,
+  "usage": {
+    "input_tokens": 59610,
+    "output_tokens": 3933
+  },
+  "errors": []
+}

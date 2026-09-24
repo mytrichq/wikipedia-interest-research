@@ -103,7 +103,7 @@ def evaluate(case: dict, run: dict, workspace: Path) -> dict[str, dict]:
             a["title"]
             for s in studies
             for c in s["results"]["cells"]
-            for a in c.get("articles", [])
+            for a in c.get("articles", []) + c.get("proxy_candidates", [])
         }
         quoted = set(re.findall(r"[«\"“]([^»\"”]{3,60})[»\"”]", answer))
         suspicious = [
