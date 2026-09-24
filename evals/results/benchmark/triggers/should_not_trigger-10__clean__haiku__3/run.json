@@ -1,0 +1,20 @@
+{
+  "case": "should_not_trigger-10",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [],
+  "n_tool_calls": 0,
+  "skills_used": [],
+  "final_answers": [
+    "Wikipedia was founded by **Jimmy Wales** and **Larry Sanger** in **January 2001**. The site officially launched on January 15, 2001, as a free online encyclopedia that anyone could edit."
+  ],
+  "cost_usd": 0.0167,
+  "duration_s": 2.6,
+  "usage": {
+    "input_tokens": 10,
+    "output_tokens": 182,
+    "cache_read_input_tokens": 15295
+  },
+  "errors": []
+}

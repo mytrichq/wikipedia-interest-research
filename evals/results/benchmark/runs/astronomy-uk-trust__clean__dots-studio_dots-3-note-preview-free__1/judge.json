@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Does not claim growth; identifies the decline (or at best no growth).",
+      "score": 5,
+      "reason": "Assistant explicitly states interest is not growing but decreasing by -61.7% YoY, matching ground truth.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Explains that September peaks are seasonal (school year), not a trend.",
+      "score": 2,
+      "reason": "Mentions the September peak (~2.3x) and labels it 'seasonality' but never clarifies it's tied to the school year or explicitly warns it should not be mistaken for growth/trend.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Gives a trust level and explains why, in plain language.",
+      "score": 5,
+      "reason": "States 'висока' trust and explains it plainly as 0 of 12 months exceeding the prior year with p=0.002.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 5,
+      "reason": "Opens with a direct 'Пряма відповідь' stating interest is declining and the trend is trustworthy, directly answering both parts of the question.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 5,
+      "reason": "All numbers (yoy_pct, months_up_of_12, seasonality, relative_yoy_pct, edition_yoy_pct, readers_by_country) are taken directly from the tool output with no external claims.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 4,
+      "reason": "Names article-interest-vs-willingness-to-pay, language-edition-vs-country-market, and small sample size, though it doesn't flag that only one article was covered or other missing-article caveats.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 4,
+      "reason": "Written in clear, natural Ukrainian with plain explanations, though it retains the English abbreviation 'p=0.002' without translating or explaining what a p-value means for a non-analytics reader.",
+      "kind": "general"
+    }
+  ],
+  "mean": 4.29
+}

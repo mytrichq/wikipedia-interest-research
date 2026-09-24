@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Ranks the audiences and justifies the order with data (volume, relative interest, momentum, trust).",
+      "score": 2,
+      "reason": "The answer never surfaces the provided composite ranking (vi=56.4, uk=54.4, pt=52.9, tr=52.7, pl=50.1) and instead presents languages in an ad-hoc order (vi, tr, uk, pt, pl) that contradicts that ranking (which places uk above pt and tr).",
+      "kind": "case"
+    },
+    {
+      "criterion": "Notes that a language edition is not a country (e.g. Portuguese = Brazil + Portugal).",
+      "score": 5,
+      "reason": "Explicitly states Ukrainian is mostly Ukraine (65%), Portuguese mostly Brazil (74%), and that Turkish/Vietnamese hide their main national audiences.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Recommends concrete next audiences to validate, not a final go/no-go.",
+      "score": 4,
+      "reason": "Suggests testing a vi/tr stability hypothesis, separately investigating Brazilian demand, and checking whether the decline is a real loss or platform migration, without declaring a final verdict.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 4,
+      "reason": "Delivers a comparison across all five editions plus a 'what to research next and why' section as requested.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 4,
+      "reason": "All numeric claims trace to the tool output and no external facts are injected, though the omission of the given composite ranking means not all provided data was used faithfully.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 5,
+      "reason": "Names article-interest-vs-willingness-to-pay, edition-vs-country mismatch, and hidden-country caveats concretely with numbers.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 3,
+      "reason": "Structure and explanations are accessible, but 'вьєтнамська' is a repeated misspelling of 'в'єтнамська' and 'Украї́нська' has a stray accent mark, which are invented/incorrect word forms in Ukrainian.",
+      "kind": "general"
+    }
+  ],
+  "mean": 3.86
+}

@@ -1,0 +1,20 @@
+{
+  "case": "should_not_trigger-07",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [],
+  "n_tool_calls": 0,
+  "skills_used": [],
+  "final_answers": [
+    "Ось кроки для завантаження повного дампу української Вікіпедії:\n\n## 1. **Основне джерело**\nВікіпедія надає офіційні дампи на сайті Wikimedia:\n- https://dumps.wikimedia.org/ukwiki/\n\n## 2. **Вибір потрібного файлу**\nОсновні варіанти:\n- `ukwiki-latest-pages-articles.xml.bz2` — найважливіший файл (статті без історії редагування)\n- `ukwiki-latest-stub-articles.xml.gz` — компактна версія (лише метаінформація)\n- `ukwiki-latest-pages-articles-multistream.xml.bz2` — для паралельної обробки\n\nРозмір повного дампу статей: ~1-2 ГБ (стиснено), ~10-15 ГБ (розпаковано).\n\n## 3. **Завантаження**\n```bash\n# Завантажити дамп\nwget https://dumps.wikimedia.org/ukwiki/latest/ukwiki-latest-pages-articles.xml.bz2\n\n# Або через curl\ncurl -O https://dumps.wikimedia.org/ukwiki/latest/ukwiki-latest-pages-articles.xml.bz2\n```\n\n## 4. **Розпакування**\n```bash\n# Розпакувати BZ2\nbzip2 -d ukwiki-latest-pages-articles.xml.bz2\n\n# Або в один рядок без розпакування на диск\nbzcat ukwiki-latest-pages-articles.xml.bz2 | your_parser\n```\n\n## 5. **Обробка для тренування**\nПопулярні інструменти для парсингу:\n- **MediaWiki markup parser** (Python): `mwclient`, `mwparserfromhell`\n- **wpextractor** — видаляє розмітку, залишає текст\n```bash\npip install wpextractor\npython -m wpextractor --input ukwiki-latest-pages-articles.xml --output texts/\n```\n\n## 6. **Альтернативні варіанти**\n- **Hugging Face Datasets**: https://huggingface.co/datasets/wikipedia (передвичислено)\n- **Common Crawl**: містить Web-версію Wikipedia\n- **Snapshot API**: для конкретних дат\n\nЦе легальне і рекомендоване джерело для тренування мовних моделей. Дані під ліцензією CC-BY-SA.\n\nПотрібна допомога з парсингом чи обробкою дампу?"
+  ],
+  "cost_usd": 0.0199,
+  "duration_s": 8.4,
+  "usage": {
+    "input_tokens": 10,
+    "output_tokens": 812,
+    "cache_read_input_tokens": 15295
+  },
+  "errors": []
+}

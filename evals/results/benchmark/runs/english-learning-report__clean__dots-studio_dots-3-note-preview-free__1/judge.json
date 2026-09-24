@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Ranks the audiences and justifies the order with data (volume, relative interest, momentum, trust).",
+      "score": 1,
+      "reason": "No answer was produced at all due to a harness error, so no ranking or justification exists.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Notes that a language edition is not a country (e.g. Portuguese = Brazil + Portugal).",
+      "score": 1,
+      "reason": "There is no content to convey this distinction.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Recommends concrete next audiences to validate, not a final go/no-go.",
+      "score": 1,
+      "reason": "No recommendations were given since the response failed to generate.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 1,
+      "reason": "The user received no answer at all, only a harness error message.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 1,
+      "reason": "No claims were made, so the data could not have been used at all.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 1,
+      "reason": "No limitations were discussed since the output is empty/error.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 1,
+      "reason": "There is no text produced to evaluate for clarity or language quality.",
+      "kind": "general"
+    }
+  ],
+  "mean": 1.0
+}

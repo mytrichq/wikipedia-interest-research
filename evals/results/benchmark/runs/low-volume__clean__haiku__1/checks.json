@@ -1,0 +1,14 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "mentions_trust": {
+    "pass": true,
+    "detail": ""
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "2 <= 15"
+  }
+}

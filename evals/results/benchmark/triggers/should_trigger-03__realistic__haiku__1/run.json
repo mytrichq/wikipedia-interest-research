@@ -1,0 +1,39 @@
+{
+  "case": "should_trigger-03",
+  "env": "realistic",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Compare cryptocurrency article views on German (de) and French (fr) Wikipedia editions over the last 3 years. Measure trends, judge reliability, and identify any seasonal patterns or spikes."
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-ztna2p1y/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"cryptocurrency\" --langs de,fr --period 36m --question \"Порівняй перегляди статей про криптовалюту в німецькій і французькій Вікіпедії за 3 роки\"",
+        "description": "Run Wikipedia interest research study comparing cryptocurrency article views on German and French Wikipedia over 3 years"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0474,
+  "duration_s": 18.6,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 784,
+    "cache_read_input_tokens": 44109
+  },
+  "errors": []
+}

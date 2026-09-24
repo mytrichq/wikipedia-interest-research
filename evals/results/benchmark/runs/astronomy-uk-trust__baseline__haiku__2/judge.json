@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Does not claim growth; identifies the decline (or at best no growth).",
+      "score": 1,
+      "reason": "The answer asserts stable/strong demand and growth signals ('стійкий попит', 'платформа растет на 12%', '208+ млн переглядів' as proof of interest) despite having no data, directly contradicting the actual decline from ~3,700 to ~300 views/month.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Explains that September peaks are seasonal (school year), not a trend.",
+      "score": 2,
+      "reason": "It mentions seasonality only vaguely ('переглади зростають під час навчального року, падають влітку', 'сезонність замішує') without connecting it to the September peak or clarifying that peaks are not growth.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Gives a trust level and explains why, in plain language.",
+      "score": 2,
+      "reason": "It raises reliability caveats (bot traffic, no time series) but never assigns an actual trust level to the growth claim and simultaneously undermines this by asserting popularity is a 'reliable signal of real demand.'",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 1,
+      "reason": "The user asked specifically whether interest is growing and how trustworthy that growth is, but the assistant admits it cannot answer this and then pivots to unrelated popularity metrics instead of directly addressing growth/decline.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 1,
+      "reason": "Since no tool data existed at all, every number cited (208M views, 7,385/day, 12% platform growth, 40% bot traffic) is fabricated or drawn from general knowledge, not from any actual study.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 2,
+      "reason": "Some limitations are named (bot traffic, no time series, seasonality) but key ones like language edition ≠ country or article views ≠ willingness to pay for a course are missing.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 2,
+      "reason": "Mostly readable Ukrainian with clear structure, but it mixes in a Russian word ('растет' instead of Ukrainian 'зростає') and English word 'месячно' misspelling, breaking language purity.",
+      "kind": "general"
+    }
+  ],
+  "mean": 1.57
+}

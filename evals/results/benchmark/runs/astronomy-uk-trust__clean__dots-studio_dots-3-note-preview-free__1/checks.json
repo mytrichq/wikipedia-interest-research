@@ -1,0 +1,30 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": true,
+    "detail": "cd <tmp>/wir-eval-irar0zct/workspace/.claude/skills/wikipedia-interest-research && scripts/wir doctor; cd <tmp>/wir-eval-irar0zct/workspace/.claude/skills/wikipedia-interest-research && scripts/wir study new --topi"
+  },
+  "numbers_match_study": {
+    "pass": true,
+    "detail": "checked 10; unmatched: []"
+  },
+  "mentions_trust": {
+    "pass": true,
+    "detail": ""
+  },
+  "mentions_limitations": {
+    "pass": true,
+    "detail": ""
+  },
+  "answer_language": {
+    "pass": true,
+    "detail": "uk"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "3 <= 15"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "case": "should_not_trigger-01",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [],
+  "n_tool_calls": 0,
+  "skills_used": [],
+  "final_answers": [
+    "I don't have access to Wikipedia or external websites, and I don't know which article or startup you're referring to.\n\nI can help in a few ways instead:\n\n1. **Review text you provide** — Paste the article content here, and I'll suggest edits to make it more neutral in tone and reduce promotional language, following Wikipedia's [neutrality guidelines](https://en.wikipedia.org/wiki/Wikipedia:Neutral_point_of_view).\n\n2. **Explain Wikipedia neutrality** — If you'd like guidance on what makes an article neutral (avoiding marketing language, using cited sources, removing bias), I can walk through that.\n\n3. **Help you draft changes** — You can tell me the current article's issues, and I'll suggest specific rewrites.\n\nWhich would be most useful? And feel free to respond in Ukrainian or English—I can work in both."
+  ],
+  "cost_usd": 0.0178,
+  "duration_s": 5.3,
+  "usage": {
+    "input_tokens": 10,
+    "output_tokens": 398,
+    "cache_read_input_tokens": 15295
+  },
+  "errors": []
+}

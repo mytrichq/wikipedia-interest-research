@@ -1,0 +1,22 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": true,
+    "detail": "cd <tmp>/wir-eval-ks2dwmwo/workspace/.claude/skills/wikipedia-interest-research && scripts/wir study new --topic \"pickleball\" --langs uk,pl,pt --question \"Порівняй інтерес до піклболу в українській, польській і португальській Wikipedia\""
+  },
+  "no_invented_titles": {
+    "pass": true,
+    "detail": "suspicious: []"
+  },
+  "mentions_limitations": {
+    "pass": true,
+    "detail": ""
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "2 <= 15"
+  }
+}

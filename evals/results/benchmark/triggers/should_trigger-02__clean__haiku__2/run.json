@@ -1,0 +1,38 @@
+{
+  "case": "should_trigger-02",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Compare audience interest in meditation and mindfulness topics across Polish, Czech, and Romanian Wikipedia editions to guide localization strategy for a meditation app. Analyze pageview trends, assess data reliability, and rank the markets by engagement level."
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-tka5om7u/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"meditation\" --langs pl,cs,ro --question \"Which of these three languages should we localize our meditation app into based on audience interest trends?\""
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0291,
+  "duration_s": 17.4,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 809,
+    "cache_read_input_tokens": 37723
+  },
+  "errors": []
+}

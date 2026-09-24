@@ -229,9 +229,9 @@ def cmd_study_update(args: argparse.Namespace, client: WikimediaClient) -> int:
             "--period, --weights, --article or --question."
         )
     results, data = study.compute(client, spec)
-    history = document["history"] + [
-        {"at": _now(), "action": "update", "change": c} for c in changes
-    ]
+    entries = [{"at": _now(), "action": "update", "change": c} for c in changes]
+    entries[0]["before"] = study.snapshot(document)
+    history = document["history"] + entries
     study.write(args.id, spec, results, data, history)
     _emit_study(study.load(args.id), client, {"changes": changes})
     return EXIT_OK

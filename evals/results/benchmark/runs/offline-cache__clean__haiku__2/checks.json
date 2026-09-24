@@ -1,0 +1,14 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": true,
+    "detail": "<tmp>/wir-eval-iscgy9of/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs uk --question \"Чи зростає інтерес до астрономії в українській Wikipedia?\""
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "2 <= 15"
+  }
+}

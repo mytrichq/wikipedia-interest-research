@@ -1,0 +1,38 @@
+{
+  "case": "should_trigger-04",
+  "env": "realistic",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "photography programming uk"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-f50vmo1i/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic photography --topic programming --langs uk --question \"Що цікавіше україномовній аудиторії: фотографія чи програмування?\""
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0476,
+  "duration_s": 18.8,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 839,
+    "cache_read_input_tokens": 43105
+  },
+  "errors": []
+}

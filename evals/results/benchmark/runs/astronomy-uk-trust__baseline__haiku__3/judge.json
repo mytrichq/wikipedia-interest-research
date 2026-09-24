@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Does not claim growth; identifies the decline (or at best no growth).",
+      "score": 2,
+      "reason": "The assistant never claims growth outright but frames Wikipedia trends as a usable positive signal without noting the actual decline, and never states that interest is falling.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Explains that September peaks are seasonal (school year), not a trend.",
+      "score": 1,
+      "reason": "Seasonality and September peaks are never mentioned at all.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Gives a trust level and explains why, in plain language.",
+      "score": 1,
+      "reason": "No trust level or confidence assessment is given since no data was actually gathered or analyzed.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 1,
+      "reason": "Instead of answering whether interest is growing and how trustworthy that is, the assistant only proposes a methodology and offers to investigate later.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 2,
+      "reason": "Since no tool data existed, the assistant appropriately avoided fabricating numbers, but it also makes general claims (e.g., about Ukrainian willingness to pay for education) from unsupported general knowledge rather than data.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 2,
+      "reason": "It names one relevant limitation (Wikipedia interest ≠ willingness to pay) but omits language-edition-vs-country, seasonality, and missing-article issues.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 3,
+      "reason": "The Ukrainian is mostly natural and understandable, but includes an odd English term 'tools.wmflabs.org' and a slightly awkward phrase 'перевірити статики' likely a typo for 'статистику'.",
+      "kind": "general"
+    }
+  ],
+  "mean": 1.71
+}

@@ -1,0 +1,42 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": true,
+    "detail": "<tmp>/wir-eval-9ihb37q8/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"English language\" --langs pl,tr,vi,pt,uk --question \"Який інтерес до вивчення англійської мови в різних мовних Вікіпедіях? Які аудиторії варт"
+  },
+  "artifacts_exist": {
+    "pass": true,
+    "detail": ""
+  },
+  "pdf_one_page": {
+    "pass": true,
+    "detail": "pages: [1]"
+  },
+  "numbers_match_study": {
+    "pass": true,
+    "detail": "checked 13; unmatched: []"
+  },
+  "no_invented_titles": {
+    "pass": true,
+    "detail": "suspicious: []"
+  },
+  "mentions_trust": {
+    "pass": true,
+    "detail": ""
+  },
+  "mentions_limitations": {
+    "pass": true,
+    "detail": ""
+  },
+  "answer_language": {
+    "pass": true,
+    "detail": "uk"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "8 <= 15"
+  }
+}

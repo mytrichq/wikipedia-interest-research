@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "States that Polish Wikipedia has no dedicated article instead of inventing one.",
+      "score": 5,
+      "reason": "The answer explicitly and correctly states that Polish Wikipedia lacks a dedicated intermittent fasting article.",
+      "kind": "case"
+    },
+    {
+      "criterion": "If a proxy article is used, it is labelled as a proxy with its caveat.",
+      "score": 2,
+      "reason": "It only suggests 'Post' as a possible proxy in a recommendation section without actually using it, fetching any data, or noting the ground-truth-preferred proxy 'Głodówka lecznicza', and never caveats what such a proxy would/wouldn't measure.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Growth figures are compared for the same period and normalised or caveated for edition size.",
+      "score": 1,
+      "reason": "No growth figures or pageview data were retrieved or compared at all; the assistant did no actual analysis.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 2,
+      "reason": "Instead of comparing growth over the last two years, the assistant only reports that comparison is impossible and offers meta-suggestions, without ever fetching pageview data for even the Czech article or a Polish proxy.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 2,
+      "reason": "No tool data was actually used (facts note no study was created); claims like 'higher interest/awareness in Czech community' are speculative inferences, not data-backed.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 2,
+      "reason": "It names the missing-article limitation but omits other relevant caveats like language edition ≠ country population, seasonality, or that pageviews ≠ real-world interest even for the proxy discussion.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 2,
+      "reason": "Mixes Ukrainian with English tool/product names and phrases ('wikiInterestSkill', a garbled heading 'Porівняння', and an odd non-Ukrainian construction 'традиційне посту'), breaking clean single-language wording.",
+      "kind": "general"
+    }
+  ],
+  "mean": 2.29
+}

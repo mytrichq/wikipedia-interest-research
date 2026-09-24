@@ -1,0 +1,39 @@
+{
+  "case": "should_trigger-07",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "intermittent fasting Portugal Brazil"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-4xakbxdg/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"intermittent fasting\" --langs pt --question \"Is the interest in intermittent fasting growing in Portugal and Brazil?\"",
+        "description": "Research interest in intermittent fasting using Portuguese Wikipedia data"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0297,
+  "duration_s": 19.2,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 981,
+    "cache_read_input_tokens": 37724
+  },
+  "errors": []
+}

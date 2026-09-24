@@ -1,0 +1,31 @@
+{
+  "case": "should_trigger-08",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic: mental health, compare across multiple Wikipedia language editions"
+      }
+    }
+  ],
+  "n_tool_calls": 1,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "Щоб порівняти популярність теми ментального здоров'я в різних мовних розділах Вікіпедії, мені потрібно знати, які мовні видання вас цікавлять.\n\nЯкі мови ви хочете порівняти? Наприклад:\n- **Українська, польська, чеська** (східнодов Європа)\n- **Українська, російська, англійська** (глобальне порівняння)\n- **Англійська, французька, німецька, іспанська** (великі мови)\n- Інше поєднання?\n\nВибачте на прохання — це допоможе мені вибрати найрелевантніші видання для вашого аналізу."
+  ],
+  "cost_usd": 0.0281,
+  "duration_s": 8.7,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 645,
+    "cache_read_input_tokens": 37742
+  },
+  "errors": []
+}

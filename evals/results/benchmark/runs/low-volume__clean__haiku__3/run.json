@@ -1,0 +1,39 @@
+{
+  "case": "low-volume",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic: \"astronomy\", language: \"Belarusian\", timeframe: \"last 2 years\""
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-evkpijzf/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs be --question \"Чи зростає інтерес до астрономії в білоруській Wikipedia?\"",
+        "description": "Run astronomy interest research for Belarusian Wikipedia"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Інтерес до астрономії в білоруській Wikipedia не зростає**: тенденція невизначена, -24% рік до року, довіра **низька**.\n\n- **Білоруська Wikipedia**: невизначена тенденція, -24.0% рік до року (лише 5 із 12 останніх місяців були вище ніж рік тому назад), довіра низька — дуже мало даних (~43 переглядів на місяць) і відсутня послідовна спрямованість.\n- **Відносно видання**: білоруська Wikipedia впала на -5.9% порівняно з цією темою (це вважається стабільним, оскільки в межах ±10%), але саме видання впало на -9.5%.\n- **Одноразова подія**: квітень 2026 року мав всплиск інтересу.\n\n**Обмеження**: Wikimedia приховує читачів з Беларусі на статистиці (захист країни), тому реальна аудиторія невідома. Обсяг даних надто малий — лише ~43 переглядів на місяць недостатньо для надійних висновків. Мова ≠ країна: видимі читачі з США, Польщі, Бразилії — але основна аудиторія прихована.\n\n**Далі**: перевірити дані за довшим періодом (36+ місяців) або порівняти астрономію з іншими природничими темами в білоруській Wikipedia, щоб побачити, чи це видання в цілому втрачає інтерес до науки.\n\nМожу створити PDF-звіт, якщо потрібно."
+  ],
+  "cost_usd": 0.0407,
+  "duration_s": 33.6,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 2025,
+    "cache_read_input_tokens": 63440
+  },
+  "errors": []
+}

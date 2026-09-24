@@ -1,0 +1,22 @@
+{
+  "skill_triggered": {
+    "pass": false,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": false,
+    "detail": ""
+  },
+  "no_invented_titles": {
+    "pass": true,
+    "detail": "suspicious: []"
+  },
+  "mentions_limitations": {
+    "pass": false,
+    "detail": ""
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "0 <= 15"
+  }
+}

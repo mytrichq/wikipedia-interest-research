@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "States that Polish Wikipedia has no dedicated article instead of inventing one.",
+      "score": 1,
+      "reason": "The answer never mentions that Polish Wikipedia lacks a dedicated article on interval fasting, instead vaguely claiming it couldn't find comparison data.",
+      "kind": "case"
+    },
+    {
+      "criterion": "If a proxy article is used, it is labelled as a proxy with its caveat.",
+      "score": 1,
+      "reason": "No proxy article (e.g. 'Głodówka lecznicza') is identified or used at all.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Growth figures are compared for the same period and normalised or caveated for edition size.",
+      "score": 1,
+      "reason": "No actual growth figures for either Wikipedia edition are given; only unrelated general Wikimedia and Google Trends statistics are cited.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 1,
+      "reason": "The assistant explicitly fails to answer the comparison question and instead offers tangential facts and instructions for the user to do the research themselves.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 1,
+      "reason": "Since no study/tool data existed, all cited figures (pageview decline, article counts, Google Trends) come from the model's own web knowledge, not from any legitimate tool output for this task, and are irrelevant to the actual question.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 1,
+      "reason": "No concrete limitations specific to this comparison (missing article, language-vs-country, seasonality) are mentioned—only a generic admission of not finding data.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 2,
+      "reason": "Mostly natural Ukrainian but contains a typo/garbled word 'суматорів' and an invented/unclear tool name 'wikiInteresttSkill', reducing clarity and correctness.",
+      "kind": "general"
+    }
+  ],
+  "mean": 1.14
+}

@@ -1,0 +1,42 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": true,
+    "detail": "<tmp>/wir-eval-_q3e97xp/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"English\" --langs uk,pl,tr,vi,pt --question \"Які аудиторії варто дослідити наступними для застосунку вивчення мов?\"; <tmp>"
+  },
+  "artifacts_exist": {
+    "pass": true,
+    "detail": ""
+  },
+  "pdf_one_page": {
+    "pass": true,
+    "detail": "pages: [1]"
+  },
+  "numbers_match_study": {
+    "pass": true,
+    "detail": "checked 17; unmatched: []"
+  },
+  "no_invented_titles": {
+    "pass": true,
+    "detail": "suspicious: []"
+  },
+  "mentions_trust": {
+    "pass": true,
+    "detail": ""
+  },
+  "mentions_limitations": {
+    "pass": true,
+    "detail": ""
+  },
+  "answer_language": {
+    "pass": true,
+    "detail": "uk"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "5 <= 15"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "States that Polish Wikipedia has no dedicated article instead of inventing one.",
+      "score": 5,
+      "reason": "The answer explicitly and correctly states pl has no article on the topic, framing it as a content gap rather than zero interest.",
+      "kind": "case"
+    },
+    {
+      "criterion": "If a proxy article is used, it is labelled as a proxy with its caveat.",
+      "score": 5,
+      "reason": "No proxy is used in the actual comparison; candidates are only listed as options requiring explicit user consent and are noted as needing PROXY labeling.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Growth figures are compared for the same period and normalised or caveated for edition size.",
+      "score": 5,
+      "reason": "Only cs has a growth figure and it is correctly caveated against the edition-wide baseline (-12.6%) and small sample size; no invalid pl vs cs numeric comparison is made.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 4,
+      "reason": "The comparison is answered as directly as the data allows (cs declining, pl absent), though the requested 'comparison' can only be partially delivered given missing pl data.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 5,
+      "reason": "All figures, proxy candidates, and country breakdowns are traceable to the tool output with no external claims introduced.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 5,
+      "reason": "The answer explicitly names language≠market, interest≠willingness to pay, seasonality, missing article, and small-sample/news-spike caveats.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 2,
+      "reason": "Text mixes in a Russian word ('Прямая відповідь' instead of Ukrainian 'Пряма відповідь') and an invented/garbled word ('сутто'), violating the language-purity requirement despite otherwise clear structure.",
+      "kind": "general"
+    }
+  ],
+  "mean": 4.43
+}

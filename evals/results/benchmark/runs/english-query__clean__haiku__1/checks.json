@@ -1,0 +1,22 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "artifacts_exist": {
+    "pass": true,
+    "detail": ""
+  },
+  "pdf_one_page": {
+    "pass": true,
+    "detail": "pages: [1]"
+  },
+  "answer_language": {
+    "pass": true,
+    "detail": "en"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "5 <= 15"
+  }
+}

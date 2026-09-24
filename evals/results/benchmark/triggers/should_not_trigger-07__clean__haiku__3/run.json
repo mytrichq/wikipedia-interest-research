@@ -1,0 +1,20 @@
+{
+  "case": "should_not_trigger-07",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [],
+  "n_tool_calls": 0,
+  "skills_used": [],
+  "final_answers": [
+    "# Завантаження дампу української Вікіпедії\n\nОсь як отримати повний дамп для навчання моделі:\n\n## 1. **Основне джерело — Wikimedia Downloads**\n- Перейдіть на https://dumps.wikimedia.org/uk/latest/\n- Там знайдете декілька варіантів файлів\n\n## 2. **Основні формати**\n\n| Формат | Розмір | Використання |\n|--------|--------|--------------|\n| `ukwiki-latest-pages-articles.xml.bz2` | ~800 MB | Повний текст статей (найкорисніше для LLM) |\n| `ukwiki-latest-pages-articles-multistream.xml.bz2` | Аналогічно | Легше паралелізувати |\n| `ukwiki-latest-stub-articles.xml.gz` | ~50 MB | Тільки метаінформація |\n\n## 3. **Завантаження та розпакування**\n\n```bash\n# Завантажити\nwget https://dumps.wikimedia.org/uk/latest/ukwiki-latest-pages-articles.xml.bz2\n\n# Розпакувати (дуже повільно, займає час)\nbzip2 -d ukwiki-latest-pages-articles.xml.bz2\n```\n\n## 4. **Обробка XML для навчання**\n\nПопулярні інструменти:\n- **MediaWiki parser**: `mwclient`, `pywikibot`\n- **Готові скрипти**: `wikiextractor` — видаляє XML розмітку та форматує текст\n  ```bash\n  pip install wikiextractor\n  python -m wikiextractor.WikiExtractor ukwiki-latest-pages-articles.xml -o extracted/\n  ```\n\n## 5. **Альтернатива — готові датасети**\nДеякі проекти вже підготували українські корпуси:\n- **Hugging Face Datasets**: `wikipedia` датасет з украї́нською підмножиною\n- **OSCAR corpus**: мультилінгвальний корпус з українською\n\n## 6. **Розмір очікуйте**\n- Розпакований XML: ~3-4 GB\n- Очищений текст: ~1-1.5 GB\n\n**Порада**: Якщо потрібна лише підмножина, перед обробкою отримайте список категорій або використайте `--ns 0` для `wikiextractor`, щоб обробити тільки статті (без обговорень).\n\nПотрібна допомога з конкретним скриптом для обробки?"
+  ],
+  "cost_usd": 0.0202,
+  "duration_s": 11.1,
+  "usage": {
+    "input_tokens": 10,
+    "output_tokens": 868,
+    "cache_read_input_tokens": 15295
+  },
+  "errors": []
+}

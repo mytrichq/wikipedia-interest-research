@@ -1,0 +1,1717 @@
+{
+  "cases": [
+    {
+      "case": "ambiguous-topic",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "asks_clarification_or_states_assumption": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 64337.667,
+        "std": 31.565,
+        "median": 64322
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 20.767,
+        "std": 2.272,
+        "median": 20.4
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.034,
+        "std": 0.0,
+        "median": 0.034
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "ambiguous-topic",
+      "env": "realistic",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "asks_clarification_or_states_assumption": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 78090,
+        "std": 0.0,
+        "median": 78090
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 24.7,
+        "std": 0.0,
+        "median": 24.7
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.055,
+        "std": 0.0,
+        "median": 0.055
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "astronomy-uk-trust",
+      "env": "baseline",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.381,
+        "std": 0.082,
+        "median": 0.429
+      },
+      "checks": {
+        "skill_triggered": 0.0,
+        "used_cli": 0.0,
+        "numbers_match_study": 0.0,
+        "mentions_trust": 0.0,
+        "mentions_limitations": 1.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 0.67
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 11,
+        "std": 10.149,
+        "median": 13
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 39616.667,
+        "std": 23294.629,
+        "median": 39527
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 43.233,
+        "std": 43.582,
+        "median": 22.6
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.402,
+        "std": 0.343,
+        "median": 0.501
+      },
+      "judge_mean": {
+        "n": 3,
+        "mean": 1.76,
+        "std": 0.219,
+        "median": 1.71
+      }
+    },
+    {
+      "case": "astronomy-uk-trust",
+      "env": "clean",
+      "model": "dots-studio_dots-3-note-preview-free",
+      "pass_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "numbers_match_study": 1.0,
+        "mentions_trust": 1.0,
+        "mentions_limitations": 1.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 3,
+        "std": 0.0,
+        "median": 3
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 15508,
+        "std": 0.0,
+        "median": 15508
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 35.3,
+        "std": 0.0,
+        "median": 35.3
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "judge_mean": {
+        "n": 1,
+        "mean": 4.29,
+        "std": 0.0,
+        "median": 4.29
+      }
+    },
+    {
+      "case": "astronomy-uk-trust",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "numbers_match_study": 1.0,
+        "mentions_trust": 1.0,
+        "mentions_limitations": 1.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 65097,
+        "std": 140.211,
+        "median": 65060
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 27.133,
+        "std": 1.25,
+        "median": 27.1
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.038,
+        "std": 0.0,
+        "median": 0.037
+      },
+      "judge_mean": {
+        "n": 3,
+        "mean": 4.333,
+        "std": 0.461,
+        "median": 4.14
+      }
+    },
+    {
+      "case": "astronomy-uk-trust",
+      "env": "realistic",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "numbers_match_study": 1.0,
+        "mentions_trust": 1.0,
+        "mentions_limitations": 1.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 80236,
+        "std": 0.0,
+        "median": 80236
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 34.2,
+        "std": 0.0,
+        "median": 34.2
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.059,
+        "std": 0.0,
+        "median": 0.059
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "custom-weights",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.917,
+        "std": 0.144,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "cli_commands": 1.0,
+        "numbers_match_study": 0.67,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 3,
+        "std": 0.0,
+        "median": 3
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 122539.667,
+        "std": 628.173,
+        "median": 122847
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 52.133,
+        "std": 9.872,
+        "median": 52.9
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.098,
+        "std": 0.003,
+        "median": 0.099
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "english-learning-no-langs",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.667,
+        "std": 0.0,
+        "median": 0.667
+      },
+      "checks": {
+        "skill_triggered": 0.0,
+        "asks_clarification_or_states_assumption": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 0,
+        "std": 0.0,
+        "median": 0
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 16032,
+        "std": 162.53,
+        "median": 16076
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 9.133,
+        "std": 1.756,
+        "median": 9.3
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.019,
+        "std": 0.001,
+        "median": 0.02
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "english-learning-no-langs",
+      "env": "realistic",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "asks_clarification_or_states_assumption": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 1,
+        "std": 0.0,
+        "median": 1
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 44467,
+        "std": 0.0,
+        "median": 44467
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 11.5,
+        "std": 0.0,
+        "median": 11.5
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.048,
+        "std": 0.0,
+        "median": 0.048
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "english-learning-report",
+      "env": "baseline",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.3,
+        "std": 0.0,
+        "median": 0.3
+      },
+      "checks": {
+        "skill_triggered": 0.0,
+        "used_cli": 0.0,
+        "artifacts_exist": 0.0,
+        "pdf_one_page": 0.0,
+        "numbers_match_study": 0.0,
+        "no_invented_titles": 1.0,
+        "mentions_trust": 0.0,
+        "mentions_limitations": 0.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 3.333,
+        "std": 5.774,
+        "median": 0
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 24111.667,
+        "std": 13253.886,
+        "median": 16862
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 28.633,
+        "std": 24.573,
+        "median": 18.8
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.095,
+        "std": 0.128,
+        "median": 0.023
+      },
+      "judge_mean": {
+        "n": 3,
+        "mean": 1.383,
+        "std": 0.081,
+        "median": 1.43
+      }
+    },
+    {
+      "case": "english-learning-report",
+      "env": "clean",
+      "model": "dots-studio_dots-3-note-preview-free",
+      "pass_rate": {
+        "n": 1,
+        "mean": 0.5,
+        "std": 0.0,
+        "median": 0.5
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "artifacts_exist": 0.0,
+        "pdf_one_page": 0.0,
+        "numbers_match_study": 1.0,
+        "no_invented_titles": 1.0,
+        "mentions_trust": 0.0,
+        "mentions_limitations": 0.0,
+        "answer_language": 0.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 7,
+        "std": 0.0,
+        "median": 7
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 41711,
+        "std": 0.0,
+        "median": 41711
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 257.3,
+        "std": 0.0,
+        "median": 257.3
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "judge_mean": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      }
+    },
+    {
+      "case": "english-learning-report",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.867,
+        "std": 0.058,
+        "median": 0.9
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "artifacts_exist": 0.67,
+        "pdf_one_page": 0.67,
+        "numbers_match_study": 1.0,
+        "no_invented_titles": 1.0,
+        "mentions_trust": 0.67,
+        "mentions_limitations": 0.67,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 4.667,
+        "std": 3.055,
+        "median": 4
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 150076.667,
+        "std": 98180.985,
+        "median": 126094
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 58.167,
+        "std": 20.607,
+        "median": 56.4
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.067,
+        "std": 0.025,
+        "median": 0.063
+      },
+      "judge_mean": {
+        "n": 3,
+        "mean": 2.903,
+        "std": 0.974,
+        "median": 2.57
+      }
+    },
+    {
+      "case": "english-learning-report",
+      "env": "realistic",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 1,
+        "mean": 0.9,
+        "std": 0.0,
+        "median": 0.9
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "artifacts_exist": 1.0,
+        "pdf_one_page": 1.0,
+        "numbers_match_study": 0.0,
+        "no_invented_titles": 1.0,
+        "mentions_trust": 1.0,
+        "mentions_limitations": 1.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 7,
+        "std": 0.0,
+        "median": 7
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 282720,
+        "std": 0.0,
+        "median": 282720
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 82.1,
+        "std": 0.0,
+        "median": 82.1
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.11,
+        "std": 0.0,
+        "median": 0.11
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "english-query",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.933,
+        "std": 0.115,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "artifacts_exist": 1.0,
+        "pdf_one_page": 1.0,
+        "answer_language": 0.67,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 8.333,
+        "std": 2.517,
+        "median": 8
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 247940.333,
+        "std": 77833.528,
+        "median": 238026
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 50.067,
+        "std": 12.775,
+        "median": 54.8
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.071,
+        "std": 0.016,
+        "median": 0.073
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "fasting-pl-cs",
+      "env": "baseline",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.25,
+        "std": 0.125,
+        "median": 0.25
+      },
+      "checks": {
+        "skill_triggered": 0.0,
+        "used_cli": 0.0,
+        "numbers_match_study": 0.0,
+        "no_invented_titles": 0.33,
+        "mentions_trust": 0.0,
+        "mentions_limitations": 0.33,
+        "answer_language": 1.0,
+        "max_tool_calls": 0.33
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 24.333,
+        "std": 15.308,
+        "median": 16
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 191795.667,
+        "std": 92419.932,
+        "median": 229916
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 57.533,
+        "std": 27.157,
+        "median": 68.0
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.357,
+        "std": 0.185,
+        "median": 0.274
+      },
+      "judge_mean": {
+        "n": 3,
+        "mean": 1.81,
+        "std": 0.598,
+        "median": 2.0
+      }
+    },
+    {
+      "case": "fasting-pl-cs",
+      "env": "clean",
+      "model": "dots-studio_dots-3-note-preview-free",
+      "pass_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "numbers_match_study": 1.0,
+        "no_invented_titles": 1.0,
+        "mentions_trust": 1.0,
+        "mentions_limitations": 1.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 3,
+        "std": 0.0,
+        "median": 3
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 15505,
+        "std": 0.0,
+        "median": 15505
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 34.7,
+        "std": 0.0,
+        "median": 34.7
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "judge_mean": {
+        "n": 1,
+        "mean": 4.43,
+        "std": 0.0,
+        "median": 4.43
+      }
+    },
+    {
+      "case": "fasting-pl-cs",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "numbers_match_study": 1.0,
+        "no_invented_titles": 1.0,
+        "mentions_trust": 1.0,
+        "mentions_limitations": 1.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 64960.667,
+        "std": 64.632,
+        "median": 64944
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 26.1,
+        "std": 0.954,
+        "median": 25.6
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.037,
+        "std": 0.0,
+        "median": 0.037
+      },
+      "judge_mean": {
+        "n": 3,
+        "mean": 3.903,
+        "std": 0.297,
+        "median": 4.0
+      }
+    },
+    {
+      "case": "fasting-pl-cs",
+      "env": "realistic",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "numbers_match_study": 1.0,
+        "no_invented_titles": 1.0,
+        "mentions_trust": 1.0,
+        "mentions_limitations": 1.0,
+        "answer_language": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 84229,
+        "std": 0.0,
+        "median": 84229
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 73.7,
+        "std": 0.0,
+        "median": 73.7
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.08,
+        "std": 0.0,
+        "median": 0.08
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "followup-add-lang",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.944,
+        "std": 0.096,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "cli_commands": 1.0,
+        "numbers_match_study": 0.67,
+        "followup_is_incremental": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 4,
+        "std": 0.0,
+        "median": 4
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 183872.333,
+        "std": 899.802,
+        "median": 183645
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 59.333,
+        "std": 5.718,
+        "median": 58.0
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.167,
+        "std": 0.004,
+        "median": 0.166
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "followup-add-lang",
+      "env": "realistic",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "cli_commands": 1.0,
+        "numbers_match_study": 1.0,
+        "followup_is_incremental": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 15,
+        "std": 0.0,
+        "median": 15
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 730289,
+        "std": 0.0,
+        "median": 730289
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 136.9,
+        "std": 0.0,
+        "median": 136.9
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.456,
+        "std": 0.0,
+        "median": 0.456
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "low-volume",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "mentions_trust": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 65354.667,
+        "std": 415.161,
+        "median": 65493
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 33.933,
+        "std": 2.517,
+        "median": 33.6
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.04,
+        "std": 0.002,
+        "median": 0.041
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "missing-article",
+      "env": "clean",
+      "model": "dots-studio_dots-3-note-preview-free",
+      "pass_rate": {
+        "n": 1,
+        "mean": 0.4,
+        "std": 0.0,
+        "median": 0.4
+      },
+      "checks": {
+        "skill_triggered": 0.0,
+        "used_cli": 0.0,
+        "no_invented_titles": 1.0,
+        "mentions_limitations": 0.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 0,
+        "std": 0.0,
+        "median": 0
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 0,
+        "std": 0.0,
+        "median": 0
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 200.9,
+        "std": 0.0,
+        "median": 200.9
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "missing-article",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "no_invented_titles": 1.0,
+        "mentions_limitations": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 65064.333,
+        "std": 97.372,
+        "median": 65035
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 31.433,
+        "std": 5.755,
+        "median": 29.9
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.039,
+        "std": 0.0,
+        "median": 0.038
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "negative-unrelated",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_not_triggered": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 0,
+        "std": 0.0,
+        "median": 0
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 15790.667,
+        "std": 49.054,
+        "median": 15788
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 5.4,
+        "std": 0.436,
+        "median": 5.6
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.018,
+        "std": 0.0,
+        "median": 0.018
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "negative-unrelated",
+      "env": "realistic",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 1,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_not_triggered": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 1,
+        "mean": 0,
+        "std": 0.0,
+        "median": 0
+      },
+      "tokens": {
+        "n": 1,
+        "mean": 15880,
+        "std": 0.0,
+        "median": 15880
+      },
+      "seconds": {
+        "n": 1,
+        "mean": 5.5,
+        "std": 0.0,
+        "median": 5.5
+      },
+      "cost_usd": {
+        "n": 1,
+        "mean": 0.028,
+        "std": 0.0,
+        "median": 0.028
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "news-spike",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.5,
+        "std": 0.0,
+        "median": 0.5
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "numbers_match_study": 0.0,
+        "mentions_trust": 0.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 64500.333,
+        "std": 223.339,
+        "median": 64478
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 23.167,
+        "std": 4.409,
+        "median": 23.5
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.034,
+        "std": 0.001,
+        "median": 0.034
+      },
+      "judge_mean": {
+        "n": 3,
+        "mean": 1.443,
+        "std": 0.196,
+        "median": 1.33
+      }
+    },
+    {
+      "case": "offline-cache",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0
+      },
+      "checks": {
+        "skill_triggered": 1.0,
+        "used_cli": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 2,
+        "std": 0.0,
+        "median": 2
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 65095,
+        "std": 222.144,
+        "median": 65069
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 23.6,
+        "std": 1.808,
+        "median": 23.8
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.038,
+        "std": 0.001,
+        "median": 0.037
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    },
+    {
+      "case": "resume-session",
+      "env": "clean",
+      "model": "haiku",
+      "pass_rate": {
+        "n": 3,
+        "mean": 0.667,
+        "std": 0.289,
+        "median": 0.5
+      },
+      "checks": {
+        "skill_triggered": 0.33,
+        "cli_commands": 0.33,
+        "numbers_match_study": 1.0,
+        "max_tool_calls": 1.0
+      },
+      "tool_calls": {
+        "n": 3,
+        "mean": 1,
+        "std": 1.732,
+        "median": 0
+      },
+      "tokens": {
+        "n": 3,
+        "mean": 41083,
+        "std": 43485.126,
+        "median": 16127
+      },
+      "seconds": {
+        "n": 3,
+        "mean": 14.633,
+        "std": 10.144,
+        "median": 11.4
+      },
+      "cost_usd": {
+        "n": 3,
+        "mean": 0.027,
+        "std": 0.013,
+        "median": 0.02
+      },
+      "judge_mean": {
+        "n": 0
+      }
+    }
+  ],
+  "triggers": [
+    {
+      "query": "should_not_trigger-01",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Відредагуй статтю Wikipedia про мій стартап, щоб вона була нейтральнішою.",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-01",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Відредагуй статтю Wikipedia про мій стартап, щоб вона була нейтральнішою.",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-02",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Summarize the English Wikipedia article about black holes for a 10-year-old.",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-02",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Summarize the English Wikipedia article about black holes for a 10-year-old.",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-03",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Переклади інтерфейс мого застосунку польською мовою.",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-03",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Переклади інтерфейс мого застосунку польською мовою.",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-04",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Скільки людей у світі говорить чеською?",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-04",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Скільки людей у світі говорить чеською?",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-05",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Show me Google Trends for 'pickleball' in the US.",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-05",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Show me Google Trends for 'pickleball' in the US.",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-06",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "У моєму застосунку лічильник переглядів сторінок рахує двічі — знайди баг у цьому коді.",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-06",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "У моєму застосунку лічильник переглядів сторінок рахує двічі — знайди баг у цьому коді.",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-07",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Як завантажити повний дамп української Вікіпедії для навчання мовної моделі?",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-07",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Як завантажити повний дамп української Вікіпедії для навчання мовної моделі?",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-08",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Build a React chart component that shows monthly active users.",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-08",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Build a React chart component that shows monthly active users.",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-09",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Порадь, яку мову програмування вивчати першою.",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-09",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Порадь, яку мову програмування вивчати першою.",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-10",
+      "env": "clean",
+      "model": "haiku",
+      "expect": false,
+      "text": "Who founded Wikipedia and when?",
+      "rate": 0.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_not_trigger-10",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": false,
+      "text": "Who founded Wikipedia and when?",
+      "rate": 0.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-01",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Чи росте інтерес до йоги в польській Wikipedia?",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-01",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Чи росте інтерес до йоги в польській Wikipedia?",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-02",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Which language should we localize our meditation app into next: Polish, Czech or Romanian? Use Wikipedia interest data.",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-02",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Which language should we localize our meditation app into next: Polish, Czech or Romanian? Use Wikipedia interest data.",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-03",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Порівняй перегляди статей про криптовалюту в німецькій і французькій Вікіпедії за 3 роки.",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-03",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Порівняй перегляди статей про криптовалюту в німецькій і французькій Вікіпедії за 3 роки.",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-04",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Ми обираємо тему наступного курсу: фотографія чи програмування. Що цікавіше україномовній аудиторії?",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-04",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Ми обираємо тему наступного курсу: фотографія чи програмування. Що цікавіше україномовній аудиторії?",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-05",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "How many pageviews does the Spanish Wikipedia article on stoicism get, and is it trending up?",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-05",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "How many pageviews does the Spanish Wikipedia article on stoicism get, and is it trending up?",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-06",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Зроби PDF-звіт про інтерес до шахів у турецькій та в'єтнамській Wikipedia.",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-06",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Зроби PDF-звіт про інтерес до шахів у турецькій та в'єтнамській Wikipedia.",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-07",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Is the interest in intermittent fasting growing in Portugal and Brazil? We sell a fasting app.",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-07",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Is the interest in intermittent fasting growing in Portugal and Brazil? We sell a fasting app.",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-08",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Порівняй, наскільки популярна тема ментального здоров'я в різних мовних розділах Вікіпедії.",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-08",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Порівняй, наскільки популярна тема ментального здоров'я в різних мовних розділах Вікіпедії.",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-09",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Наскільки можна довіряти зростанню інтересу до штучного інтелекту в чеській Wikipedia?",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-09",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Наскільки можна довіряти зростанню інтересу до штучного інтелекту в чеській Wikipedia?",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-10",
+      "env": "clean",
+      "model": "haiku",
+      "expect": true,
+      "text": "Which markets show rising curiosity about learning Japanese? Check Wikipedia views across a few languages.",
+      "rate": 1.0,
+      "n": 3,
+      "pass": true
+    },
+    {
+      "query": "should_trigger-10",
+      "env": "realistic",
+      "model": "haiku",
+      "expect": true,
+      "text": "Which markets show rising curiosity about learning Japanese? Check Wikipedia views across a few languages.",
+      "rate": 1.0,
+      "n": 1,
+      "pass": true
+    }
+  ]
+}

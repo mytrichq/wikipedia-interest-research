@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Ranks the audiences and justifies the order with data (volume, relative interest, momentum, trust)",
+      "score": 3,
+      "reason": "The top-3 order (vi, uk, pt) matches the provided ranking, but the summary and pt bullet wrongly claim Portuguese has the steepest decline (-33.7%) when Ukrainian's -37.3% is actually more negative, and relative/momentum figures are cited only inconsistently across languages.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Notes that a language edition is not a country (e.g. Portuguese = Brazil + Portugal)",
+      "score": 4,
+      "reason": "The answer explicitly notes 'Бразилія + Португалія' for the Portuguese edition, though it doesn't generalize the point to the other editions.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Recommends concrete next audiences to validate, not a final go/no-go",
+      "score": 4,
+      "reason": "Gives ranked next-audience recommendations with specific validation actions (e-learning/social platforms for vi, checking localized-content gap for uk) without declaring a final decision, though the pt recommendation is vaguer.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly",
+      "score": 4,
+      "reason": "Directly compares the five editions and gives a ranked next-audiences list with reasons, as requested.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge",
+      "score": 3,
+      "reason": "Most figures are pulled correctly from the tool output, but the claim that Portuguese declines most steeply contradicts the actual yoy_pct data, and some suggestions (e-learning platforms, migration to English resources) are speculative additions not present in the data.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles)",
+      "score": 4,
+      "reason": "Names the hidden-country caveat for tr/vi and the 'interest ≠ willingness to pay' caveat concretely, but omits seasonality and doesn't generalize the edition-vs-country point beyond Portuguese.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words)",
+      "score": 3,
+      "reason": "Overall readable and in Ukrainian, but contains awkward/incorrect phrasing like '−33,7% років року' and 'найвідповідніше' that are not natural Ukrainian expressions.",
+      "kind": "general"
+    }
+  ],
+  "mean": 3.57
+}

@@ -1,0 +1,39 @@
+{
+  "case": "should_trigger-10",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic: Japanese language learning, analysis: compare interest trends across multiple Wikipedia language editions to identify which markets show rising curiosity"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-4yivi3lm/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"Japanese language\" --langs en,de,fr,es,pt,ko,zh,th --question \"Which markets show rising curiosity about learning Japanese?\"",
+        "description": "Create a Wikipedia interest research study on Japanese language learning across multiple language editions"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0316,
+  "duration_s": 22.9,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 1337,
+    "cache_read_input_tokens": 37718
+  },
+  "errors": []
+}

@@ -18,6 +18,11 @@ NON_ARTICLE_DESCRIPTIONS = (
 )
 MATCH_KINDS = {2: "exact_title_or_label", 1: "alias", 0: "search_only"}
 AMBIGUITY_RATIO = 0.3
+CREATIVE_WORK = re.compile(
+    r"\b(film|movie|album|song|single|novel|book|video game|television series|tv series|"
+    r"sitcom|anime|manga|musical|opera|play by|painting|band|magazine)\b",
+    re.IGNORECASE,
+)
 MAX_CANDIDATES = 12
 MAX_REDIRECTS = 50
 
@@ -201,12 +206,25 @@ def rank(candidates: list[Candidate]) -> list[Candidate]:
     )
 
 
+def is_creative_work(candidate: Candidate) -> bool:
+    return bool(CREATIVE_WORK.search(candidate.english_description))
+
+
 def is_ambiguous(ranked: list[Candidate]) -> list[Candidate]:
-    """Other exact-name matches that are about as notable as the top one."""
+    """Other exact-name matches about as notable as the top one.
+
+    A film, album or book named after a concept does not make the concept ambiguous.
+    """
     if not ranked or ranked[0].match == 0:
         return []
     top = ranked[0]
-    return [c for c in ranked[1:] if c.match > 0 and c.editions >= AMBIGUITY_RATIO * top.editions]
+    return [
+        c
+        for c in ranked[1:]
+        if c.match > 0
+        and c.editions >= AMBIGUITY_RATIO * top.editions
+        and (is_creative_work(top) or not is_creative_work(c))
+    ]
 
 
 def proxy_search(client: WikimediaClient, edition: Edition, concept: Candidate) -> list[dict]:

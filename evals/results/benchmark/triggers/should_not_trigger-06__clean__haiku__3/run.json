@@ -1,0 +1,37 @@
+{
+  "case": "should_not_trigger-06",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "find <tmp>/wir-eval-gw___dtj/workspace -type f -name \"*.js\" -o -name \"*.jsx\" -o -name \"*.ts\" -o -name \"*.tsx\" -o -name \"*.py\" | head -20",
+        "description": "List source code files in the workspace"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Grep",
+      "input": {
+        "pattern": "page.*view|view.*count|counter",
+        "output_mode": "files_with_matches"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0233,
+  "duration_s": 6.9,
+  "usage": {
+    "input_tokens": 18,
+    "output_tokens": 423,
+    "cache_read_input_tokens": 37737
+  },
+  "errors": []
+}

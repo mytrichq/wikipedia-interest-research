@@ -1,0 +1,34 @@
+{
+  "skill_triggered": {
+    "pass": false,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": false,
+    "detail": "curl -s \"https://pageviews.toolforge.org/api.php?project=pl.wikipedia.org&article=G%C5%82odzenie_interwa%C5%82owe&granularity=monthly&start=2024090100&end=2026092400\" | head -100; curl -s \"https://pageviews.wmcloud.org/api/v1/pageviews/per-article/pl.wikipedia.org/all-access/all-agents/monthly/20240"
+  },
+  "numbers_match_study": {
+    "pass": false,
+    "detail": "no study.json in workspace"
+  },
+  "no_invented_titles": {
+    "pass": false,
+    "detail": "suspicious: ['Přerušovaný půst', 'Głodówka lecznicza']"
+  },
+  "mentions_trust": {
+    "pass": false,
+    "detail": ""
+  },
+  "mentions_limitations": {
+    "pass": true,
+    "detail": ""
+  },
+  "answer_language": {
+    "pass": true,
+    "detail": "uk"
+  },
+  "max_tool_calls": {
+    "pass": false,
+    "detail": "42 <= 15"
+  }
+}

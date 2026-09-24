@@ -1,0 +1,38 @@
+{
+  "case": "should_trigger-01",
+  "env": "clean",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic: yoga, language: Polish, question: Is interest in yoga growing?"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-fzajm7sn/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"yoga\" --langs pl --question \"Чи росте інтерес до йоги в польській Wikipedia?\""
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0275,
+  "duration_s": 14.7,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 547,
+    "cache_read_input_tokens": 37720
+  },
+  "errors": []
+}

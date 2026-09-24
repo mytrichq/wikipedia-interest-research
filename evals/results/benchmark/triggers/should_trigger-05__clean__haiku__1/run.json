@@ -1,0 +1,39 @@
+{
+  "case": "should_trigger-05",
+  "env": "clean",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Spanish Wikipedia stoicism pageviews trending"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-3jby845m/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"stoicism\" --langs es --question \"How many pageviews does the Spanish Wikipedia article on stoicism get, and is it trending up?\"",
+        "description": "Run Wikipedia interest research for Spanish stoicism"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0287,
+  "duration_s": 16.0,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 750,
+    "cache_read_input_tokens": 37719
+  },
+  "errors": []
+}

@@ -1,0 +1,62 @@
+{
+  "case": "english-query",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic=astronomy language=Ukrainian timeframe=2years focus=growth_trend"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-tgdibwjc/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs uk --period 24m --question \"Is interest in astronomy growing on Ukrainian Wikipedia?\"",
+        "description": "Create Wikipedia interest research study for astronomy on Ukrainian Wikipedia"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "file_path": "<tmp>/wir-eval-tgdibwjc/workspace/.claude/skills/wikipedia-interest-research/assets/narrative_template.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Write",
+      "input": {
+        "file_path": "<tmp>/wir-eval-tgdibwjc/workspace/wiki-studies/astronomy-uk/narrative.md",
+        "content": "# Headline\nInterest in astronomy on Ukrainian Wikipedia is declining sharply, down 61.7% year-over-year with high confidence.\n\n## Findings\n- All 12 recent months scored below their year-earlier equivalents, indicating consistent decline rather than seasonal fluctuation.\n- The decline outpaces the broader Ukrainian Wikipedia trend: while the edition dropped 24.6% overall, astronomy declined 42.4% more than that relative shift.\n- Astronomy shows a strong September seasonal peak (approximately 2.3× the average monthly views), but even accounting for seasonality, the decline is sustained.\n- Reader base remains primarily Ukrainian (65%), with secondary audiences in the US (11%) and Poland (4%).\n\n## Next steps\n- Investigate what triggered the sharp drop starting September 2024 (content removal, algorithm change on Ukrainian Wikipedia, or external event).\n- Compare trends in other Wikipedia editions to determine if this is a Ukrainian-specific phenomenon or global interest shift in astronomy.\n- Examine the September peak more closely to understand whether it reflects school calendars, specific astronomical events, or other seasonal drivers.\n"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-tgdibwjc/workspace/.claude/skills/wikipedia-interest-research/scripts/wir report astronomy-uk --narrative wiki-studies/astronomy-uk/narrative.md --lang en",
+        "description": "Generate PDF report for astronomy interest study"
+      }
+    }
+  ],
+  "n_tool_calls": 5,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**No, interest in astronomy is declining sharply on Ukrainian Wikipedia**: down 61.7% year-over-year, trust High.\n\n- **Ukrainian Wikipedia**: declining, −61.7% (0 of 12 months above last year), trust High — all recent months consistently underperformed their year-earlier equivalents (p=0.002).\n- The decline outpaces the broader edition: Ukrainian Wikipedia dropped 24.6% overall, but astronomy fell 42.4% further relative to that trend.\n- Strong September seasonality (≈2.3× monthly average), but this cannot explain the sustained decline.\n- Readership remains primarily Ukrainian (65%), with secondary audiences in the US (11%) and Poland (4%).\n\n**Limitations:** Interest in an encyclopedia article ≠ willingness to pay; a language edition ≠ a country; whole-edition traffic was down 25% year-over-year, so relative figures account for that baseline shift.\n\n**Next:** Investigate what changed in September 2024 (content/platform changes); compare trends across other Wikipedia editions to determine if this is Ukraine-specific.\n\n---\n\n**Your one-page report is ready:**\n`<tmp>/wir-eval-tgdibwjc/workspace/wiki-studies/astronomy-uk/report.pdf`\n\nThe report includes a chart showing the month-by-month dynamics and the September seasonal peak."
+  ],
+  "cost_usd": 0.0529,
+  "duration_s": 36.5,
+  "usage": {
+    "input_tokens": 52,
+    "output_tokens": 2183,
+    "cache_read_input_tokens": 146205
+  },
+  "errors": []
+}

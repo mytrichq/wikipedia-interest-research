@@ -1,0 +1,20 @@
+{
+  "case": "negative-unrelated",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [],
+  "n_tool_calls": 0,
+  "skills_used": [],
+  "final_answers": [
+    "Ось функція для розрахування медіани списку чисел:\n\n```python\ndef median(numbers):\n    sorted_nums = sorted(numbers)\n    n = len(sorted_nums)\n    \n    if n % 2 == 1:\n        return sorted_nums[n // 2]\n    else:\n        mid1 = sorted_nums[n // 2 - 1]\n        mid2 = sorted_nums[n // 2]\n        return (mid1 + mid2) / 2\n```\n\n**Як це працює:**\n- Сортує список\n- Якщо кількість елементів непарна, повертає середній елемент\n- Якщо кількість елементів парна, повертає середнє арифметичне двох середніх елементів\n\n**Приклади використання:**\n```python\nprint(median([3, 1, 4, 1, 5]))      # 3\nprint(median([10, 20, 30, 40]))     # 25.0\nprint(median([7]))                  # 7\n```\n\nАльтернативно, можна використати модуль `statistics`:\n```python\nfrom statistics import median\n\nprint(median([3, 1, 4, 1, 5]))      # 3\n```"
+  ],
+  "cost_usd": 0.018,
+  "duration_s": 5.6,
+  "usage": {
+    "input_tokens": 10,
+    "output_tokens": 438,
+    "cache_read_input_tokens": 15295
+  },
+  "errors": []
+}

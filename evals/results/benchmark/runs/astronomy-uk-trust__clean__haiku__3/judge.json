@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Does not claim growth; identifies the decline (or at best no growth).",
+      "score": 5,
+      "reason": "The answer opens by explicitly stating interest is falling, not growing, and quantifies the decline (-61.7%).",
+      "kind": "case"
+    },
+    {
+      "criterion": "Explains that September peaks are seasonal (school year), not a trend.",
+      "score": 5,
+      "reason": "It explicitly notes September peaks are seasonal, likely tied to the school curriculum, and does not confuse this with growth.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Gives a trust level and explains why, in plain language.",
+      "score": 5,
+      "reason": "It states trust is high and explains the reasoning (0 of 12 months exceeded the prior year, p=0.002) in accessible terms.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 5,
+      "reason": "It directly addresses both growth and trustworthiness as asked, and closes with a clear bottom-line statement relevant to the course decision.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 5,
+      "reason": "All numbers (yoy_pct, months_up_of_12, relative_yoy_pct, edition_yoy_pct, readers_by_country, period) are drawn directly from the tool output with no invented figures.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 4,
+      "reason": "It names willingness-to-pay, country breakdown, and seasonality as limitations and suggests further checks, but doesn't explicitly flag that a language edition isn't a country proxy for Ukraine.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 5,
+      "reason": "The answer is written in fluent, natural Ukrainian with clear structure and no foreign or invented terms, though 'STEM' is a common borrowed acronym rather than an invented word.",
+      "kind": "general"
+    }
+  ],
+  "mean": 4.86
+}

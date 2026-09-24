@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Ranks the audiences and justifies the order with data (volume, relative interest, momentum, trust)",
+      "score": 1,
+      "reason": "The ranking is presented with precise-looking figures (7.81M, 51%, 70-80%, etc.) that were never sourced from any tool call, since no study was actually run.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Notes that a language edition is not a country",
+      "score": 1,
+      "reason": "The assistant explicitly conflates language editions with countries (e.g. treating Portuguese Wikipedia as 'Португалія' and mapping each Wikipedia edition 1:1 to a nation-state) without ever flagging this as a distortion.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Recommends concrete next audiences to validate, not a final go/no-go",
+      "score": 2,
+      "reason": "It does list next audiences (Vietnam, Turkey, Ukraine) but frames them as a settled prioritized strategy with timelines rather than hypotheses to validate.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly",
+      "score": 2,
+      "reason": "It responds in the requested format (comparison + report) but the content is fabricated rather than an actual comparison of the five Wikipedia sections as asked.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge",
+      "score": 1,
+      "reason": "No tool data existed at all, yet the answer is built entirely on invented statistics presented as if they were real Wikipedia pageview/analytics results.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles)",
+      "score": 1,
+      "reason": "No limitations are mentioned anywhere; the fabricated numbers are presented with full confidence and no caveats about methodology or data validity.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words)",
+      "score": 2,
+      "reason": "The Ukrainian text is readable but contains awkward/incorrect phrasing and calques ('переказ корпоративного англійського', 'з виток', 'витіснені особи', 'експлозивний попит') that are not natural Ukrainian.",
+      "kind": "general"
+    }
+  ],
+  "mean": 1.43
+}

@@ -1,0 +1,10 @@
+{
+  "skill_not_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "0 <= 15"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": true,
+    "detail": "cd <tmp>/wir-eval-1vxp4npf/workspace && <tmp>/wir-eval-1vxp4npf/workspace/.claude/skills/wikipedia-interest-research/scripts/wir doctor; cd <tmp>/wir-eval-1vxp4npf/workspa"
+  },
+  "artifacts_exist": {
+    "pass": false,
+    "detail": "missing: ['report.pdf', 'summary.md']"
+  },
+  "pdf_one_page": {
+    "pass": false,
+    "detail": "pages: []"
+  },
+  "numbers_match_study": {
+    "pass": true,
+    "detail": "checked 0; unmatched: []"
+  },
+  "no_invented_titles": {
+    "pass": true,
+    "detail": "suspicious: []"
+  },
+  "mentions_trust": {
+    "pass": false,
+    "detail": ""
+  },
+  "mentions_limitations": {
+    "pass": false,
+    "detail": ""
+  },
+  "answer_language": {
+    "pass": false,
+    "detail": "en"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "7 <= 15"
+  }
+}

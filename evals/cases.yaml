@@ -75,9 +75,11 @@ cases:
       - "Ми створюємо застосунок для вивчення мов. Порівняй інтерес до вивчення англійської у вибраних нами мовних розділах та підготуй короткий звіт: які аудиторії варто дослідити наступними й чому?"
     envs: [clean, realistic]
     checks:
-      skill_triggered: true
       asks_clarification_or_states_assumption: true
-    notes: "The languages are not named. The agent must ask which ones, or pick a default set and say so explicitly."
+    notes: >
+      The languages are not named. The agent must ask which ones, or pick a default set and say
+      so explicitly. Asking before loading the skill is fine, so skill_triggered is not required
+      (it was in v1 of the benchmark: a wrong expectation).
 
   # ---------- Follow-ups and memory ----------
   - id: followup-add-lang
@@ -95,7 +97,8 @@ cases:
       max_tool_calls: 25
 
   - id: resume-session
-    setup: "Pre-create study 'astronomy-uk-pl' with `scripts/wir study new` before the session starts."
+    setup_commands:
+      - "{wir} study new --topic astronomy --langs uk,pl --id astronomy-uk-pl"
     turns:
       - "Продовж наше дослідження astronomy-uk-pl: яка з двох мов перспективніша?"
     envs: [clean]
@@ -172,7 +175,10 @@ cases:
       answer_language: en
 
   - id: offline-cache
-    setup: "Warm the cache with the astronomy-uk study, then block network access for the session (WIR_OFFLINE=1)."
+    setup_commands:
+      - "{wir} study new --topic astronomy --langs uk --id warm-cache && rm -rf wiki-studies/warm-cache"
+    env_vars:
+      WIR_OFFLINE: "1"
     turns:
       - "Чи зростає інтерес до астрономії в українській Wikipedia?"
     envs: [clean]

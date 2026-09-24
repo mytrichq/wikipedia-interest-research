@@ -1,0 +1,36 @@
+{
+  "case": "should_not_trigger-05",
+  "env": "clean",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "ToolSearch",
+      "input": {
+        "query": "select:WebFetch,WebSearch"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebFetch",
+      "input": {
+        "url": "https://trends.google.com/trends/explore?q=pickleball&geo=US",
+        "prompt": "Show me the current and historical search interest trend data for pickleball in the US. Include any trend statistics, growth rates, related topics, and geographic data if available."
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0248,
+  "duration_s": 8.3,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 733,
+    "cache_read_input_tokens": 37716
+  },
+  "errors": []
+}

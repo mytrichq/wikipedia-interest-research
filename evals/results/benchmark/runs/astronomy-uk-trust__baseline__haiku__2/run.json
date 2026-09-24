@@ -1,0 +1,118 @@
+{
+  "case": "astronomy-uk-trust",
+  "env": "baseline",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Agent",
+      "input": {
+        "description": "Research astronomy interest trends on Ukrainian Wikipedia",
+        "subagent_type": "general-purpose",
+        "prompt": "Research whether interest in astronomy is growing on Ukrainian Wikipedia and assess the reliability of this growth.\n\nPlease:\n1. Find data about views/edits on Ukrainian Wikipedia astronomy articles (e.g., \"Астрономія\", \"Космос\", astronomy-related categories)\n2. Look for trends over the past 2-3 years if available\n3. Check if there are reliable sources or analyses about Wikipedia content growth in this category\n4. Assess what factors might be driving changes (seasonal patterns, media events, educational initiatives, bot activity, etc.)\n5. Evaluate how much weight can be given to this data for decision-making\n\nFocus on factual data and analysis rather than speculation."
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "ToolSearch",
+      "input": {
+        "query": "select:WebSearch,WebFetch",
+        "max_results": 2
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Ukrainian Wikipedia astronomy articles views edits statistics 2024 2025 2026"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Wikipedia ua:Астрономія page views traffic data"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Ukrainian Wikipedia growth trends analysis reliability"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Wikipedia pageviews API Ukrainian astronomy category"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebFetch",
+      "input": {
+        "url": "https://uk.wikipedia.org/wiki/%D0%92%D1%96%D0%BA%D1%96%D0%BF%D0%B5%D0%B4%D1%96%D1%8F:%D0%9F%D1%80%D0%BE%D1%94%D0%BA%D1%82:%D0%90%D1%81%D1%82%D1%80%D0%BE%D0%BD%D0%BE%D0%BC%D1%96%D1%8F/%D0%A1%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0_%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BB%D1%8F%D0%B4%D1%96%D0%B2/en",
+        "prompt": "What are the pageview statistics for the Ukrainian Wikipedia Astronomy project? What are the trends and numbers?"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebFetch",
+      "input": {
+        "url": "https://diff.wikimedia.org/2023/02/24/ukrainian-wikipedia-a-review-of-the-pageviews-of-a-thriving-project/",
+        "prompt": "What are the key findings about Ukrainian Wikipedia growth and trends? What seasonal patterns or reliability factors are mentioned?"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Ukrainian Wikipedia astronomy \"Астрономія\" page views trends 2023 2024 2025"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Wikimedia pageviews statistics tool API access Ukrainian Wikipedia"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "\"Ukrainian Wikipedia\" astronomy education school curriculum 2023 2024"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Wikipedia data quality bots edits Ukrainian reliability methodology"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Wikimedia pageviews statistics limitations crawler bots filtering accuracy"
+      }
+    }
+  ],
+  "n_tool_calls": 13,
+  "skills_used": [],
+  "final_answers": [
+    "Розпочав дослідження трендів астрономічного контенту на українській Wikipedia. Це потребує аналізу даних про переглади та редакції статей, а також перевірки надійних джерел про ці тренди.\n\nЧекаю на результати дослідження — вони прийдуть незабаром.",
+    "## Результати дослідження\n\nЗа результатами аналізу, ось що варто знати:\n\n### 📊 **Що ми знаємо напевно:**\n\n- **Астрономія популярна** на українській Wikipedia: разом астрономічні статті набрали 208+ млн переглядів\n- **Топові статті** мають стійкий попит: James Webb Space Telescope (~7,385 переглядів/день), Сонячна система (~7,237), Чорні діри (~5,012)\n- **Освітній попит** очевидний: переглади зростають під час навчального року, падають влітку\n- **Платформа растет**: українська Wikipedia загалом зросла на 12% (2022-2023)\n\n### ⚠️ **Критичний момент — відповідь на ваше запитання:**\n\n**Чи зростає інтерес саме до астрономії?** — Дані не дають ясної відповіді. Немає часових рядів (дані за місяцями/роками) для конкретних астрономічних статей, тому не можна однозначно сказати, чи зростає *саме* астрономія.\n\n### 🔍 **Проблеми з надійністю:**\n\n| Проблема | Вплив |\n|----------|-------|\n| **Bot-трафік** | До 40% переглядів можуть бути боти, не реальні користувачі |\n| **Немає часових рядів** | Дані тільки агреговані, без розбору по місяцях/роках |\n| **Сезонність замішує** | Важко виділити справжній ріст від шкільного календаря |\n| **Переглади ≠ якість** | Популярність не означає якість контенту чи активність експертів |\n\n### ✅ **Рекомендація для вашого рішення:**\n\nАстрономія — **надійний предмет для курсу** з точки зору:\n- ✓ Стійкий попит (208M переглядів не випадок)\n- ✓ Освітня аудиторія (школярі, студенти шукають це)\n- ✓ Частина школьної програми в Україні\n\n**АЛЕ:** якщо вас цікавить, чи скорочується/зростає попит, вам потрібні **сирі дані** прямо з Wikimedia Analytics API по месячно за останні роки. Без цього не можна кількісно оцінити тренд.\n\nДля вашого курсу: даних достатньо, щоб стартувати. Популярність астрономії на Wikipedia — це сигнал реального попиту."
+  ],
+  "cost_usd": 0.6845,
+  "duration_s": 22.6,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 1859,
+    "cache_read_input_tokens": 61069
+  },
+  "errors": []
+}

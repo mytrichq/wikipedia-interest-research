@@ -1,0 +1,39 @@
+{
+  "case": "should_trigger-02",
+  "env": "clean",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "meditation Polish Czech Romanian"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-e1a_v47t/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"meditation\" --langs pl,cs,ro --question \"Which language should we localize our meditation app into next: Polish, Czech or Romanian?\"",
+        "description": "Research Wikipedia interest in meditation across Polish, Czech, and Romanian editions"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0289,
+  "duration_s": 18.8,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 828,
+    "cache_read_input_tokens": 37725
+  },
+  "errors": []
+}

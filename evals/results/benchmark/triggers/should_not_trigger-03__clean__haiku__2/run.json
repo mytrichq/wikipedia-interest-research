@@ -1,0 +1,28 @@
+{
+  "case": "should_not_trigger-03",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "ls -la <tmp>/wir-eval-vu5k6hhx/workspace"
+      }
+    }
+  ],
+  "n_tool_calls": 1,
+  "skills_used": [],
+  "final_answers": [
+    "The working directory appears to be empty. Could you provide more details:\n\n1. **Where is your application code?** (Please provide the path or upload the files)\n2. **What technology does it use?** (e.g., React, Vue, HTML, Node.js, etc.)\n3. **How are texts currently organized?** (e.g., hardcoded in components, in separate i18n files, etc.)\n4. **Is there already a translation framework set up?** (e.g., i18next, react-intl, etc.)\n\nOnce I understand the structure, I can help translate the interface into Polish."
+  ],
+  "cost_usd": 0.0211,
+  "duration_s": 8.2,
+  "usage": {
+    "input_tokens": 18,
+    "output_tokens": 470,
+    "cache_read_input_tokens": 37726
+  },
+  "errors": []
+}

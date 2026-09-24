@@ -1,0 +1,35 @@
+{
+  "case": "should_not_trigger-03",
+  "env": "realistic",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "find <tmp>/wir-eval-7yhqv6zg/workspace -type f -name \"*.json\" -o -name \"*.js\" -o -name \"*.ts\" -o -name \"*.tsx\" -o -name \"*.jsx\" -o -name \"*.html\" -o -name \"*.py\" | head -20"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "file_path": "<tmp>/wir-eval-7yhqv6zg/workspace"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0413,
+  "duration_s": 6.6,
+  "usage": {
+    "input_tokens": 18,
+    "output_tokens": 455,
+    "cache_read_input_tokens": 46030
+  },
+  "errors": []
+}

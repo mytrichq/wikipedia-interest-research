@@ -1,0 +1,18 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "cli_commands": {
+    "pass": true,
+    "detail": ""
+  },
+  "numbers_match_study": {
+    "pass": true,
+    "detail": "checked 8; unmatched: []"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "3 <= 15"
+  }
+}

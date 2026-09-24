@@ -1,0 +1,31 @@
+{
+  "case": "should_trigger-08",
+  "env": "realistic",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "mental health"
+      }
+    }
+  ],
+  "n_tool_calls": 1,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "Перед тим як запустити аналіз, мне потрібно уточнити, **які мовні розділи Вікіпедії вас цікавлять**? \n\nНаприклад:\n- Український, польський, чеський?\n- Або більший список: британський, австралійський, німецький?\n- Чи вас цікавить сравнення певного набору мов?\n\nНапишіть коди мов (наприклад `uk,pl,cs,en,de`) або назви мов українською, і я проведу аналіз популярності теми ментального здоров'я в цих розділах."
+  ],
+  "cost_usd": 0.0462,
+  "duration_s": 9.7,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 726,
+    "cache_read_input_tokens": 43321
+  },
+  "errors": []
+}

@@ -1,0 +1,39 @@
+{
+  "case": "should_trigger-09",
+  "env": "realistic",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic=artificial intelligence, language=Czech"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-uhepcu5t/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"artificial intelligence\" --langs cs --question \"Наскільки можна довіряти зростанню інтересу до штучного інтелекту в чеській Wikipedia?\"",
+        "description": "Run Wikipedia interest research study for AI in Czech Wikipedia"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.048,
+  "duration_s": 27.8,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 1016,
+    "cache_read_input_tokens": 45421
+  },
+  "errors": []
+}

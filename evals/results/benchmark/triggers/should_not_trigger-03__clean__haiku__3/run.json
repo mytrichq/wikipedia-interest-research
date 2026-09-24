@@ -1,0 +1,37 @@
+{
+  "case": "should_not_trigger-03",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "find <tmp>/wir-eval-e4j_k2qg/workspace -type f -name \"*.json\" -o -name \"*.jsx\" -o -name \"*.js\" -o -name \"*.tsx\" -o -name \"*.html\" | head -20",
+        "description": "List the main files in the workspace to identify the application type"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "ls -la <tmp>/wir-eval-e4j_k2qg/workspace/ | head -30",
+        "description": "List the contents of the workspace directory"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0216,
+  "duration_s": 6.1,
+  "usage": {
+    "input_tokens": 18,
+    "output_tokens": 453,
+    "cache_read_input_tokens": 37726
+  },
+  "errors": []
+}

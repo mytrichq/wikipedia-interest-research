@@ -1,0 +1,39 @@
+{
+  "case": "ambiguous-topic",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Mercury Ukrainian Wikipedia pageview trends"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-lxgl4xhn/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"Mercury\" --langs uk --question \"Чи росте інтерес до Меркурія в українській Wikipedia?\"",
+        "description": "Run Wikipedia interest research for Mercury in Ukrainian"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "Знайшов три можливі значення для \"Mercury\". Який вас цікавить?\n\n1. **Q308** — Меркурій (планета) — першої планета від Сонця\n2. **Q925** — ртуть (хімічний елемент)\n3. **Q1150** — Меркурій (римський бог)\n\nПрипускаю, ви маєте на увазі планету (Q308), але будь ласка, підтвердьте."
+  ],
+  "cost_usd": 0.0343,
+  "duration_s": 23.2,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 1037,
+    "cache_read_input_tokens": 63309
+  },
+  "errors": []
+}

@@ -1,0 +1,26 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": true,
+    "detail": "<tmp>/wir-eval-wool1h32/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs uk,pl --period 24m --question \"Порівняй інтерес до астрономії в українській та польській Wikipedia за останні два роки.\"; "
+  },
+  "cli_commands": {
+    "pass": true,
+    "detail": ""
+  },
+  "numbers_match_study": {
+    "pass": false,
+    "detail": "checked 15; unmatched: ['85']"
+  },
+  "followup_is_incremental": {
+    "pass": true,
+    "detail": "updates=2 recreated_after_update=0"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "4 <= 15"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "case": "should_not_trigger-02",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "WebFetch",
+      "input": {
+        "url": "https://en.wikipedia.org/wiki/Black_hole"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "ToolSearch",
+      "input": {
+        "query": "select:WebFetch",
+        "max_results": 1
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0203,
+  "duration_s": 4.4,
+  "usage": {
+    "input_tokens": 18,
+    "output_tokens": 273,
+    "cache_read_input_tokens": 37717
+  },
+  "errors": []
+}

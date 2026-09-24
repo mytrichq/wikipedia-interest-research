@@ -1,0 +1,31 @@
+{
+  "case": "english-learning-no-langs",
+  "env": "realistic",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Analyze interest in English language learning across selected Wikipedia language editions to identify which audiences show the strongest growth and engagement for a language learning application. Focus on: 1) trending interest in English learning articles/pages, 2) comparison across different language editions to identify underserved vs saturated markets, 3) seasonal patterns and reliability of trends, 4) recommendations for which new audiences and markets to prioritize next."
+      }
+    }
+  ],
+  "n_tool_calls": 1,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "Перед тим як запустити дослідження, мені потрібно уточнити: **які мовні розділи Вікіпедії ви хочете порівняти?**\n\nНаприклад:\n- **Східноєвропейські**: українська (uk), польська (pl), чеська (cs), російська (ru)\n- **Балтійські**: литовська (lt), латвійська (lv)\n- **Південноєвропейські**: португальська (pt), румунська (ro), болгарська (bg)\n- **Азіатські**: в'єтнамська (vi), турецька (tr)\n- **Інші комбінації?**\n\nНазвіть кілька мов — я проаналізую, у яких аудиторіях найсильніший ріст інтересу до вивчення англійської, і на основі цього дам вам рекомендації, які ринки дослідити наступними."
+  ],
+  "cost_usd": 0.0477,
+  "duration_s": 11.5,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 793,
+    "cache_read_input_tokens": 43654
+  },
+  "errors": []
+}

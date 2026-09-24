@@ -389,6 +389,43 @@ def _next_steps(document: dict) -> list[str]:
     return [*steps, f"Offer a shareable one-page PDF: {report}"]
 
 
+def snapshot(document: dict) -> dict:
+    """Headline numbers per result, stored before an update to report what changed."""
+    return {
+        cell["key"]: {
+            "yoy_pct": cell["metrics"]["growth_without_one_offs"]["robust_yoy_pct"],
+            "verdict": cell["metrics"]["verdict"],
+            "trust": f"{cell['trust']['level']} ({cell['trust']['score']})",
+        }
+        for cell in document["results"]["cells"]
+        if cell["status"] == "ok"
+    }
+
+
+def _changes(document: dict, rows: list[dict]) -> dict:
+    before = next((h["before"] for h in reversed(document["history"]) if "before" in h), None)
+    if before is None:
+        return {}
+    changes = []
+    for row in rows:
+        old = before.get(row["key"])
+        if row.get("status") == "missing":
+            continue
+        if old is None:
+            changes.append(f"{row['key']}: new in this update")
+            continue
+        diffs = []
+        if old["verdict"] != row["verdict"]:
+            diffs.append(f"verdict {old['verdict']} -> {row['verdict']}")
+        if old["trust"] != row["trust"]:
+            diffs.append(f"trust {old['trust']} -> {row['trust']}")
+        if old["yoy_pct"] != row["yoy_pct"]:
+            diffs.append(f"yoy_pct {old['yoy_pct']} -> {row['yoy_pct']}")
+        if diffs:
+            changes.append(f"{row['key']}: " + "; ".join(diffs))
+    return {"changes_since_previous_state": changes or ["no change in verdicts, trust or yoy_pct"]}
+
+
 def summarize(document: dict) -> dict:
     """Compact view for the agent: every number it may quote, nothing it does not need."""
     results = document["results"]
@@ -449,6 +486,7 @@ def summarize(document: dict) -> dict:
         "readers_by_country": {
             code: readers_text(ctx) for code, ctx in results["editions"].items()
         },
+        **_changes(document, rows),
         "assumptions": document["assumptions"],
         "next_steps": _next_steps(document),
     }

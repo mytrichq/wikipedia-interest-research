@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Ranks the audiences and justifies the order with data (volume, relative interest, momentum, trust).",
+      "score": 1,
+      "reason": "No ranking or justification is given at all; the assistant only asks clarifying questions.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Notes that a language edition is not a country (e.g. Portuguese = Brazil + Portugal).",
+      "score": 1,
+      "reason": "This distinction is never mentioned anywhere in the response.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Recommends concrete next audiences to validate, not a final go/no-go.",
+      "score": 1,
+      "reason": "No specific audiences are recommended; the response defers the entire task back to the user.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 1,
+      "reason": "The user asked for a comparison and report, but the assistant produced only clarifying questions with no analysis or answer.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 2,
+      "reason": "Since no claims or recommendations are actually made, there is no data misuse, but this also means the task is not fulfilled at all (neutral/low score as no substantive output exists to evaluate).",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 1,
+      "reason": "No concrete limitations are named; the response only vaguely asks whether the user has data or wants strategic analysis.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 3,
+      "reason": "The Ukrainian is natural and clear, but stray English/other-language terms and an emoji appear, and the response fails to actually deliver the requested clarity on the topic.",
+      "kind": "general"
+    }
+  ],
+  "mean": 1.43
+}

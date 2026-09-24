@@ -1,0 +1,42 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Identifies April-May 2025 as a one-off news event, not seasonality or a trend.",
+      "score": 5,
+      "reason": "The answer explicitly calls out April/May 2025 spikes (×3.8/×2.8 UK, ×10.6/×7.8 PL) as tied to a specific conclave-related event, not seasonal pattern.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Explains that the decline is partly a return to normal after the event.",
+      "score": 3,
+      "reason": "It gestures at the comparison year being 'unusual' due to the spikes and that trend 'remains declining after normalization,' but never clearly states the core insight that part of the drop is simply reversion from an inflated baseline year.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 5,
+      "reason": "Opens with an unambiguous 'Ні, інтерес... не зростає в обох мовах' directly answering the yes/no question.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 4,
+      "reason": "Nearly all figures (yoy_pct, trust levels, one-off multipliers, readers_by_country) are pulled straight from the tool output, with only minor added interpretive framing.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 4,
+      "reason": "Concrete limitations are given (article interest ≠ global topic popularity, reader country breakdowns, event-driven/news-spike nature), though it doesn't flag potential missing/alternate conclave articles until the vague 'next steps' section.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 2,
+      "reason": "Contains garbled/invented Ukrainian such as 'невіходовим' and the nonsensical heading 'Порівняльна змія' (literally 'comparative snake', apparently meant to be 'зміна'), which would confuse a non-technical reader.",
+      "kind": "general"
+    }
+  ],
+  "mean": 3.83
+}

@@ -1,0 +1,20 @@
+{
+  "case": "should_not_trigger-07",
+  "env": "realistic",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [],
+  "n_tool_calls": 0,
+  "skills_used": [],
+  "final_answers": [
+    "Ось кілька способів завантажити повний дамп української Вікіпедії:\n\n## 1. **Офіційні дампи Вікіпедії** (найпростіший спосіб)\nВікіпедія регулярно публікує дампи на https://dumps.wikimedia.org/uk/\n\n```bash\n# Завантажити дамп статей (найсвіжіший)\nwget https://dumps.wikimedia.org/uk/latest/uk-latest-pages-articles.xml.bz2\n\n# Або поточну версію конкретної дати\nwget https://dumps.wikimedia.org/uk/20260901/uk20260901-pages-articles.xml.bz2\n```\n\n## 2. **Розпакування та обробка**\n```bash\n# Розпакування\nbzip2 -d uk-latest-pages-articles.xml.bz2\n\n# Розмір дампу ~2-3 GB (стиснутий), ~8-10 GB (розпакований)\n```\n\n## 3. **Інструменти для парсингу**\nДля роботи з XML можна використати:\n\n- **MediaWiki XML parser** (Python):\n```bash\npip install mwclient mwxml\n```\n\n- **MediaWiki2013 parser** або інші парсери, які витягують чистий текст\n\n## 4. **Альтернативні варіанти**\n- **Hugging Face Datasets** — готові дампи: `datasets load_dataset(\"wikipedia\", \"uk\")`\n- **Common Crawl** — містить вміст Вікіпедії\n- **DBpedia** — структурована версія Вікіпедії в RDF\n\n## 5. **Обробка для ML**\n```python\nimport mwxml\n\nwith open('uk-latest-pages-articles.xml', 'rb') as f:\n    for page in mwxml.parse(f):\n        title = page.title\n        text = page.latest().text\n        # Обробка тексту для моделі\n```\n\nДампи оновлюються щомісячно. Обирайте залежно від потреб:\n- **-pages-articles** — основний текст статей (найпопулярніший)\n- **-pages-current** — всі версії (великий розмір)\n- **-pagelinks** — посилання між статтями\n\nЯка конкретна мета твого навчання моделі? Це допоможе уточнити рекомендації."
+  ],
+  "cost_usd": 0.0323,
+  "duration_s": 8.4,
+  "usage": {
+    "input_tokens": 10,
+    "output_tokens": 747,
+    "cache_read_input_tokens": 15295
+  },
+  "errors": []
+}

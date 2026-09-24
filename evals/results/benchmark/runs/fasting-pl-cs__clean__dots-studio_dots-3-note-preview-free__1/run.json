@@ -1,0 +1,45 @@
+{
+  "case": "fasting-pl-cs",
+  "env": "clean",
+  "model": "dots-studio/dots-3-note-preview:free",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "path": "<tmp>/wir-eval-i_lan4j8/workspace/.claude/skills/wikipedia-interest-research/SKILL.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-i_lan4j8/workspace && <tmp>/wir-eval-i_lan4j8/workspace/.claude/skills/wikipedia-interest-research/scripts/wir doctor",
+        "timeout": 60
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-i_lan4j8/workspace && .claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"intermittent fasting\" --langs pl,cs --question \"Порівняй зростання інтересу до інтервального голодування в польськомовній та чеськомовній Wikipedia за останні два роки\"",
+        "timeout": 120
+      }
+    }
+  ],
+  "n_tool_calls": 3,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Прямая відповідь**: в чеськомовній Вікіпедії інтерес до інтервального голодування сутто падає (‑48,7% рік до року, висока довіра), тоді як у польськомовній немає статті з цієї теми — це прогалина в контенті, а не нульевий інтерес.\n\n- **cs (чеськомовна)**: зниження, ‑48,7% рік до року, 0 з 12 місяців вищі за минулий рік, довіра High (80) — ~183 перегляди/місяць: малі обсяги роблять зміни виглядають великими; 16% переглядів приходяться на короткі новинні сплески. Сезонність: січневий пік ≈2,17× щорічно. Відносно всієї чеської Вікіпедії (‑12,6%) тема рухалася ‑30,5%.\n- **pl (польськомовна)**: немає статті. Кандидати на проксі-статтю: «Stres oksydacyjny», «Głodówka lecznicza», «Paleolityczny styl życia» — додати можна лише за згодою користувача, і вони будуть позначені PROXY.\n- Сезонність / одноразові події: у cs — січневий пік ≈2,17× щорічно; 16% сплесків нейтралізовано як одноразові.\n- Читачі за країнами: pl — PL 87%, US 4%, DE 2%; cs — CZ 80%, US 5%, SK 5%.\n\n**Обмеження:** інтерес до статті ≠ бажання платити; мова ≠ ринок (pl = Польща + діаспора, cs = Чехія + діаспора); у pl — відсутність статті робить порівняння неможливим; у cs — малі обсяги (~183/місяць) і новинні сплески можуть вводити в оману.\n\n**Наступні кроки:** 1) вирішити, чи додавати проксі-статтю «Głodówka lecznicza» для pl; 2) перевірити, чи є різні назви теми (наприклад, «dieta intermittentna») у польській Вікіпедії; 3) розглянути збільшений період (36 місяців), щоб побачити, чи є спад новим трендом.\n\nБажаєте звіт (PDF)? Тоді одразу зроблю: `scripts/wir report intermittent-fasting-pl-cs --narrative narrative.md`."
+  ],
+  "cost_usd": 0.0,
+  "duration_s": 34.7,
+  "usage": {
+    "input_tokens": 13562,
+    "output_tokens": 1943
+  },
+  "errors": []
+}

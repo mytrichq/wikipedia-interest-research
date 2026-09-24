@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -65,7 +66,7 @@ def collect_artifacts(workspace: Path, dest: Path) -> None:
 
 
 def claude_command(
-    env: str, model: str, prompt: str, resume: str | None, persist: bool
+    env: str, model: str, prompt: str, resume: str | None, persist: bool, max_turns: int = 40
 ) -> list[str]:
     cmd = [
         "claude",
@@ -79,7 +80,7 @@ def claude_command(
         "--allowedTools",
         ALLOWED_TOOLS,
         "--max-turns",
-        "40",
+        str(max_turns),
     ]
     if env in ("baseline", "clean"):
         cmd += ["--setting-sources", "project", "--strict-mcp-config"]
@@ -90,20 +91,51 @@ def claude_command(
     return cmd
 
 
-def run_turns(case: dict, env: str, model: str, workspace: Path, timeout: int) -> list[dict]:
+def wir_path(workspace: Path, env: str) -> Path:
+    packaged = workspace / ".claude" / "skills" / SKILL_NAME / "scripts" / "wir"
+    return packaged if env in ("clean", "realistic") else SKILL_DIR / "scripts" / "wir"
+
+
+def run_setup(case: dict, workspace: Path, env: str) -> list[dict]:
+    """Case preconditions, e.g. an existing study or a warm cache for offline runs."""
+    events = []
+    for command in case.get("setup_commands", []):
+        command = command.replace("{wir}", str(wir_path(workspace, env)))
+        proc = subprocess.run(command, shell=True, cwd=workspace, capture_output=True, text=True)
+        events.append(
+            {
+                "type": "_setup",
+                "_turn": 0,
+                "command": command,
+                "exit": proc.returncode,
+                "stderr": proc.stderr[-500:],
+            }
+        )
+    return events
+
+
+def run_turns(
+    case: dict, env: str, model: str, workspace: Path, timeout: int, max_turns: int = 40
+) -> list[dict]:
     prepare_workspace(workspace, env)
-    events: list[dict] = []
+    events = run_setup(case, workspace, env)
+    process_env = {**os.environ, **{k: str(v) for k, v in case.get("env_vars", {}).items()}}
     session_id = None
     multi_turn = len(case["turns"]) > 1
     for turn, prompt in enumerate(case["turns"], start=1):
         started = time.monotonic()
-        proc = subprocess.run(
-            claude_command(env, model, prompt, session_id, persist=multi_turn),
-            cwd=workspace,
-            capture_output=True,
-            text=True,
-            timeout=timeout,
-        )
+        try:
+            proc = subprocess.run(
+                claude_command(env, model, prompt, session_id, multi_turn, max_turns),
+                cwd=workspace,
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                env=process_env,
+            )
+        except subprocess.TimeoutExpired:
+            events.append({"type": "error", "_turn": turn, "stderr": f"timeout after {timeout}s"})
+            break
         for line in proc.stdout.splitlines():
             if not line.strip():
                 continue
@@ -205,25 +237,22 @@ def render_markdown(case: dict, env: str, model: str, events: list[dict], summar
     return "\n".join(out)
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--case", required=True)
-    parser.add_argument("--env", choices=["baseline", "clean", "realistic"], required=True)
-    parser.add_argument("--model", default="haiku")
-    parser.add_argument("--run", type=int, default=1, help="repetition index")
-    parser.add_argument("--out", type=Path, default=SKILL_DIR / "evals" / "results" / "runs")
-    parser.add_argument("--timeout", type=int, default=900, help="seconds per turn")
-    args = parser.parse_args()
-
-    case = load_case(args.case)
-    run_dir = args.out / f"{args.case}__{args.env}__{args.model}__{args.run}"
+def run_case(
+    case: dict,
+    env: str,
+    model: str,
+    run: int,
+    out: Path,
+    timeout: int = 900,
+    max_turns: int = 40,
+) -> Path:
+    run_dir = out / f"{case['id']}__{env}__{model}__{run}"
     if run_dir.exists():
         shutil.rmtree(run_dir)
     run_dir.mkdir(parents=True)
-
     sandbox = Path(tempfile.mkdtemp(prefix="wir-eval-"))
     try:
-        events = run_turns(case, args.env, args.model, sandbox / "workspace", args.timeout)
+        events = run_turns(case, env, model, sandbox / "workspace", timeout, max_turns)
         collect_artifacts(sandbox / "workspace", run_dir / "workspace")
     finally:
         shutil.rmtree(sandbox, ignore_errors=True)
@@ -233,15 +262,29 @@ def main() -> int:
     )
     (run_dir / "run.json").write_text(
         json.dumps(
-            {"case": args.case, "env": args.env, "model": args.model, "run": args.run, **summary},
+            {"case": case["id"], "env": env, "model": model, "run": run, **summary},
             ensure_ascii=False,
             indent=2,
         ),
         encoding="utf-8",
     )
     (run_dir / "transcript.md").write_text(
-        render_markdown(case, args.env, args.model, events, summary), encoding="utf-8"
+        render_markdown(case, env, model, events, summary), encoding="utf-8"
     )
+    return run_dir
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--case", required=True)
+    parser.add_argument("--env", choices=["baseline", "clean", "realistic"], required=True)
+    parser.add_argument("--model", default="haiku")
+    parser.add_argument("--run", type=int, default=1, help="repetition index")
+    parser.add_argument("--out", type=Path, default=SKILL_DIR / "evals" / "results" / "runs")
+    parser.add_argument("--timeout", type=int, default=900, help="seconds per turn")
+    args = parser.parse_args()
+    run_dir = run_case(load_case(args.case), args.env, args.model, args.run, args.out, args.timeout)
+    summary = json.loads((run_dir / "run.json").read_text(encoding="utf-8"))
     print(
         f"{run_dir}: {summary['n_tool_calls']} tool calls, ${summary['cost_usd']}, "
         f"{summary['duration_s']} s"

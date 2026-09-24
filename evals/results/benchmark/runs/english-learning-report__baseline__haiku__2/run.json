@@ -1,0 +1,95 @@
+{
+  "case": "english-learning-report",
+  "env": "baseline",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Agent",
+      "input": {
+        "description": "Research English learning interest across Wikipedia editions",
+        "subagent_type": "general-purpose",
+        "prompt": "Research the interest in learning English across different Wikipedia language editions: Polish, Turkish, Vietnamese, Portuguese, and Ukrainian. For each edition:\n\n1. Find data about articles related to English language learning (views, engagement, article count)\n2. Look for statistics on English language learning interest in these regions\n3. Find demographic/language education data relevant to English learning\n\nSearch for:\n- Wikipedia statistics on English language articles and views in each language edition\n- Articles about English language teaching/learning in each Wikipedia section\n- Regional data on English language proficiency and learning demand\n- Education statistics for these countries/regions\n\nPrepare findings comparing the interest levels and provide context about each region's English learning market. Report in under 500 words with concrete data points where available.",
+        "run_in_background": false
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "ToolSearch",
+      "input": {
+        "query": "select:WebSearch,WebFetch",
+        "max_results": 2
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "English language learning statistics Poland Turkish Vietnam Portuguese Ukraine 2024 2025"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "English proficiency index Poland Turkey Vietnam Portugal Ukraine EF statistics"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Wikipedia English language articles views statistics Polish Turkish Vietnamese Portuguese Ukrainian editions"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "English language education demand Poland Turkey Vietnam Portugal Ukraine regional market"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "EF English Proficiency Index 2024 country rankings Eastern Europe Asia"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Wikipedia statistics article views English language learning topic by language edition 2024"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "Poland Vietnam Turkey Portugal Ukraine English language proficiency statistics student enrollment"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebSearch",
+      "input": {
+        "query": "\"English language\" interest search trends Poland Turkey Vietnam Portugal Ukraine 2024"
+      }
+    }
+  ],
+  "n_tool_calls": 10,
+  "skills_used": [],
+  "final_answers": [
+    "## 📊 Звіт: Інтерес до вивчення англійської мови в різних мовних спільнотах\n\n### Основні виявлення\n\n| Регіон | Рівень володіння | Глобальне місце | Зацікавленість | Потенціал |\n|--------|------------------|-----------------|-----------------|-----------|\n| **Португалія** | Дуже високий | 6th | 7.81M переглядів Wikipedia | Встановлена база |\n| **Польща** | Високий | 15th | 7.15M переглядів Wikipedia | Сильна освітня система |\n| **Україна** | Середній | 40th | 51% говорять англійською | Активний ріст |\n| **В'єтнам** | Низький (розвивається) | 63rd | 70-80% учнів навчаються | 🔥 Експлозивний попит |\n| **Туреччина** | Низький | 65th | 4.83M переглядів Wikipedia | Найнижча база |\n\n### 🎯 Рекомендації для дослідження наступних аудиторій\n\n#### 1. **В'єтнам** (Найвищий пріоритет)\n- **Чому**: Експлозивний попит на учителів англійської (особливо в Ханої та ТФХМ), 70-80% учнів навчаються\n- **Сегменти**: школи, мовні центри, онлайн-учні, покоління Z\n- **Виклик**: низька базова компетентність → потреба в структурованому контенті\n- **Тип користувачів**: молоді вивчають, поточні вчителі, освітні установи\n\n#### 2. **Туреччина** (Другий пріоритет)\n- **Чому**: найменша цифрова база серед п'ятьох, але потенціал зростання\n- **Бар'єри**: граматичні відмінності турецької, нижча міжнародна мобільність\n- **Можливості**: урбанізовані регіони (Стамбул, Анкара), молодь\n- **Тип користувачів**: професіонали, студенти, особи з вищою освітою\n\n#### 3. **Україна** (Третій пріоритет)\n- **Чому**: 51% населення говорить англійською, але якість володіння потребує покращення\n- **Переважна компетентність**: вже присутня база говорять, хочуть вдосконалити\n- **Можливості**: переказ корпоративного англійського, вдосконалення вимови, бізнес-контекст\n- **Тип користувачів**: професіонали, студенти, витіснені особи\n\n---\n\n### 💡 Загальна стратегія\n\nДля додатка мовного вивчення порекомендувати **паралельний підхід**:\n\n1. **Короткострокова**: Україна (близька, високий потенціал з виток)\n2. **Середньострокова**: В'єтнам (масштабний ринок, швидке зростання)\n3. **Довгострокова**: Туреччина (розвивальний потенціал, структурні виклики)\n\nПортугалія й Польща вже мають встановлені, конкурентні ринки з якісним контентом — входити туди складніше без унікального УТП."
+  ],
+  "cost_usd": 0.2429,
+  "duration_s": 56.6,
+  "usage": {
+    "input_tokens": 18,
+    "output_tokens": 1742,
+    "cache_read_input_tokens": 37649
+  },
+  "errors": []
+}

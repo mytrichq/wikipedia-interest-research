@@ -15,3 +15,7 @@ evals/results/runs/
 
 # OS
 .DS_Store
+
+# Benchmark: keep transcripts, run.json, checks.json, judge.json; drop bulky raw data
+evals/results/benchmark/*/*/events.jsonl
+evals/results/benchmark/*/*/workspace/

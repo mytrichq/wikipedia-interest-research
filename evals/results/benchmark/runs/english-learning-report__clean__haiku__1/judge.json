@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Ranks the audiences and justifies the order with data (volume, relative interest, momentum, trust).",
+      "score": 4,
+      "reason": "The answer lists rank, relative %, volume, and trust for each edition and explains why Vietnamese leads, though it doesn't fully reconcile the composite score order (pt ranks 3rd, tr 4th in data but pl is called 'найменший потенціал' without clearly explaining why despite similar scores).",
+      "kind": "case"
+    },
+    {
+      "criterion": "Notes that a language edition is not a country (e.g. Portuguese = Brazil + Portugal).",
+      "score": 5,
+      "reason": "The limitations section explicitly states 'Мовний розділ ≠ країна' with concrete examples for Ukrainian (65% from Ukraine) and Portuguese (74% from Brazil).",
+      "kind": "case"
+    },
+    {
+      "criterion": "Recommends concrete next audiences to validate, not a final go/no-go.",
+      "score": 4,
+      "reason": "It proposes validation steps (beta launch + focus groups for Vietnamese, Google Trends/mobile analytics for Turkey, investigating the decline for Ukraine) rather than a final decision, though the Vietnamese recommendation leans toward 'launch beta' which is slightly more decisive than pure validation.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 5,
+      "reason": "The answer directly compares interest across all five editions and explicitly names which audiences to investigate next and why, as requested.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 5,
+      "reason": "All figures (percentages, view counts, trust levels, country splits) are traceable to the tool output with no apparent injected outside knowledge.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 5,
+      "reason": "The answer explicitly covers interest≠willingness to pay, edition≠country with examples, hidden TR/VI country data, and notes no seasonality/events were found.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 3,
+      "reason": "Mostly natural Ukrainian but contains a stray non-Ukrainian word 'z' ('стабільна відносно видання (+2,9% z 12 міс.)') and 'готов' instead of 'готовий', which are language slips a native speaker would flag.",
+      "kind": "general"
+    }
+  ],
+  "mean": 4.43
+}

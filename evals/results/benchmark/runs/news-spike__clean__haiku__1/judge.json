@@ -1,0 +1,42 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Identifies April-May 2025 as a one-off news event, not seasonality or a trend.",
+      "score": 4,
+      "reason": "The answer flags April–May 2025 as spikes possibly tied to Catholic Church events and treats them as anomalies to remove, though it hedges on the cause since the data itself doesn't name the pope's death.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Explains that the decline is partly a return to normal after the event.",
+      "score": 2,
+      "reason": "The sentence attempting this ('вони видаляют нормальну динаміку взад до минулого року') is grammatically garbled and fails to clearly convey that part of the decline reflects a return to a previously inflated baseline.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 5,
+      "reason": "The response opens with an unambiguous 'Ні, інтерес... спадає' directly answering the yes/no growth question for both language editions.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 3,
+      "reason": "Most figures (yoy_pct, months_up_of_12, edition_yoy_pct, readers_by_country) are correctly pulled from the tool output, but the headline claim 'довіра до результатів висока' incorrectly generalizes trust to 'high' for both languages when pl is actually Medium.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 3,
+      "reason": "It gives country breakdowns and an 'interest ≠ willingness to act' caveat, but never explicitly states that a language edition isn't a country proxy, nor mentions missing-article or seasonality caveats beyond the spike discussion.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 2,
+      "reason": "The Ukrainian text is marred by Russian-language intrusions ('выше' instead of 'вище', 'видаляют' instead of 'видаляють') and one incoherent sentence, undermining clarity and language purity.",
+      "kind": "general"
+    }
+  ],
+  "mean": 3.17
+}

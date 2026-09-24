@@ -1,0 +1,37 @@
+{
+  "case": "should_not_trigger-02",
+  "env": "realistic",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "ToolSearch",
+      "input": {
+        "query": "select:WebFetch",
+        "max_results": 1
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "WebFetch",
+      "input": {
+        "url": "https://en.wikipedia.org/wiki/Black_hole",
+        "prompt": "Summarize the key information about black holes in simple terms that a 10-year-old could understand. Include what they are, how they form, what makes them special, and interesting facts."
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0774,
+  "duration_s": 11.1,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 494,
+    "cache_read_input_tokens": 44756
+  },
+  "errors": []
+}

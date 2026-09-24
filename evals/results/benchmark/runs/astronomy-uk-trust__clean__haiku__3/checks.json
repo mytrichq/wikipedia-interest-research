@@ -1,0 +1,30 @@
+{
+  "skill_triggered": {
+    "pass": true,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": true,
+    "detail": "cd <tmp>/wir-eval-v6ykroyj/workspace/.claude/skills/wikipedia-interest-research && scripts/wir study new --topic \"astronomy\" --langs uk --question \"Чи зростає інтерес до астрономії в україномовній Wikipedia, і наскільки цьому зростанню можна довірят"
+  },
+  "numbers_match_study": {
+    "pass": true,
+    "detail": "checked 7; unmatched: []"
+  },
+  "mentions_trust": {
+    "pass": true,
+    "detail": ""
+  },
+  "mentions_limitations": {
+    "pass": true,
+    "detail": ""
+  },
+  "answer_language": {
+    "pass": true,
+    "detail": "uk"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "2 <= 15"
+  }
+}

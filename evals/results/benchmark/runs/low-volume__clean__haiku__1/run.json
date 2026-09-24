@@ -1,0 +1,39 @@
+{
+  "case": "low-volume",
+  "env": "clean",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic=astronomy, language_edition=be (Belarusian)"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-jiqy51j6/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs be --question \"Чи зростає інтерес до астрономії в білоруській Wikipedia?\"",
+        "description": "Run Wikipedia interest research for astronomy on Belarusian Wikipedia"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Не, інтерес до астрономії не зростає**: дані показують 24% падіння року до року, але довіри до цього показника мала.\n\n- **Білоруська Wikipedia**: падіння на 24% рік до року, довіра **низька** — у місяць лише близько 43 переглядів (надто мало даних для надійного висновку) та немає послідовного напрямку (лише 5 з 12 місяців були вище ніж рік тому, що близько до випадку).\n\nЩодо видимості даних: Wikimedia приховує читачів з Білорусі на сторінці з читачів за країнами, тому реальну аудиторію неможливо оцінити.\n\n**Обмеження**: інтерес до статті ≠ готовність платити; дуже малий обсяг переглядів робить будь-яку тенденцію ненадійною; видимі читачі (США 29%, Польща 9%) не відображають реальний склад аудиторії.\n\n**Далі**: якщо вас цікавить тренд астрономії в інших мовних виданнях або порівняння з суміжними темами (наприклад, космічні дослідження), я можу розширити дослідження."
+  ],
+  "cost_usd": 0.0373,
+  "duration_s": 31.6,
+  "usage": {
+    "input_tokens": 28,
+    "output_tokens": 1506,
+    "cache_read_input_tokens": 63354
+  },
+  "errors": []
+}

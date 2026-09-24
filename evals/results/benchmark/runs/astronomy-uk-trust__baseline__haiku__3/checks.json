@@ -1,0 +1,30 @@
+{
+  "skill_triggered": {
+    "pass": false,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": false,
+    "detail": ""
+  },
+  "numbers_match_study": {
+    "pass": false,
+    "detail": "no study.json in workspace"
+  },
+  "mentions_trust": {
+    "pass": false,
+    "detail": ""
+  },
+  "mentions_limitations": {
+    "pass": true,
+    "detail": ""
+  },
+  "answer_language": {
+    "pass": true,
+    "detail": "uk"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "0 <= 15"
+  }
+}

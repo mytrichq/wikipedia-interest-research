@@ -1,0 +1,39 @@
+{
+  "case": "should_trigger-06",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic=chess languages=tr,vi"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "./.claude/skills/wikipedia-interest-research/scripts/wir study new --topic chess --langs tr,vi --question \"Зроби PDF-звіт про інтерес до шахів у турецькій та в'єтнамській Wikipedia\"",
+        "description": "Create a Wikipedia interest study for chess in Turkish and Vietnamese"
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0296,
+  "duration_s": 19.1,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 907,
+    "cache_read_input_tokens": 37735
+  },
+  "errors": []
+}

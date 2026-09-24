@@ -1,0 +1,38 @@
+{
+  "case": "should_trigger-03",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Compare cryptocurrency article views across German and French Wikipedia editions over the last 3 years"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-6awvn9fj/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"cryptocurrency\" --langs de,fr --period 36m --question \"Порівняй перегляди статей про криптовалюту в німецькій і французькій Вікіпедії за 3 роки\""
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0286,
+  "duration_s": 17.4,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 731,
+    "cache_read_input_tokens": 37743
+  },
+  "errors": []
+}

@@ -115,3 +115,11 @@ def test_obscure_namesakes_are_not_ambiguity():
 def test_comparable_namesakes_are_ambiguity():
     ranked = rank([candidate("Q308", 2, 250), candidate("Q1150", 2, 84)])
     assert [c.qid for c in is_ambiguous(ranked)] == ["Q1150"]
+
+
+def test_a_film_named_after_a_concept_is_not_ambiguity():
+    concept = candidate("Q186431", 2, 74, description="papal election")
+    film = candidate("Q116701124", 2, 45, description="2024 film by Edward Berger")
+    god = candidate("Q1150", 2, 60, description="Roman god of trade")
+    assert is_ambiguous(rank([concept, film])) == []
+    assert [c.qid for c in is_ambiguous(rank([concept, god]))] == ["Q1150"]

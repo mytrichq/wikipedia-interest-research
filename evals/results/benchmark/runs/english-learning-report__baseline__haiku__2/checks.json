@@ -1,0 +1,42 @@
+{
+  "skill_triggered": {
+    "pass": false,
+    "detail": ""
+  },
+  "used_cli": {
+    "pass": false,
+    "detail": ""
+  },
+  "artifacts_exist": {
+    "pass": false,
+    "detail": "missing: ['report.pdf', 'summary.md']"
+  },
+  "pdf_one_page": {
+    "pass": false,
+    "detail": "pages: []"
+  },
+  "numbers_match_study": {
+    "pass": false,
+    "detail": "no study.json in workspace"
+  },
+  "no_invented_titles": {
+    "pass": true,
+    "detail": "suspicious: []"
+  },
+  "mentions_trust": {
+    "pass": false,
+    "detail": ""
+  },
+  "mentions_limitations": {
+    "pass": false,
+    "detail": ""
+  },
+  "answer_language": {
+    "pass": true,
+    "detail": "uk"
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "10 <= 15"
+  }
+}

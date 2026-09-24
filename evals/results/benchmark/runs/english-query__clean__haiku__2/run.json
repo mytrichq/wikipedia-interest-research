@@ -1,0 +1,77 @@
+{
+  "case": "english-query",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic=astronomy language=Ukrainian"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-uqxja59c/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs uk --question \"Is interest in astronomy growing on Ukrainian Wikipedia?\""
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "file_path": "<tmp>/wir-eval-uqxja59c/workspace/.claude/skills/wikipedia-interest-research/assets/narrative_template.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Write",
+      "input": {
+        "file_path": "<tmp>/wir-eval-uqxja59c/workspace/wiki-studies/astronomy-uk/narrative.md",
+        "content": "# Astronomy Interest on Ukrainian Wikipedia is Declining\n\nInterest in astronomy on Ukrainian Wikipedia has declined 61.7% year over year, with high confidence. None of the last 12 months exceeded the same month from the prior year.\n\n## Findings\n- All 12 recent months underperformed their year-earlier equivalents, indicating a consistent, broad decline rather than a temporary dip.\n- The astronomy article averages 559 views per month across both years, representing 9.69 per million views on the platform.\n- Ukrainian Wikipedia's overall traffic fell 24.6% year over year, but astronomy declined more steeply (42.4 percentage points faster), signaling topic-specific loss of interest beyond platform-wide trends.\n- The topic shows strong September seasonality (approximately 2.3× typical views), consistent with back-to-school patterns, but this annual peak has not offset the decline.\n\n## Next steps\n- Investigate whether the September peak correlates with the Ukrainian school calendar or academic events (e.g., astronomy olympiads).\n- Compare astronomy interest across other major Wikipedia editions (Russian, Polish, English) to see whether this decline is regional or global.\n- Check whether competing resources (astronomy social media, planetarium apps, or dedicated Ukrainian astronomy forums) have grown during this period.\n"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-uqxja59c/workspace/.claude/skills/wikipedia-interest-research/scripts/wir report astronomy-uk --narrative wiki-studies/astronomy-uk/narrative.md --lang en"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Edit",
+      "input": {
+        "replace_all": false,
+        "file_path": "<tmp>/wir-eval-uqxja59c/workspace/wiki-studies/astronomy-uk/narrative.md",
+        "old_string": "- Ukrainian Wikipedia's overall traffic fell 24.6% year over year, but astronomy declined more steeply (42.4 percentage points faster), signaling topic-specific loss of interest beyond platform-wide trends.",
+        "new_string": "- Ukrainian Wikipedia's overall traffic fell 24.6% year over year; astronomy declined more steeply at 61.7%, signaling topic-specific loss of interest beyond platform-wide trends."
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-uqxja59c/workspace/.claude/skills/wikipedia-interest-research/scripts/wir report astronomy-uk --narrative wiki-studies/astronomy-uk/narrative.md --lang en"
+      }
+    }
+  ],
+  "n_tool_calls": 7,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Interest in astronomy on Ukrainian Wikipedia is declining sharply**: declining, −61.7% year over year, trust High.\n\n- **Ukrainian Wikipedia**: declining, −61.7% (0 of 12 months above last year), trust High — zero months exceeded their year-earlier equivalents (p=0.002), indicating sustained decline rather than seasonal fluctuation.\n- The topic shows strong **September seasonality** (≈2.3× typical views), consistent with back-to-school patterns, but this annual peak has not offset the overall decline.\n- **Platform-wide context**: Ukrainian Wikipedia's overall traffic declined 24.6% year over year; astronomy declined more steeply at 61.7%, signaling topic-specific loss of interest beyond platform-wide trends.\n\n**Limitations:** Interest in an encyclopedia article is not willingness to pay; use it to choose what to test, not as proof of demand. A language edition is not a country. Readers by country: Ukraine 65%, United States 11%, Poland 4%. Ukrainian Wikipedia overall traffic changed −25% year over year; relative figures correct for this. Views are humans only (agent=user), all devices; redirects with ≥1% of views included.\n\n**Next:** Check whether the September peak correlates with the Ukrainian school calendar or academic events. Compare astronomy interest across Russian, Polish, and English Wikipedia to see whether this is a regional or global trend. Investigate whether competing resources (astronomy social media, planetarium apps, or dedicated Ukrainian astronomy forums) have grown during this period.\n\n---\n\n**Your one-page report is ready:** `wiki-studies/astronomy-uk/report.pdf`"
+  ],
+  "cost_usd": 0.0632,
+  "duration_s": 39.3,
+  "usage": {
+    "input_tokens": 68,
+    "output_tokens": 2783,
+    "cache_read_input_tokens": 202493
+  },
+  "errors": []
+}

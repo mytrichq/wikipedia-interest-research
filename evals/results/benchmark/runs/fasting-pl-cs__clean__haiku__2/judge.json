@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "States that Polish Wikipedia has no dedicated article instead of inventing one.",
+      "score": 5,
+      "reason": "The answer explicitly and clearly states Polish Wikipedia has no article on the topic, matching the ground truth.",
+      "kind": "case"
+    },
+    {
+      "criterion": "If a proxy article is used, it is labelled as a proxy with its caveat.",
+      "score": 3,
+      "reason": "No proxy was used in the main analysis (acceptable), but the 'next steps' section vaguely suggests searching under another name rather than clearly presenting one of the given proxy_candidates (e.g. Głodówka lecznicza) as a labelled proxy option.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Growth figures are compared for the same period and normalised or caveated for edition size.",
+      "score": 4,
+      "reason": "The answer correctly presents raw YoY, relative-to-edition YoY, and edition-wide YoY figures for Czech with proper caveats, though no comparison is possible for Polish since it lacks data.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 4,
+      "reason": "It directly addresses the comparison by explaining Czech shows declining interest while Polish has no data to compare, fulfilling the intent though a true 'comparison' is impossible.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 2,
+      "reason": "The next-steps suggestion to search under a term rendered as '療法餓' (garbled Chinese characters, not Polish) is nonsensical and not grounded in the provided data or proxy_candidates list.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 5,
+      "reason": "The answer names concrete limitations: article interest vs real behavior, low volume sensitivity, reader geography breakdown, missing article issue, and seasonality/news spikes.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 2,
+      "reason": "The text contains a stray non-Ukrainian CJK character sequence '短-термінових' and an invented/garbled term '療法餓' in the next-steps section, breaking pure Ukrainian wording.",
+      "kind": "general"
+    }
+  ],
+  "mean": 3.57
+}

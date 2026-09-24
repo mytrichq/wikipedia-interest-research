@@ -1,0 +1,59 @@
+{
+  "case": "resume-session",
+  "env": "clean",
+  "model": "haiku",
+  "run": 3,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "file_path": "~/.claude/projects/-private-var-folders-zc-xm6t7x-16417d70r25khng8m0000gn-T-wir-eval-kv2vcj0h-workspace/memory"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Glob",
+      "input": {
+        "pattern": "~/.claude/projects/-private-var-folders-zc-xm6t7x-16417d70r25khng8m0000gn-T-wir-eval-kv2vcj0h-workspace/memory/**/*.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "astronomy uk pl"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-kv2vcj0h/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs uk,pl --question \"яка з двох мов перспективніша для астрономії?\""
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-kv2vcj0h/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study show astronomy-uk-pl"
+      }
+    }
+  ],
+  "n_tool_calls": 5,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**Польська Вікіпедія перспективніша**: обидві мови показують значне зниження, але польськомовна падає повільніше та має більший обсяг читачів, -30.5% рік-до-року, довіра висока.\n\n- **Українська**: знижується, -61.7% рік-до-року (0 з 12 місяців вище за рік раніше), довіра висока — послідовне падіння без винятків.\n- **Польська**: знижується, -30.5% рік-до-року (0 з 12 місяців вище за рік раніше), довіра висока — частково спричинено одноразовим піком у листопаді 2025, 32% автоматизованого трафіку як попередження.\n\nРейтинг підтверджує перевагу польської: вона на 1-му місці (41.3 балів) завдяки розміру та довірі, українська на 2-му (37.3 балів). Польськомовна Вікіпедія має у 2,6 рази більше переглядів в середньому (1431 vs 559 на місяць), хоча обидві мови падають — польська медленніше. Вся польська видання зменшилась на -8.8%, а українська на -24.6%, тому польська на цій темі утримується краще.\n\nЧитачі: українське видання переважно з України (65%), польське — з Польщі (87%).\n\n**Обмеження:** обидва видання втрачають читачів, тому перспектива обох обмежена абсолютно; \"перспективніша\" означає лише менш критичне падіння та більший базис читачів.\n\n**Далі:** варто перевірити, чи це глобальна тенденція для наукових тем у цих мовах чи специфічна для астрономії; чи вплинули на падіння конкретні события?\n\nХочете готовий звіт у форматі PDF?"
+  ],
+  "cost_usd": 0.0518,
+  "duration_s": 35.7,
+  "usage": {
+    "input_tokens": 52,
+    "output_tokens": 2419,
+    "cache_read_input_tokens": 137064
+  },
+  "errors": []
+}

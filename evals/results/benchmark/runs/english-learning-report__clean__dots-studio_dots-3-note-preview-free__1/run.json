@@ -1,0 +1,190 @@
+{
+  "case": "english-learning-report",
+  "env": "clean",
+  "model": "dots-studio/dots-3-note-preview:free",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "path": "<tmp>/wir-eval-1vxp4npf/workspace/.claude/skills/wikipedia-interest-research/SKILL.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-1vxp4npf/workspace && <tmp>/wir-eval-1vxp4npf/workspace/.claude/skills/wikipedia-interest-research/scripts/wir doctor",
+        "timeout": 60
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-1vxp4npf/workspace && <tmp>/wir-eval-1vxp4npf/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"English language\" --langs pl,tr,vi,pt,uk --question \"Порівняй інтерес до вивчення англійської мови в польському, турецькому, в'єтнамському, португальському та українському розділах Wikipedia\"",
+        "timeout": 180
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "path": "<tmp>/wir-eval-1vxp4npf/workspace/.claude/skills/wikipedia-interest-research/assets/narrative_template.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Write",
+      "input": {
+        "path": "<tmp>/wir-eval-1vxp4npf/workspace/wiki-studies/english-pl-tr-vi-pt-uk/narrative.md",
+        "content": "# Headline\nІнтерес до вивчення англійської мови в усіх п'яти досліджених розділах Вікіпедії (польському, турецькому, в'єтнамському, португальському та українському) зменшується: від -13,5% у турецькому до -37,3% у українському розділі (рік у рік), і середня кількість переглядів статтей у місяць сягає від ~7 тис. до ~12,5 тис.\n\n## Findings\n- **В'єтнамська Вікіпедія (vi)** — найбільша аудиторія: ~12,5 тис. переглядів на місяць, спад -24,0% рік у рік, але це відповідає загальному спаду всієї в'єтнамської Вікіпедії (-24,2%), тому відносний інтерес стабільний (+2,9%). Аудиторія в основному зовнішня (США 47% видимих переглядів).\n- **Польська Вікіпедія (pl)** — інтерес падає найповільніше серед усіх: -19,4% рік у рік, що майже відповідає загальному спаду розділу (-8,8%). Аудиторія локалізована: 87% переглядів з Польщі.\n- **Турецька Вікіпедія (tr)** — спад -13,5% рік у рік, але відносно до загального спаду розділу (-16,3%) інтерес навіть трохи виріс (+5,3%). Основна аудиторія прихована (Вікіпедія не показує перегляди з Туреччини), тому реальний обсяг невідомий.\n- **Португальська Вікіпедія (pt)** — спад -33,7% рік у рік, що гірше за середній спад розділу (-16,6%). Аудиторія в основному бразильська (74%).\n- **Українська Вікіпедія (uk)** — найшвидший спад: -37,3% рік у рік, і жоден з останніх 12 місяців не перевищив показник рік тому назад (0 з 12). Відносний спад також найгірший (-10,5% за межами стабільності). Аудиторія переважно українська (65%).\n\n## Next steps\n- Перевірити, чи є альтернативні статті (наприклад, «Вивчення англійської мови» або «Англійська як іноземна мова»), щоб переконатися, що ми вимірюємо саме інтерес до вивчення мови, а не до мови як такої.\n- Порівнювати динаміку з іншими мовними темами (німецька, французька), щоб з'ясувати, чи є спад загальним трендом чи специфічним для англійської.\n- Дослідити розподіл переглядів за пристроями (мобільні vs десктопи) і за останні місяці, щоб з'ясувати, чи сприяло зменшення інтересу переходу користувачів на мовні курси поза Вікіпедією."
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "cd <tmp>/wir-eval-1vxp4npf/workspace && <tmp>/wir-eval-1vxp4npf/workspace/.claude/skills/wikipedia-interest-research/scripts/wir report english-pl-tr-vi-pt-uk --narrative wiki-studies/english-pl-tr-vi-pt-uk/narrative.md --lang uk",
+        "timeout": 120
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Write",
+      "input": {
+        "path": "<tmp>/wir-eval-1vxp4npf/workspace/wiki-studies/english-pl-tr-vi-pt-uk/narrative.md",
+        "content": "# Headline\nІнтерес до вивчення англійської мови в усіх п'яти розділах Вікіпедії зменшується: від -13,5% у турецькому до -37,3% у українському (рік у рік).\n\n## Findings\n- **В'єтнамська Вікіпедія (vi)** — найбільша аудиторія: ~12,5 тис. переглядів на місяць, спад -24,0% рік у рік, але відносно до загального спаду розділу (-24,2%) інтерес стабільний (+2,9%). Аудиторія в основному зовнішня (США 47% видимих переглядів).\n- **Польська Вікіпедія (pl)** — спад -19,4% рік у рік, майже відповідає загальному спаду розділу (-8,8%). Аудиторія локалізована: 87% переглядів з Польщі.\n- **Турецька Вікіпедія (tr)** — спад -13,5% рік у рік, але відносно до загального спаду (-16,3%) інтерес навіть трохи виріс (+5,3%). Основна аудиторія прихована (Вікіпедія не показує перегляди з Туреччини), тому реальний обсяг невідомий.\n- **Португальська Вікіпедія (pt)** — спад -33,7% рік у рік, гірше за середній спад розділу (-16,6%). Аудиторія в основному бразильська (74%).\n- **Українська Вікіпедія (uk)** — найшвидший спад: -37,3% рік у рік, жоден з останніх 12 місяців не перевищив показник рік тому назад (0 з 12). Відносний спад найгірший (-10,5%). Аудиторія переважно українська (65%).\n\n## Next steps\n- Перевірити альтернативні статті («Вивчення англійської мови», «Англійська як іноземна мова»), щоб переконатися, що ми вимірюємо саме інтерес до вивчення мови.\n- Порівнювати динаміку з іншими мовними темами (німецька, французька), щоб з'ясувати, чи є спад загальним трендом.\n- Дослідити розподіл переглядів за пристроями, щоб з'ясувати, чи перейшли користувачі на мовні курси поза Вікіпедією."
+      }
+    }
+  ],
+  "n_tool_calls": 7,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "(harness error: OpenRouter kept failing for dots-studio/dots-3-note-preview:free; see events.)"
+  ],
+  "cost_usd": 0.0,
+  "duration_s": 257.3,
+  "usage": {
+    "input_tokens": 38052,
+    "output_tokens": 3659
+  },
+  "errors": [
+    {
+      "type": "retry",
+      "attempt": 0,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 1,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 2,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 3,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 4,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 5,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "turn": 1,
+      "error": "OpenRouter kept failing for dots-studio/dots-3-note-preview:free; see events."
+    }
+  ]
+}

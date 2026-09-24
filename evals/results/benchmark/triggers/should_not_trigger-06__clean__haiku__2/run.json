@@ -1,0 +1,28 @@
+{
+  "case": "should_not_trigger-06",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Glob",
+      "input": {
+        "pattern": "**/*.{js,jsx,ts,tsx,py,java,cpp,c}"
+      }
+    }
+  ],
+  "n_tool_calls": 1,
+  "skills_used": [],
+  "final_answers": [
+    "I don't see a page view counter in the current directory. Could you please share the code that has the bug? You can either:\n\n1. **Paste the code directly** in your message\n2. **Tell me the file path** if it's in this directory\n3. **Describe the implementation** (e.g., is it JavaScript, Python, etc.?)\n\nOnce you share the code, I'll find where it's counting twice and fix it."
+  ],
+  "cost_usd": 0.0213,
+  "duration_s": 5.1,
+  "usage": {
+    "input_tokens": 18,
+    "output_tokens": 390,
+    "cache_read_input_tokens": 37741
+  },
+  "errors": []
+}

@@ -149,3 +149,11 @@ def test_hidden_countries_turn_the_readers_split_into_a_warning():
         "hidden_countries": ["Türkiye (TR)"],
     }
     assert study.readers_text(context).startswith("MISLEADING WITHOUT CAVEAT")
+
+
+def test_update_reports_what_changed(run):
+    run("study_astronomy", "study", "new", "--topic", "astronomy", "--langs", "uk")
+    code, out, _, _ = run(
+        "study_astronomy_add_pl", "study", "update", "astronomy-uk", "--add-lang", "pl"
+    )
+    assert out["changes_since_previous_state"] == ["pl: new in this update"]

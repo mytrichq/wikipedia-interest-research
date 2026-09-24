@@ -1,0 +1,10 @@
+{
+  "asks_clarification_or_states_assumption": {
+    "pass": true,
+    "detail": ""
+  },
+  "max_tool_calls": {
+    "pass": true,
+    "detail": "1 <= 15"
+  }
+}

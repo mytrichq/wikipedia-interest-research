@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "States that Polish Wikipedia has no dedicated article instead of inventing one.",
+      "score": 5,
+      "reason": "The answer explicitly states no Polish article exists and frames it as a content gap, not zero interest.",
+      "kind": "case"
+    },
+    {
+      "criterion": "If a proxy article is used, it is labelled as a proxy with its caveat.",
+      "score": 4,
+      "reason": "It lists the proxy candidates by name but does not actually use any of them for analysis or comparison, and doesn't explicitly caveat that they are imperfect substitutes for the topic.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Growth figures are compared for the same period and normalised or caveated for edition size.",
+      "score": 3,
+      "reason": "Only Czech has figures (no PL comparison possible), and while relative/edition-level figures are given, the answer doesn't clearly explain why no direct pl-cs numeric comparison is possible beyond stating the missing article.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 3,
+      "reason": "It cannot truly compare growth since Polish has no data, and the answer states this clearly, but the user's explicit comparative request is only partially fulfilled by necessity, which is handled reasonably but not ideally flagged as impossible to answer as asked.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 5,
+      "reason": "All numbers and claims (yoy%, trust, seasonality, reader countries) map directly to the tool output with no fabricated figures.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 5,
+      "reason": "The answer explicitly notes language≠country with percentages, small-sample volatility, and interest≠real-world practice, plus flags the missing article as a gap.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 3,
+      "reason": "Mostly natural Ukrainian, but it contains a stray non-Ukrainian artifact ('媒體публікації' mixes Chinese characters into the text), which is a clear language-consistency defect.",
+      "kind": "general"
+    }
+  ],
+  "mean": 4.0
+}

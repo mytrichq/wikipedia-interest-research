@@ -1,0 +1,62 @@
+{
+  "case": "english-query",
+  "env": "clean",
+  "model": "haiku",
+  "run": 1,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "topic=astronomy language=ukrainian format=pdf"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-gkl28q5d/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"astronomy\" --langs uk --question \"Is interest in astronomy growing on Ukrainian Wikipedia?\"",
+        "description": "Create a new study to analyze astronomy interest on Ukrainian Wikipedia"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Read",
+      "input": {
+        "file_path": "<tmp>/wir-eval-gkl28q5d/workspace/.claude/skills/wikipedia-interest-research/assets/narrative_template.md"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Write",
+      "input": {
+        "file_path": "<tmp>/wir-eval-gkl28q5d/workspace/wiki-studies/astronomy-uk/narrative.md",
+        "content": "# Interest in Astronomy is Declining Sharply on Ukrainian Wikipedia\n\nInterest in astronomy on Ukrainian Wikipedia has declined 61.7% year-over-year, with high confidence. None of the last 12 months exceeded the same month a year earlier, signaling a consistent downtrend rather than seasonal fluctuation.\n\n## Findings\n\n- **Steep decline**: −61.7% year-over-year on the astronomy article, with 0 of 12 months above the prior year's equivalent month.\n- **Reliable signal**: High trust (100) — the trend is statistically significant (p=0.002) and consistent across all months, not driven by one-off spikes.\n- **Outpacing the general decline**: While Ukrainian Wikipedia overall declined 24.6%, the astronomy article fell 42.4% faster in relative terms, suggesting topic-specific loss of interest.\n- **Strong September seasonality**: The article experiences a 2.3× spike every September, likely tied to the start of the academic year, but this cyclical pattern does not offset the overall decline.\n\n## Next steps\n\n- **Check competing sources**: Compare against astronomy pageviews on Russian Wikipedia or international editions to see if interest is shifting to other language versions or entirely offline.\n- **Identify the drop point**: Examine which months the decline accelerated most steeply and cross-reference with Ukrainian news, events or educational changes in 2024–2025.\n- **Investigate September traffic**: Validate whether the September peaks represent students or a specific news event (e.g. a meteor shower, eclipse, or educational campaign) that could be repeated or amplified.\n"
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-gkl28q5d/workspace/.claude/skills/wikipedia-interest-research/scripts/wir report astronomy-uk --narrative wiki-studies/astronomy-uk/narrative.md --lang en",
+        "description": "Generate the one-page PDF report"
+      }
+    }
+  ],
+  "n_tool_calls": 5,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    "**No, interest in astronomy is declining sharply on Ukrainian Wikipedia:** −61.7% year-over-year, trust High.\n\n- **Ukrainian Wikipedia, astronomy article**: Declining −61.7% year-over-year (0 of 12 months above the prior year), trust High — the trend is statistically significant (p=0.002) and consistent, not a one-off spike. The article receives an average of 559 views per month.\n- **Relative to the edition**: Ukrainian Wikipedia overall declined 24.6%; the astronomy article fell 42.4% faster in relative terms, indicating topic-specific loss of interest rather than general traffic drop.\n- **Seasonality**: The article shows a strong September peak (≈2.3× typical views), likely tied to the academic year, but this cyclical pattern does not offset the overall decline.\n\n**Limitations:** Interest in an encyclopedia article is not willingness to pay. Readers by country: Ukraine 65%, United States 11%, Poland 4%. Whole-edition traffic declined 25% year-over-year; relative figures account for this. Views counted are from humans (bots excluded), all devices, whole months, with redirects carrying ≥1% of views included.\n\n**Next:** Cross-reference with astronomy trends on other Wikipedia editions to see if interest is shifting elsewhere; identify the months when the decline accelerated most to correlate with Ukrainian events or educational changes in 2024–2025.\n\n---\n\n**📄 One-page report:** `wiki-studies/astronomy-uk/report.pdf`\n\nThe report includes a monthly dynamics chart showing the decline pattern and the September seasonality, plus the full findings and methodology."
+  ],
+  "cost_usd": 0.053,
+  "duration_s": 33.3,
+  "usage": {
+    "input_tokens": 52,
+    "output_tokens": 2212,
+    "cache_read_input_tokens": 145993
+  },
+  "errors": []
+}

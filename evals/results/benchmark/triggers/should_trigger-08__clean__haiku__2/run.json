@@ -1,0 +1,38 @@
+{
+  "case": "should_trigger-08",
+  "env": "clean",
+  "model": "haiku",
+  "run": 2,
+  "tool_calls": [
+    {
+      "turn": 1,
+      "tool": "Skill",
+      "input": {
+        "skill": "wikipedia-interest-research",
+        "args": "Compare audience interest in \"mental health\" across major Wikipedia language editions (English, German, French, Spanish, Russian, Chinese, Japanese, Portuguese, Italian, and Dutch). Produce a ranking of which languages show the highest interest, assess trend reliability, and identify any seasonality patterns."
+      }
+    },
+    {
+      "turn": 1,
+      "tool": "Bash",
+      "input": {
+        "command": "<tmp>/wir-eval-83khesnq/workspace/.claude/skills/wikipedia-interest-research/scripts/wir study new --topic \"mental health\" --langs en,de,fr,es,ru,zh,ja,pt,it,nl --question \"Порівняй, наскільки популярна тема ментального здоров'я в різних мовних розділах Вікіпедії.\""
+      }
+    }
+  ],
+  "n_tool_calls": 2,
+  "skills_used": [
+    "wikipedia-interest-research"
+  ],
+  "final_answers": [
+    ""
+  ],
+  "cost_usd": 0.0308,
+  "duration_s": 109.6,
+  "usage": {
+    "input_tokens": 20,
+    "output_tokens": 1100,
+    "cache_read_input_tokens": 37736
+  },
+  "errors": []
+}

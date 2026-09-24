@@ -1,0 +1,42 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Identifies April-May 2025 as a one-off news event, not seasonality or a trend.",
+      "score": 5,
+      "reason": "The answer explicitly names April–May 2025 spikes as one-off news-driven events for both languages, matching the ground truth.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Explains that the decline is partly a return to normal after the event.",
+      "score": 5,
+      "reason": "The answer states the prior year was atypical and part of the decline reflects a return to normal, directly reflecting the trust_reasons text.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly.",
+      "score": 5,
+      "reason": "It opens with a direct 'no, interest is sharply declining' answer covering both language editions as asked.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge.",
+      "score": 4,
+      "reason": "All numbers and claims trace to the tool output, though the parenthetical guess 'можливо, пов'язані з новинами про конклав' softens an inference not explicitly stated as fact but is reasonably grounded in the data's own framing.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles).",
+      "score": 4,
+      "reason": "It names reader geography (article interest ≠ country), news-sensitivity, and interest vs. willingness to act, but doesn't flag possible missing/incomplete article coverage as a limitation.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words).",
+      "score": 2,
+      "reason": "The response uses incorrect/awkward Ukrainian throughout (e.g. 'Українське Вікіпедія' instead of 'Українська Вікіпедія', 'довіреність' instead of 'довіра', 'схилення' instead of 'спад/зниження', 'апріля' instead of 'квітня'), which are non-standard or mistranslated terms that would read as odd or wrong to a native speaker.",
+      "kind": "general"
+    }
+  ],
+  "mean": 4.17
+}

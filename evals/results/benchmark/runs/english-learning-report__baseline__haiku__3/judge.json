@@ -1,0 +1,48 @@
+{
+  "model": "sonnet",
+  "scores": [
+    {
+      "criterion": "Ranks the audiences and justifies the order with data (volume, relative interest, momentum, trust)",
+      "score": 1,
+      "reason": "No data was ever gathered, and the fallback knowledge-based answer offers vague qualitative claims with no ranking or data-based justification.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Notes that a language edition is not a country (e.g. Portuguese = Brazil + Portugal)",
+      "score": 1,
+      "reason": "The assistant lists 'Португалія' as if the Portuguese Wikipedia edition equates to a country, never flagging that it spans Brazil and Portugal.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Recommends concrete next audiences to validate, not a final go/no-go",
+      "score": 1,
+      "reason": "The answer gives generic characterizations ('perspective markets') rather than concrete next steps to validate specific audiences.",
+      "kind": "case"
+    },
+    {
+      "criterion": "Answers the user's actual question directly",
+      "score": 1,
+      "reason": "The assistant refuses to directly compare the five Wikipedia sections and instead asks the user to choose between two options, deferring the actual answer.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Recommendations and claims rest on the provided data, not on the model's general knowledge",
+      "score": 1,
+      "reason": "Since no tool data existed, the assistant explicitly offers to answer from general knowledge/demographic assumptions, which is the opposite of data-grounded reasoning.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Limitations are named concretely (e.g. a language edition is not a country, article interest is not willingness to pay, seasonality, missing articles)",
+      "score": 1,
+      "reason": "The assistant only vaguely states it cannot access real-time Wikipedia data, without naming any specific analytical limitations like edition-vs-country conflation or interest-vs-willingness-to-pay gaps.",
+      "kind": "general"
+    },
+    {
+      "criterion": "Clear for a founder without an analytics background, in natural wording in the user's language (no words from other languages, no invented words)",
+      "score": 3,
+      "reason": "The Ukrainian is mostly natural and understandable, but mixes in English terms ('Search API', 'Python, Node.js') and has some awkward phrasing ('поисків' is a Russian-influenced misspelling, should be 'пошуків').",
+      "kind": "general"
+    }
+  ],
+  "mean": 1.29
+}

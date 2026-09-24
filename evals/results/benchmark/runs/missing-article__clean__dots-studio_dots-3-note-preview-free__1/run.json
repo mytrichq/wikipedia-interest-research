@@ -1,0 +1,133 @@
+{
+  "case": "missing-article",
+  "env": "clean",
+  "model": "dots-studio/dots-3-note-preview:free",
+  "run": 1,
+  "tool_calls": [],
+  "n_tool_calls": 0,
+  "skills_used": [],
+  "final_answers": [
+    "(harness error: OpenRouter kept failing for dots-studio/dots-3-note-preview:free; see events.)"
+  ],
+  "cost_usd": 0.0,
+  "duration_s": 200.9,
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "errors": [
+    {
+      "type": "retry",
+      "attempt": 0,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 1,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 2,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 3,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 4,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "attempt": 5,
+      "error": {
+        "message": "Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day",
+        "code": 429,
+        "metadata": {
+          "headers": {
+            "X-RateLimit-Limit": "50",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": "1790294400000"
+          },
+          "limit_source": "openrouter_free_tier_daily",
+          "remedy_hint": "Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.",
+          "provider_name": null
+        }
+      }
+    },
+    {
+      "type": "retry",
+      "turn": 1,
+      "error": "OpenRouter kept failing for dots-studio/dots-3-note-preview:free; see events."
+    }
+  ]
+}

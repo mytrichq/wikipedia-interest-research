@@ -1,6 +1,6 @@
 ---
 name: wikipedia-interest-research
-description: Measures and compares audience interest in topics across Wikipedia language editions from Wikimedia pageview data, judges how trustworthy each trend is (seasonality, one-off news spikes, bots, edition-wide traffic changes), ranks languages or topics, and produces a one-page PDF report with charts. Use when a user asks whether interest in a topic is growing, wants to compare interest between languages, markets or topics, is choosing a course topic, content niche or localization language for a product, or mentions Wikipedia pageviews — even if they do not say "Wikipedia".
+description: Measures and compares audience interest in topics across Wikipedia language editions from Wikimedia pageview data, judges how trustworthy each trend is (seasonality, one-off news spikes, bots, edition-wide traffic changes), ranks languages or topics, and produces a one-page PDF report with charts. Use when a user asks whether interest in a topic is growing, wants to compare interest between languages, markets or topics, is choosing a course topic, content niche or localization language for a product, mentions Wikipedia pageviews, or wants to continue or update a saved study in ./wiki-studies — even if they do not say "Wikipedia".
 license: MIT
 compatibility: Requires uv (https://docs.astral.sh/uv/) and internet access to wikimedia.org, wikipedia.org and wikidata.org.
 metadata:
@@ -47,7 +47,7 @@ scripts/wir study new --topic "intermittent fasting" --langs pl,cs --question "<
 - **Several concepts as one topic**: join them with `+` (`--topic "Q1860+Q130192"`).
 - **Follow-ups on the same study** (they reuse cached data, so they are fast):
   - `scripts/wir study update <id> --add-lang sk` (also `--remove-lang`, `--period 36m`, `--weights ...`, `--add-topic ...`, `--question ...`)
-- **A new session or "continue our study"**: run `scripts/wir study list`, then `scripts/wir study show <id>`. Do not recreate an existing study.
+- **A new session or "continue our study"**: run `scripts/wir study list`, then `scripts/wir study show <id>`. Do not recreate an existing study. After `study update`, `changes_since_previous_state` lists what changed; use it when the user asks what is different.
 
 ### 3. Handle the status
 
@@ -58,7 +58,7 @@ scripts/wir study new --topic "intermittent fasting" --langs pl,cs --question "<
 
 ### 4. Answer in chat
 
-Reply in the user's language, in natural wording and with no words from other languages. Name editions by **language** ("польськомовна Вікіпедія", "Polish Wikipedia"), never by country ("Польща", "Poland"). Quote **only** numbers that appear in the command output; rounding is fine. Do not compute new numbers such as ratios or differences. Translate the trust level (High/Medium/Low → висока/середня/низька). Template:
+Reply in **the language the user wrote in**: English question → English answer and `--lang en` for the report; Ukrainian → Ukrainian and `--lang uk`. Use natural wording with no words from other languages. Name editions by **language** ("польськомовна Вікіпедія", "Polish Wikipedia"), never by country ("Польща", "Poland"). Quote **only** numbers that appear in the command output; rounding is fine. Do not compute new numbers such as ratios or differences. Translate the trust level (High/Medium/Low → висока/середня/низька). Template:
 
 ```
 **<Direct answer in one sentence>**: <verdict>, <yoy_pct>% year over year, trust <level>.
@@ -73,7 +73,12 @@ Reply in the user's language, in natural wording and with no words from other la
 **Next:** <1–2 concrete things to validate>.
 ```
 
-**If the user asked for a report** (звіт, PDF, document, something to share), do step 5 **now**, in the same turn, and end with the PDF path. Do not just offer it. Keep the Limitations line in the chat answer. Otherwise, end with a one-line offer of a PDF report.
+**If the user asked for a report** (звіт, PDF, document, something to share), do step 5 **now**, in the same turn. Then still give the **full chat answer above** (the report does not replace it) and end with the PDF path. Otherwise, end with a one-line offer of a PDF report.
+
+**When recommending audiences or topics**:
+- follow the tool's `ranking` order, and say why when you deviate;
+- frame recommendations as what to **validate next**, never as "launch here";
+- a country hidden by Wikimedia means unknown size, not "the biggest potential".
 
 Before sending, re-check each language's **trust level and verdict** against the output: they are easy to mix up between languages.
 
