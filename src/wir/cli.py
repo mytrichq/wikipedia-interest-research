@@ -10,7 +10,18 @@ import time
 from collections.abc import Callable
 from pathlib import Path
 
-from wir import __version__, config, factcheck, languages, periods, report, series, study, trust
+from wir import (
+    __version__,
+    config,
+    factcheck,
+    languages,
+    periods,
+    rank,
+    report,
+    series,
+    study,
+    trust,
+)
 from wir.cache import Cache
 from wir.collect import analysis_window, collect, significant_titles
 from wir.metrics import analyze
@@ -30,11 +41,12 @@ WIKIDATA_PROBE = (
 )
 
 
+INNER_ARRAY = re.compile(r"\[\s+([^\[\]{}]*?)\s+\]")
+TITLE_HINT = "Check the title with: scripts/wir resolve --topic ... --langs ..."
+
+
 def open_client() -> WikimediaClient:
     return WikimediaClient(Cache(config.home_dir() / "cache.sqlite"))
-
-
-INNER_ARRAY = re.compile(r"\[\s+([^\[\]{}]*?)\s+\]")
 
 
 def emit(payload: dict) -> None:
@@ -62,7 +74,7 @@ def cmd_views(args: argparse.Namespace, client: WikimediaClient) -> int:
                 "status": "not_found",
                 "lang": edition.code,
                 "article": args.article,
-                "next_step": "Check the title with: scripts/wir resolve --topic ... --langs ...",
+                "next_step": TITLE_HINT,
             }
         )
         return EXIT_NOT_FOUND
@@ -108,7 +120,14 @@ def cmd_analyze(args: argparse.Namespace, client: WikimediaClient) -> int:
     period = periods.parse(args.period)
     page = check_title(client, edition, args.article)
     if not page["exists"]:
-        emit({"status": "not_found", "lang": edition.code, "article": args.article})
+        emit(
+            {
+                "status": "not_found",
+                "lang": edition.code,
+                "article": args.article,
+                "next_step": TITLE_HINT,
+            }
+        )
         return EXIT_NOT_FOUND
     window = analysis_window(period)
     if args.no_redirects:
@@ -153,7 +172,7 @@ def cmd_study_new(args: argparse.Namespace, client: WikimediaClient) -> int:
         topics=topics,
         langs=[e.code for e in editions],
         period=args.period,
-        weights=study.parse_weights(args.weights),
+        weights=rank.parse_weights(args.weights),
         proxies=[study.parse_proxy(a, len(topics)) for a in args.article or []],
         question=args.question or "",
         topic_lang=topic_lang,
@@ -194,7 +213,7 @@ def cmd_study_update(args: argparse.Namespace, client: WikimediaClient) -> int:
         spec.topics += new
         changes += [f"added topic {t.input} ({'+'.join(t.qids)})" for t in new]
     if args.remove_topic:
-        index = int(args.remove_topic) - 1
+        index = args.remove_topic - 1
         if not 0 <= index < len(spec.topics):
             raise ValueError(f"Topic number must be 1..{len(spec.topics)}.")
         changes.append(f"removed topic {spec.topics.pop(index).input}")
@@ -208,7 +227,7 @@ def cmd_study_update(args: argparse.Namespace, client: WikimediaClient) -> int:
         changes.append(f"period {spec.period} -> {args.period}")
         spec.period = args.period
     if args.weights:
-        spec.weights = study.parse_weights(args.weights)
+        spec.weights = rank.parse_weights(args.weights)
         changes.append(f"weights -> {args.weights}")
     for value in args.article or []:
         proxy = study.parse_proxy(value, len(spec.topics))
@@ -277,7 +296,7 @@ def cmd_doctor(args: argparse.Namespace, client: WikimediaClient) -> int:
             checks.append({"check": name, "ok": False, "detail": f"{type(exc).__name__}: {exc}"})
         checks[-1]["ms"] = round((time.monotonic() - started) * 1000)
 
-    check("python", lambda: platform.python_version())
+    check("python", platform.python_version)
     checks.append({"check": "cache", "ok": True, "detail": client.cache.stats()})
     check("user_agent", config.user_agent)
     last = periods.last_complete_month_end()
@@ -292,7 +311,7 @@ def cmd_doctor(args: argparse.Namespace, client: WikimediaClient) -> int:
     return EXIT_OK if ok else EXIT_API_ERROR
 
 
-def _rest_probe_url(last) -> str:
+def _rest_probe_url(last: dt.date) -> str:
     stamp = last.strftime("%Y%m%d")
     return (
         "https://wikimedia.org/api/rest_v1/metrics/pageviews/aggregate/"
@@ -408,7 +427,7 @@ def build_parser() -> argparse.ArgumentParser:
     q.add_argument("--add-lang", help="e.g. sk or sk,hu")
     q.add_argument("--remove-lang")
     q.add_argument("--add-topic", action="append")
-    q.add_argument("--remove-topic", help="topic number (1-based, as listed)")
+    q.add_argument("--remove-topic", type=int, help="topic number (1-based, as listed)")
     q.add_argument("--period")
     q.add_argument("--weights")
     q.add_argument("--article", action="append", help="add a proxy article: pl:'Title'")
@@ -466,6 +485,9 @@ def main(argv: list[str] | None = None) -> int:
         return EXIT_FACTCHECK
     except (ValueError, languages.UnknownLanguage) as exc:
         print(f"Error: {exc}", file=sys.stderr)
+        return EXIT_BAD_INPUT
+    except OSError as exc:
+        print(f"Error: cannot read {exc.filename}: {exc.strerror}.", file=sys.stderr)
         return EXIT_BAD_INPUT
     except OfflineCacheMiss as exc:
         print(f"Error: {exc}", file=sys.stderr)

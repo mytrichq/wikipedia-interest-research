@@ -16,12 +16,11 @@ def test_agent_that_cds_into_an_installed_skill_still_saves_in_the_project(tmp_p
     assert config.studies_root() == (tmp_path / "project").resolve() / "wiki-studies"
 
 
-def test_running_inside_the_skill_source_falls_back_to_home(monkeypatch, tmp_path):
-    monkeypatch.chdir(config.SKILL_ROOT)
-    monkeypatch.setenv("PWD", str(config.SKILL_ROOT))
-    monkeypatch.setenv("HOME", str(tmp_path))
+def test_running_from_the_skill_source_uses_the_current_directory(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("PWD", str(tmp_path))
     monkeypatch.delenv("WIR_STUDIES", raising=False)
-    assert config.studies_root() == tmp_path / "wiki-studies"
+    assert config.studies_root() == tmp_path.resolve() / "wiki-studies"
 
 
 def test_explicit_location_wins(tmp_path, monkeypatch):

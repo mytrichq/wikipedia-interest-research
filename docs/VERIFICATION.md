@@ -94,4 +94,7 @@ uv run --with scipy python dev/verify_stats.py
 
 ## 7. Поведінка агента
 
-Див. [`evals/results/`](../evals/results/): baseline без навички, прогони з навичкою на Haiku та безкоштовних моделях. Проведено на кроках 7–9.
+- [Baseline без навички](../evals/results/baseline/README.md): Haiku не отримала жодного числа з Wikipedia.
+- [Ручні прогони Haiku](../evals/results/step7/README.md): 6 ітерацій, 12 знайдених і виправлених проблем.
+- [Безкоштовні моделі OpenRouter](../evals/results/step8/README.md).
+- [Бенчмарк](../evals/results/benchmark/README.md): 14 сценаріїв × 3 прогони, тригеринг, LLM-суддя, критерії приймання, ітерація v1 → v2.

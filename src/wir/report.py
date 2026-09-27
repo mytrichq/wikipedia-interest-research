@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import calendar
 import datetime as dt
 import json
 import re
@@ -31,7 +32,6 @@ from wir.config import DATA_DIR
 MAX_HEADLINE = 220
 MAX_BULLET = 260
 MAX_FINDINGS = 4
-MAX_AUTO_FINDINGS = 4
 MAX_NEXT = 3
 MAX_TABLE_ROWS = 8
 SECTION_WORDS = {
@@ -211,7 +211,7 @@ def auto_narrative(document: dict, summary: dict, lang: str) -> Narrative:
         next_steps = [s["auto_next_none"]]
     return Narrative(
         headline=s["auto_headline"].format(topic=topic_title(document, lang), summary=summary_text),
-        findings=findings[:MAX_AUTO_FINDINGS],
+        findings=findings[:MAX_FINDINGS],
         next_steps=next_steps,
         automatic=True,
     )
@@ -259,9 +259,6 @@ def limitations(document: dict, summary: dict, lang: str) -> list[str]:
             items.append(s["lim_missing"].format(lang=language(cell["lang"])))
     items.append(s["lim_fixed"][2])
     return items
-
-
-# ---------- fonts and text ----------
 
 
 @cache
@@ -327,9 +324,6 @@ def _styles(scale: float) -> dict[str, ParagraphStyle]:
     }
 
 
-# ---------- charts ----------
-
-
 def make_charts(document: dict, folder: Path, lang: str) -> dict[str, Path]:
     s, names = strings(lang), display_names(document, lang)
     frame = pd.read_csv(folder / "data" / "monthly.csv")
@@ -376,9 +370,6 @@ def make_charts(document: dict, folder: Path, lang: str) -> dict[str, Path]:
     return paths
 
 
-# ---------- page furniture ----------
-
-
 def _decorations(canvas, lang: str, document: dict, st: dict) -> None:
     s = strings(lang)
     canvas.saveState()
@@ -412,7 +403,7 @@ def _decorations(canvas, lang: str, document: dict, st: dict) -> None:
         f"{_t(s['period_label'])}: <b>{_t(period_text(document['results']['period'], lang))}</b>",
         st["meta"],
     )
-    width, meta_height = meta.wrap(CONTENT_W * 0.28, HEADER_H)
+    _, meta_height = meta.wrap(CONTENT_W * 0.28, HEADER_H)
     meta.drawOn(
         canvas, PAGE_W - BODY_X - CONTENT_W * 0.28, PAGE_H - HEADER_H / 2 - meta_height / 2 - 6
     )
@@ -447,10 +438,8 @@ def _badge(number: int, size: float) -> Drawing:
     return drawing
 
 
-# ---------- blocks ----------
-
-
-def _tiles(summary: dict, names: dict, s: dict, st: dict, width: float) -> Table:
+def _tiles(document: dict, summary: dict, names: dict, s: dict, st: dict, width: float) -> Table:
+    cells = {c["key"]: c for c in document["results"]["cells"]}
     ok = [r for r in summary["results"] if r.get("status") != "missing"]
     tiles: list[tuple[str, str]] = []
     if len(summary["results"]) == 1 and ok:
@@ -461,10 +450,10 @@ def _tiles(summary: dict, names: dict, s: dict, st: dict, width: float) -> Table
             (_views(row["avg_monthly_views"]), s["tile_views"]),
             (s["trust_levels"][level], s["tile_trust"]),
         ]
-        if row.get("seasonality"):
-            month, factor = row["seasonality"].split(" peak ≈")
-            index = [m.lower() for m in strings("en")["month_names"]].index(month.lower())
-            tiles.append((f"{s['month_names'][index]} ×{factor.split('×')[0]}", s["tile_season"]))
+        season = cells[row["key"]]["metrics"].get("seasonality") or {}
+        if season.get("strong"):
+            month = s["month_names"][list(calendar.month_name).index(season["peak_month"]) - 1]
+            tiles.append((f"{month} ×{season['peak_factor']:.1f}", s["tile_season"]))
         else:
             tiles.append((_pct(row["relative_yoy_pct"]), s["tile_relative"]))
     elif ok:
@@ -590,8 +579,7 @@ def _table(document, summary, names, s, st) -> Table:
         trust = (
             f'<font color="{TRUST_COLORS[level]}">●</font> {_t(s["trust_levels"][level])} {score}'
         )
-        yoy = row["yoy_pct"] or 0
-        arrow = charts.POSITIVE if yoy >= 0 else charts.NEGATIVE
+        color = charts.POSITIVE if (row["yoy_pct"] or 0) >= 0 else charts.NEGATIVE
         data.append(
             [
                 Paragraph(str(ranks.get(row["key"], "")), st["cell"]),
@@ -599,7 +587,7 @@ def _table(document, summary, names, s, st) -> Table:
                 Paragraph("<br/>".join(links), st["link"]),
                 Paragraph(_views(row["avg_monthly_views"]), st["cell"]),
                 Paragraph(
-                    f'<font color="{arrow}"><b>{_pct(row["yoy_pct"])}</b></font>', st["cell"]
+                    f'<font color="{color}"><b>{_pct(row["yoy_pct"])}</b></font>', st["cell"]
                 ),
                 Paragraph(_pct(row["relative_yoy_pct"]), st["cell"]),
                 Paragraph(_pct(row["edition_yoy_pct"]), st["cell"]),
@@ -735,7 +723,7 @@ def _story(document, summary, narrative, lang, chart_paths, scale) -> list:
         Paragraph(_t(s["headline_label"].upper()), st["label"]),
         Paragraph(_t(narrative.headline), st["headline"]),
         Spacer(1, gap),
-        _tiles(summary, names, s, st, CONTENT_W),
+        _tiles(document, summary, names, s, st, CONTENT_W),
         Spacer(1, gap * 1.2),
     ]
     story += _chart_block(chart_paths, s, st, scale)
@@ -794,6 +782,10 @@ def build_pdf(document, summary, narrative, lang, chart_paths, path: Path) -> in
     return pages
 
 
+def _markdown_url(url: str) -> str:
+    return url.replace("(", "%28").replace(")", "%29")
+
+
 def summary_markdown(document, summary, narrative, lang) -> str:
     s, names = strings(lang), display_names(document, lang)
     ranks = {r["key"]: r["rank"] for r in summary["ranking"]}
@@ -810,7 +802,7 @@ def summary_markdown(document, summary, narrative, lang) -> str:
             continue
         edition = languages.get(cell["lang"])
         links = ", ".join(
-            f"[{a['title']}]({edition.article_url(a['title']).replace(' ', '_')})"
+            f"[{a['title']}]({_markdown_url(edition.article_url(a['title']))})"
             + (f" ({s['proxy']})" if a["proxy"] else "")
             for a in cell["articles"]
         )

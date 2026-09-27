@@ -10,7 +10,6 @@ from wir import __version__
 
 PROJECT_URL = "https://github.com/mytrichq/wikipedia-interest-research"
 DATA_DIR = Path(__file__).resolve().parent / "data"
-SKILL_ROOT = Path(__file__).resolve().parents[2]
 
 
 def user_agent() -> str:
@@ -48,6 +47,4 @@ def studies_root() -> Path:
     for i in range(len(parts) - 1):
         if parts[i] == ".claude" and parts[i + 1] == "skills":
             return Path(*parts[:i]) / "wiki-studies"
-    if physical == SKILL_ROOT or SKILL_ROOT in physical.parents:
-        return Path.home() / "wiki-studies"
     return physical / "wiki-studies"

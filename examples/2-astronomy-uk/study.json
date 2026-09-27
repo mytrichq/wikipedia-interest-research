@@ -1,0 +1,314 @@
+{
+ "id": "astronomy-uk",
+ "wir_version": "0.1.0",
+ "updated": "2026-09-24T13:29:32",
+ "spec": {
+  "topics": [
+   {
+    "input": "astronomy",
+    "qids": [
+     "Q333"
+    ],
+    "label": "astronomy",
+    "labels": {
+     "en": "astronomy",
+     "uk": "астрономія"
+    }
+   }
+  ],
+  "langs": [
+   "uk"
+  ],
+  "period": "24m",
+  "weights": {
+   "momentum": 0.35,
+   "relative": 0.25,
+   "size": 0.25,
+   "trust": 0.15
+  },
+  "proxies": [],
+  "question": "Ми думаємо додати курс з астрономії до освітнього застосунку. Чи зростає інтерес до цієї теми в україномовній Wikipedia, і наскільки цьому зростанню можна довіряти?",
+  "topic_lang": "en"
+ },
+ "assumptions": [
+  "Period 2024-09..2026-08 = whole months up to the last complete month; statistics use 2024-09..2026-08 so every month has a year-earlier comparison.",
+  "Views are agent=user (declared bots and crawlers excluded), all devices, redirects carrying ≥1% of an article's views included.",
+  "Weights: momentum=0.35, relative=0.25, size=0.25, trust=0.15.",
+  "Topic 'astronomy' = Wikidata Q333 (astronomy)."
+ ],
+ "history": [
+  {
+   "at": "2026-09-24T13:29:32",
+   "action": "new",
+   "change": "created"
+  }
+ ],
+ "results": {
+  "period": "2024-09..2026-08",
+  "window": "2024-09..2026-08",
+  "cells": [
+   {
+    "key": "uk",
+    "topic": "astronomy",
+    "lang": "uk",
+    "status": "ok",
+    "language": "Ukrainian",
+    "articles": [
+     {
+      "title": "Астрономія",
+      "qid": "Q333",
+      "proxy": false,
+      "titles_included": [
+       "Астрономія"
+      ],
+      "views": 23322
+     }
+    ],
+    "missing_concepts": [],
+    "metrics": {
+     "window": "2024-09..2026-08",
+     "months": 24,
+     "verdict": "declining",
+     "volume": {
+      "total_views": 23322,
+      "avg_monthly_last12": 559,
+      "avg_monthly_first12": 1384
+     },
+     "growth": {
+      "yoy_pct": -59.6,
+      "robust_yoy_pct": -61.7,
+      "months_up": 1,
+      "months_compared": 12,
+      "p_value": 0.0094,
+      "direction": "down",
+      "annual_trend_pct": -61.7,
+      "method": "seasonal Mann-Kendall (each month vs the same month in other years)"
+     },
+     "growth_without_one_offs": {
+      "yoy_pct": -60.6,
+      "robust_yoy_pct": -61.7,
+      "months_up": 0,
+      "p_value": 0.0015,
+      "one_off_months": []
+     },
+     "relative": {
+      "per_million_last12": 9.69,
+      "yoy_pct": -42.4,
+      "verdict": "declining",
+      "edition_views_yoy_pct": -24.6
+     },
+     "seasonality": {
+      "strength": 0.26,
+      "peak_month": "September",
+      "peak_factor": 2.3,
+      "peak_every_year": true,
+      "strong": true
+     },
+     "spikes": {
+      "events": [
+       {
+        "start": "2025-09-02",
+        "days": 1,
+        "peak_views": 116,
+        "times_baseline": 3.9,
+        "excess_views": 86,
+        "desktop_share": 0.32,
+        "bot_like": false
+       },
+       {
+        "start": "2026-07-15",
+        "days": 2,
+        "peak_views": 49,
+        "times_baseline": 7.0,
+        "excess_views": 75,
+        "desktop_share": 0.84,
+        "bot_like": true
+       }
+      ],
+      "event_count": 2,
+      "excess_share": 0.007,
+      "bot_like_excess_share": 0.003,
+      "normal_desktop_share": 0.37
+     },
+     "automated_share": 0.144,
+     "data": {
+      "first_day_with_views": "2024-09-01",
+      "new_in_window": false,
+      "zero_day_share": 0.0,
+      "window_before_bot_filtering": false
+     },
+     "monthly": [
+      [
+       "2024-09",
+       4687
+      ],
+      [
+       "2024-10",
+       1776
+      ],
+      [
+       "2024-11",
+       1746
+      ],
+      [
+       "2024-12",
+       1634
+      ],
+      [
+       "2025-01",
+       1558
+      ],
+      [
+       "2025-02",
+       1296
+      ],
+      [
+       "2025-03",
+       1068
+      ],
+      [
+       "2025-04",
+       1019
+      ],
+      [
+       "2025-05",
+       789
+      ],
+      [
+       "2025-06",
+       361
+      ],
+      [
+       "2025-07",
+       305
+      ],
+      [
+       "2025-08",
+       375
+      ],
+      [
+       "2025-09",
+       1642
+      ],
+      [
+       "2025-10",
+       635
+      ],
+      [
+       "2025-11",
+       557
+      ],
+      [
+       "2025-12",
+       622
+      ],
+      [
+       "2026-01",
+       449
+      ],
+      [
+       "2026-02",
+       425
+      ],
+      [
+       "2026-03",
+       410
+      ],
+      [
+       "2026-04",
+       405
+      ],
+      [
+       "2026-05",
+       600
+      ],
+      [
+       "2026-06",
+       281
+      ],
+      [
+       "2026-07",
+       322
+      ],
+      [
+       "2026-08",
+       360
+      ]
+     ]
+    },
+    "cluster": {
+     "articles": 1,
+     "breadth": 1.0,
+     "top_share": 1.0,
+     "proxy": false
+    },
+    "trust": {
+     "level": "High",
+     "score": 100,
+     "reasons": [
+      {
+       "code": "volume_ok",
+       "effect": 0,
+       "text": "~559 views/month is enough for a stable estimate."
+      },
+      {
+       "code": "consistent",
+       "effect": 0,
+       "text": "0 of 12 months were above the same month a year earlier (p=0.002)."
+      },
+      {
+       "code": "seasonality_handled",
+       "effect": 0,
+       "text": "Strong seasonality (September ≈ 2.3× a typical month) is handled by comparing each month with the same month a year earlier."
+      },
+      {
+       "code": "edition_consistent",
+       "effect": 0,
+       "text": "The trend holds after adjusting for the edition's total traffic."
+      }
+     ]
+    }
+   }
+  ],
+  "ranking": [
+   {
+    "key": "uk",
+    "score": 37.3,
+    "components": {
+     "momentum": 0.0,
+     "relative": 0.34,
+     "size": 0.55,
+     "trust": 1.0
+    },
+    "strongest": [
+     "trust",
+     "size"
+    ],
+    "rank": 1
+   }
+  ],
+  "editions": {
+   "uk": {
+    "language": "Ukrainian",
+    "top_reader_countries": [
+     {
+      "country": "UA",
+      "share": 0.65
+     },
+     {
+      "country": "US",
+      "share": 0.11
+     },
+     {
+      "country": "PL",
+      "share": 0.04
+     }
+    ],
+    "hidden_countries": [],
+    "hidden_country_codes": [],
+    "monthly_unique_devices": 12561280,
+    "month": "2026-08"
+   }
+  }
+ }
+}

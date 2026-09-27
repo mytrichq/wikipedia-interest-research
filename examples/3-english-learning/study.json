@@ -1,0 +1,1253 @@
+{
+ "id": "english-learning",
+ "wir_version": "0.1.0",
+ "updated": "2026-09-24T13:29:33",
+ "spec": {
+  "topics": [
+   {
+    "input": "Q1860",
+    "qids": [
+     "Q1860"
+    ],
+    "label": "English",
+    "labels": {
+     "en": "English",
+     "pl": "język angielski",
+     "pt": "inglês",
+     "tr": "İngilizce",
+     "uk": "англійська мова",
+     "vi": "tiếng Anh"
+    }
+   }
+  ],
+  "langs": [
+   "uk",
+   "pl",
+   "tr",
+   "vi",
+   "pt"
+  ],
+  "period": "24m",
+  "weights": {
+   "momentum": 0.35,
+   "relative": 0.25,
+   "size": 0.25,
+   "trust": 0.15
+  },
+  "proxies": [],
+  "question": "Ми створюємо застосунок для вивчення мов. Порівняй інтерес до вивчення англійської у вибраних нами мовних розділах (українська, польська, турецька, в'єтнамська, португальська) та підготуй короткий звіт: які аудиторії варто дослідити наступними й чому?",
+  "topic_lang": "en"
+ },
+ "assumptions": [
+  "Period 2024-09..2026-08 = whole months up to the last complete month; statistics use 2024-09..2026-08 so every month has a year-earlier comparison.",
+  "Views are agent=user (declared bots and crawlers excluded), all devices, redirects carrying ≥1% of an article's views included.",
+  "Weights: momentum=0.35, relative=0.25, size=0.25, trust=0.15.",
+  "Topic 'Q1860' = Wikidata Q1860 (English)."
+ ],
+ "history": [
+  {
+   "at": "2026-09-24T13:29:33",
+   "action": "new",
+   "change": "created"
+  }
+ ],
+ "results": {
+  "period": "2024-09..2026-08",
+  "window": "2024-09..2026-08",
+  "cells": [
+   {
+    "key": "uk",
+    "topic": "English",
+    "lang": "uk",
+    "status": "ok",
+    "language": "Ukrainian",
+    "articles": [
+     {
+      "title": "Англійська мова",
+      "qid": "Q1860",
+      "proxy": false,
+      "titles_included": [
+       "Англійська мова",
+       "Англійська"
+      ],
+      "views": 206083
+     }
+    ],
+    "missing_concepts": [],
+    "metrics": {
+     "window": "2024-09..2026-08",
+     "months": 24,
+     "verdict": "declining",
+     "volume": {
+      "total_views": 206083,
+      "avg_monthly_last12": 6730,
+      "avg_monthly_first12": 10443
+     },
+     "growth": {
+      "yoy_pct": -35.6,
+      "robust_yoy_pct": -37.3,
+      "months_up": 0,
+      "months_compared": 12,
+      "p_value": 0.0015,
+      "direction": "down",
+      "annual_trend_pct": -37.3,
+      "method": "seasonal Mann-Kendall (each month vs the same month in other years)"
+     },
+     "growth_without_one_offs": {
+      "yoy_pct": -35.6,
+      "robust_yoy_pct": -37.3,
+      "months_up": 0,
+      "p_value": 0.0015,
+      "one_off_months": []
+     },
+     "relative": {
+      "per_million_last12": 118.8,
+      "yoy_pct": -10.5,
+      "verdict": "declining",
+      "edition_views_yoy_pct": -24.6
+     },
+     "seasonality": {
+      "strength": 0.04,
+      "peak_month": "March",
+      "peak_factor": 1.1,
+      "peak_every_year": false,
+      "strong": false
+     },
+     "spikes": {
+      "events": [],
+      "event_count": 0,
+      "excess_share": 0.0,
+      "bot_like_excess_share": 0.0,
+      "normal_desktop_share": 0.29
+     },
+     "automated_share": 0.173,
+     "data": {
+      "first_day_with_views": "2024-09-01",
+      "new_in_window": false,
+      "zero_day_share": 0.0,
+      "window_before_bot_filtering": false
+     },
+     "monthly": [
+      [
+       "2024-09",
+       11674
+      ],
+      [
+       "2024-10",
+       12624
+      ],
+      [
+       "2024-11",
+       12869
+      ],
+      [
+       "2024-12",
+       11660
+      ],
+      [
+       "2025-01",
+       13024
+      ],
+      [
+       "2025-02",
+       10993
+      ],
+      [
+       "2025-03",
+       12095
+      ],
+      [
+       "2025-04",
+       10437
+      ],
+      [
+       "2025-05",
+       9000
+      ],
+      [
+       "2025-06",
+       6505
+      ],
+      [
+       "2025-07",
+       6937
+      ],
+      [
+       "2025-08",
+       7501
+      ],
+      [
+       "2025-09",
+       8535
+      ],
+      [
+       "2025-10",
+       8066
+      ],
+      [
+       "2025-11",
+       7350
+      ],
+      [
+       "2025-12",
+       7176
+      ],
+      [
+       "2026-01",
+       6971
+      ],
+      [
+       "2026-02",
+       6260
+      ],
+      [
+       "2026-03",
+       6703
+      ],
+      [
+       "2026-04",
+       6237
+      ],
+      [
+       "2026-05",
+       7018
+      ],
+      [
+       "2026-06",
+       5472
+      ],
+      [
+       "2026-07",
+       5444
+      ],
+      [
+       "2026-08",
+       5532
+      ]
+     ]
+    },
+    "cluster": {
+     "articles": 1,
+     "breadth": 1.0,
+     "top_share": 1.0,
+     "proxy": false
+    },
+    "trust": {
+     "level": "High",
+     "score": 100,
+     "reasons": [
+      {
+       "code": "volume_ok",
+       "effect": 0,
+       "text": "~6730 views/month is enough for a stable estimate."
+      },
+      {
+       "code": "consistent",
+       "effect": 0,
+       "text": "0 of 12 months were above the same month a year earlier (p=0.002)."
+      },
+      {
+       "code": "edition_consistent",
+       "effect": 0,
+       "text": "The trend holds after adjusting for the edition's total traffic."
+      }
+     ]
+    }
+   },
+   {
+    "key": "pl",
+    "topic": "English",
+    "lang": "pl",
+    "status": "ok",
+    "language": "Polish",
+    "articles": [
+     {
+      "title": "Język angielski",
+      "qid": "Q1860",
+      "proxy": false,
+      "titles_included": [
+       "Język angielski"
+      ],
+      "views": 215775
+     }
+    ],
+    "missing_concepts": [],
+    "metrics": {
+     "window": "2024-09..2026-08",
+     "months": 24,
+     "verdict": "declining",
+     "volume": {
+      "total_views": 215775,
+      "avg_monthly_last12": 8087,
+      "avg_monthly_first12": 9894
+     },
+     "growth": {
+      "yoy_pct": -18.3,
+      "robust_yoy_pct": -19.4,
+      "months_up": 2,
+      "months_compared": 12,
+      "p_value": 0.0433,
+      "direction": "down",
+      "annual_trend_pct": -19.4,
+      "method": "seasonal Mann-Kendall (each month vs the same month in other years)"
+     },
+     "growth_without_one_offs": {
+      "yoy_pct": -18.3,
+      "robust_yoy_pct": -19.4,
+      "months_up": 2,
+      "p_value": 0.0433,
+      "one_off_months": []
+     },
+     "relative": {
+      "per_million_last12": 43.04,
+      "yoy_pct": -9.9,
+      "verdict": "stable",
+      "edition_views_yoy_pct": -8.8
+     },
+     "seasonality": {
+      "strength": 0.0,
+      "peak_month": "January",
+      "peak_factor": 1.17,
+      "peak_every_year": false,
+      "strong": false
+     },
+     "spikes": {
+      "events": [],
+      "event_count": 0,
+      "excess_share": 0.0,
+      "bot_like_excess_share": 0.0,
+      "normal_desktop_share": 0.39
+     },
+     "automated_share": 0.13,
+     "data": {
+      "first_day_with_views": "2024-09-01",
+      "new_in_window": false,
+      "zero_day_share": 0.0,
+      "window_before_bot_filtering": false
+     },
+     "monthly": [
+      [
+       "2024-09",
+       9611
+      ],
+      [
+       "2024-10",
+       10234
+      ],
+      [
+       "2024-11",
+       11661
+      ],
+      [
+       "2024-12",
+       11498
+      ],
+      [
+       "2025-01",
+       12414
+      ],
+      [
+       "2025-02",
+       9932
+      ],
+      [
+       "2025-03",
+       11547
+      ],
+      [
+       "2025-04",
+       9133
+      ],
+      [
+       "2025-05",
+       8562
+      ],
+      [
+       "2025-06",
+       7352
+      ],
+      [
+       "2025-07",
+       7962
+      ],
+      [
+       "2025-08",
+       8827
+      ],
+      [
+       "2025-09",
+       8458
+      ],
+      [
+       "2025-10",
+       10137
+      ],
+      [
+       "2025-11",
+       8455
+      ],
+      [
+       "2025-12",
+       7850
+      ],
+      [
+       "2026-01",
+       8902
+      ],
+      [
+       "2026-02",
+       7257
+      ],
+      [
+       "2026-03",
+       7886
+      ],
+      [
+       "2026-04",
+       7365
+      ],
+      [
+       "2026-05",
+       7429
+      ],
+      [
+       "2026-06",
+       7940
+      ],
+      [
+       "2026-07",
+       8244
+      ],
+      [
+       "2026-08",
+       7119
+      ]
+     ]
+    },
+    "cluster": {
+     "articles": 1,
+     "breadth": 1.0,
+     "top_share": 1.0,
+     "proxy": false
+    },
+    "trust": {
+     "level": "Medium",
+     "score": 65,
+     "reasons": [
+      {
+       "code": "volume_ok",
+       "effect": 0,
+       "text": "~8087 views/month is enough for a stable estimate."
+      },
+      {
+       "code": "consistent",
+       "effect": 0,
+       "text": "2 of 12 months were above the same month a year earlier (p=0.043)."
+      },
+      {
+       "code": "edition_effect",
+       "effect": -35,
+       "text": "The whole edition's traffic changed -9%; relative to it the topic moved -10% (absolute: -19%)."
+      }
+     ]
+    }
+   },
+   {
+    "key": "tr",
+    "topic": "English",
+    "lang": "tr",
+    "status": "ok",
+    "language": "Turkish",
+    "articles": [
+     {
+      "title": "İngilizce",
+      "qid": "Q1860",
+      "proxy": false,
+      "titles_included": [
+       "İngilizce"
+      ],
+      "views": 186710
+     }
+    ],
+    "missing_concepts": [],
+    "metrics": {
+     "window": "2024-09..2026-08",
+     "months": 24,
+     "verdict": "declining",
+     "volume": {
+      "total_views": 186710,
+      "avg_monthly_last12": 7080,
+      "avg_monthly_first12": 8479
+     },
+     "growth": {
+      "yoy_pct": -16.5,
+      "robust_yoy_pct": -13.5,
+      "months_up": 2,
+      "months_compared": 12,
+      "p_value": 0.0433,
+      "direction": "down",
+      "annual_trend_pct": -13.5,
+      "method": "seasonal Mann-Kendall (each month vs the same month in other years)"
+     },
+     "growth_without_one_offs": {
+      "yoy_pct": -17.1,
+      "robust_yoy_pct": -13.5,
+      "months_up": 1,
+      "p_value": 0.0094,
+      "one_off_months": []
+     },
+     "relative": {
+      "per_million_last12": 65.27,
+      "yoy_pct": 5.3,
+      "verdict": "stable",
+      "edition_views_yoy_pct": -16.3
+     },
+     "seasonality": {
+      "strength": 0.28,
+      "peak_month": "October",
+      "peak_factor": 1.15,
+      "peak_every_year": false,
+      "strong": false
+     },
+     "spikes": {
+      "events": [
+       {
+        "start": "2026-04-16",
+        "days": 1,
+        "peak_views": 849,
+        "times_baseline": 3.5,
+        "excess_views": 609,
+        "desktop_share": 0.08,
+        "bot_like": false
+       }
+      ],
+      "event_count": 1,
+      "excess_share": 0.003,
+      "bot_like_excess_share": 0.0,
+      "normal_desktop_share": 0.28
+     },
+     "automated_share": 0.133,
+     "data": {
+      "first_day_with_views": "2024-09-01",
+      "new_in_window": false,
+      "zero_day_share": 0.0,
+      "window_before_bot_filtering": false
+     },
+     "monthly": [
+      [
+       "2024-09",
+       9224
+      ],
+      [
+       "2024-10",
+       12545
+      ],
+      [
+       "2024-11",
+       9927
+      ],
+      [
+       "2024-12",
+       10783
+      ],
+      [
+       "2025-01",
+       9496
+      ],
+      [
+       "2025-02",
+       7264
+      ],
+      [
+       "2025-03",
+       8785
+      ],
+      [
+       "2025-04",
+       7723
+      ],
+      [
+       "2025-05",
+       7659
+      ],
+      [
+       "2025-06",
+       6114
+      ],
+      [
+       "2025-07",
+       6042
+      ],
+      [
+       "2025-08",
+       6188
+      ],
+      [
+       "2025-09",
+       7094
+      ],
+      [
+       "2025-10",
+       7703
+      ],
+      [
+       "2025-11",
+       7687
+      ],
+      [
+       "2025-12",
+       7886
+      ],
+      [
+       "2026-01",
+       8023
+      ],
+      [
+       "2026-02",
+       6428
+      ],
+      [
+       "2026-03",
+       6999
+      ],
+      [
+       "2026-04",
+       8312
+      ],
+      [
+       "2026-05",
+       6801
+      ],
+      [
+       "2026-06",
+       6556
+      ],
+      [
+       "2026-07",
+       5878
+      ],
+      [
+       "2026-08",
+       5593
+      ]
+     ]
+    },
+    "cluster": {
+     "articles": 1,
+     "breadth": 1.0,
+     "top_share": 1.0,
+     "proxy": false
+    },
+    "trust": {
+     "level": "Medium",
+     "score": 65,
+     "reasons": [
+      {
+       "code": "volume_ok",
+       "effect": 0,
+       "text": "~7080 views/month is enough for a stable estimate."
+      },
+      {
+       "code": "consistent",
+       "effect": 0,
+       "text": "1 of 12 months were above the same month a year earlier (p=0.009)."
+      },
+      {
+       "code": "edition_effect",
+       "effect": -35,
+       "text": "The whole edition's traffic changed -16%; relative to it the topic moved +5% (absolute: -14%)."
+      }
+     ]
+    }
+   },
+   {
+    "key": "vi",
+    "topic": "English",
+    "lang": "vi",
+    "status": "ok",
+    "language": "Vietnamese",
+    "articles": [
+     {
+      "title": "Tiếng Anh",
+      "qid": "Q1860",
+      "proxy": false,
+      "titles_included": [
+       "Tiếng Anh"
+      ],
+      "views": 344335
+     }
+    ],
+    "missing_concepts": [],
+    "metrics": {
+     "window": "2024-09..2026-08",
+     "months": 24,
+     "verdict": "declining",
+     "volume": {
+      "total_views": 344335,
+      "avg_monthly_last12": 12478,
+      "avg_monthly_first12": 16217
+     },
+     "growth": {
+      "yoy_pct": -23.1,
+      "robust_yoy_pct": -24.0,
+      "months_up": 0,
+      "months_compared": 12,
+      "p_value": 0.0015,
+      "direction": "down",
+      "annual_trend_pct": -24.0,
+      "method": "seasonal Mann-Kendall (each month vs the same month in other years)"
+     },
+     "growth_without_one_offs": {
+      "yoy_pct": -23.1,
+      "robust_yoy_pct": -24.0,
+      "months_up": 0,
+      "p_value": 0.0015,
+      "one_off_months": []
+     },
+     "relative": {
+      "per_million_last12": 255.49,
+      "yoy_pct": 2.9,
+      "verdict": "stable",
+      "edition_views_yoy_pct": -24.2
+     },
+     "seasonality": {
+      "strength": 0.43,
+      "peak_month": "December",
+      "peak_factor": 1.14,
+      "peak_every_year": true,
+      "strong": false
+     },
+     "spikes": {
+      "events": [],
+      "event_count": 0,
+      "excess_share": 0.0,
+      "bot_like_excess_share": 0.0,
+      "normal_desktop_share": 0.28
+     },
+     "automated_share": 0.1,
+     "data": {
+      "first_day_with_views": "2024-09-01",
+      "new_in_window": false,
+      "zero_day_share": 0.0,
+      "window_before_bot_filtering": false
+     },
+     "monthly": [
+      [
+       "2024-09",
+       19939
+      ],
+      [
+       "2024-10",
+       22074
+      ],
+      [
+       "2024-11",
+       19035
+      ],
+      [
+       "2024-12",
+       18635
+      ],
+      [
+       "2025-01",
+       14755
+      ],
+      [
+       "2025-02",
+       13792
+      ],
+      [
+       "2025-03",
+       15507
+      ],
+      [
+       "2025-04",
+       15594
+      ],
+      [
+       "2025-05",
+       15189
+      ],
+      [
+       "2025-06",
+       12300
+      ],
+      [
+       "2025-07",
+       13858
+      ],
+      [
+       "2025-08",
+       13926
+      ],
+      [
+       "2025-09",
+       14864
+      ],
+      [
+       "2025-10",
+       14985
+      ],
+      [
+       "2025-11",
+       14620
+      ],
+      [
+       "2025-12",
+       16137
+      ],
+      [
+       "2026-01",
+       14516
+      ],
+      [
+       "2026-02",
+       9967
+      ],
+      [
+       "2026-03",
+       12436
+      ],
+      [
+       "2026-04",
+       11918
+      ],
+      [
+       "2026-05",
+       11482
+      ],
+      [
+       "2026-06",
+       9818
+      ],
+      [
+       "2026-07",
+       10027
+      ],
+      [
+       "2026-08",
+       8961
+      ]
+     ]
+    },
+    "cluster": {
+     "articles": 1,
+     "breadth": 1.0,
+     "top_share": 1.0,
+     "proxy": false
+    },
+    "trust": {
+     "level": "Medium",
+     "score": 65,
+     "reasons": [
+      {
+       "code": "volume_ok",
+       "effect": 0,
+       "text": "~12478 views/month is enough for a stable estimate."
+      },
+      {
+       "code": "consistent",
+       "effect": 0,
+       "text": "0 of 12 months were above the same month a year earlier (p=0.002)."
+      },
+      {
+       "code": "edition_effect",
+       "effect": -35,
+       "text": "The whole edition's traffic changed -24%; relative to it the topic moved +3% (absolute: -24%)."
+      }
+     ]
+    }
+   },
+   {
+    "key": "pt",
+    "topic": "English",
+    "lang": "pt",
+    "status": "ok",
+    "language": "Portuguese",
+    "articles": [
+     {
+      "title": "Língua inglesa",
+      "qid": "Q1860",
+      "proxy": false,
+      "titles_included": [
+       "Língua inglesa"
+      ],
+      "views": 258829
+     }
+    ],
+    "missing_concepts": [],
+    "metrics": {
+     "window": "2024-09..2026-08",
+     "months": 24,
+     "verdict": "declining",
+     "volume": {
+      "total_views": 258829,
+      "avg_monthly_last12": 9178,
+      "avg_monthly_first12": 12391
+     },
+     "growth": {
+      "yoy_pct": -25.9,
+      "robust_yoy_pct": -33.7,
+      "months_up": 2,
+      "months_compared": 12,
+      "p_value": 0.0433,
+      "direction": "down",
+      "annual_trend_pct": -33.7,
+      "method": "seasonal Mann-Kendall (each month vs the same month in other years)"
+     },
+     "growth_without_one_offs": {
+      "yoy_pct": -25.9,
+      "robust_yoy_pct": -33.7,
+      "months_up": 2,
+      "p_value": 0.0433,
+      "one_off_months": []
+     },
+     "relative": {
+      "per_million_last12": 51.31,
+      "yoy_pct": -12.4,
+      "verdict": "unclear",
+      "edition_views_yoy_pct": -16.6
+     },
+     "seasonality": {
+      "strength": 0.0,
+      "peak_month": "March",
+      "peak_factor": 1.18,
+      "peak_every_year": false,
+      "strong": false
+     },
+     "spikes": {
+      "events": [],
+      "event_count": 0,
+      "excess_share": 0.0,
+      "bot_like_excess_share": 0.0,
+      "normal_desktop_share": 0.33
+     },
+     "automated_share": 0.132,
+     "data": {
+      "first_day_with_views": "2024-09-01",
+      "new_in_window": false,
+      "zero_day_share": 0.0,
+      "window_before_bot_filtering": false
+     },
+     "monthly": [
+      [
+       "2024-09",
+       15277
+      ],
+      [
+       "2024-10",
+       15034
+      ],
+      [
+       "2024-11",
+       14710
+      ],
+      [
+       "2024-12",
+       12618
+      ],
+      [
+       "2025-01",
+       12465
+      ],
+      [
+       "2025-02",
+       12783
+      ],
+      [
+       "2025-03",
+       15965
+      ],
+      [
+       "2025-04",
+       11623
+      ],
+      [
+       "2025-05",
+       10011
+      ],
+      [
+       "2025-06",
+       9950
+      ],
+      [
+       "2025-07",
+       8868
+      ],
+      [
+       "2025-08",
+       9392
+      ],
+      [
+       "2025-09",
+       9668
+      ],
+      [
+       "2025-10",
+       9637
+      ],
+      [
+       "2025-11",
+       9126
+      ],
+      [
+       "2025-12",
+       7830
+      ],
+      [
+       "2026-01",
+       8206
+      ],
+      [
+       "2026-02",
+       8524
+      ],
+      [
+       "2026-03",
+       9369
+      ],
+      [
+       "2026-04",
+       8601
+      ],
+      [
+       "2026-05",
+       9296
+      ],
+      [
+       "2026-06",
+       9640
+      ],
+      [
+       "2026-07",
+       9958
+      ],
+      [
+       "2026-08",
+       10278
+      ]
+     ]
+    },
+    "cluster": {
+     "articles": 1,
+     "breadth": 1.0,
+     "top_share": 1.0,
+     "proxy": false
+    },
+    "trust": {
+     "level": "High",
+     "score": 100,
+     "reasons": [
+      {
+       "code": "volume_ok",
+       "effect": 0,
+       "text": "~9178 views/month is enough for a stable estimate."
+      },
+      {
+       "code": "consistent",
+       "effect": 0,
+       "text": "2 of 12 months were above the same month a year earlier (p=0.043)."
+      },
+      {
+       "code": "edition_consistent",
+       "effect": 0,
+       "text": "The trend holds after adjusting for the edition's total traffic."
+      }
+     ]
+    }
+   }
+  ],
+  "ranking": [
+   {
+    "key": "vi",
+    "score": 56.4,
+    "components": {
+     "momentum": 0.17,
+     "relative": 0.8,
+     "size": 0.82,
+     "trust": 0.65
+    },
+    "strongest": [
+     "size",
+     "relative"
+    ],
+    "rank": 1
+   },
+   {
+    "key": "uk",
+    "score": 54.4,
+    "components": {
+     "momentum": 0.08,
+     "relative": 0.69,
+     "size": 0.77,
+     "trust": 1.0
+    },
+    "strongest": [
+     "size",
+     "relative"
+    ],
+    "rank": 2
+   },
+   {
+    "key": "pt",
+    "score": 52.9,
+    "components": {
+     "momentum": 0.11,
+     "relative": 0.57,
+     "size": 0.79,
+     "trust": 1.0
+    },
+    "strongest": [
+     "size",
+     "trust"
+    ],
+    "rank": 3
+   },
+   {
+    "key": "tr",
+    "score": 52.7,
+    "components": {
+     "momentum": 0.24,
+     "relative": 0.61,
+     "size": 0.77,
+     "trust": 0.65
+    },
+    "strongest": [
+     "size",
+     "relative"
+    ],
+    "rank": 4
+   },
+   {
+    "key": "pl",
+    "score": 50.1,
+    "components": {
+     "momentum": 0.2,
+     "relative": 0.55,
+     "size": 0.78,
+     "trust": 0.65
+    },
+    "strongest": [
+     "size",
+     "relative"
+    ],
+    "rank": 5
+   }
+  ],
+  "editions": {
+   "uk": {
+    "language": "Ukrainian",
+    "top_reader_countries": [
+     {
+      "country": "UA",
+      "share": 0.65
+     },
+     {
+      "country": "US",
+      "share": 0.11
+     },
+     {
+      "country": "PL",
+      "share": 0.04
+     }
+    ],
+    "hidden_countries": [],
+    "hidden_country_codes": [],
+    "monthly_unique_devices": 12561280,
+    "month": "2026-08"
+   },
+   "pl": {
+    "language": "Polish",
+    "top_reader_countries": [
+     {
+      "country": "PL",
+      "share": 0.87
+     },
+     {
+      "country": "US",
+      "share": 0.04
+     },
+     {
+      "country": "DE",
+      "share": 0.02
+     }
+    ],
+    "hidden_countries": [],
+    "hidden_country_codes": [],
+    "monthly_unique_devices": 24917536,
+    "month": "2026-08"
+   },
+   "tr": {
+    "language": "Turkish",
+    "top_reader_countries": [
+     {
+      "country": "US",
+      "share": 0.31
+     },
+     {
+      "country": "DE",
+      "share": 0.15
+     },
+     {
+      "country": "NL",
+      "share": 0.05
+     }
+    ],
+    "hidden_countries": [
+     "Türkiye (TR)"
+    ],
+    "hidden_country_codes": [
+     "TR"
+    ],
+    "monthly_unique_devices": 23094876,
+    "month": "2026-08"
+   },
+   "vi": {
+    "language": "Vietnamese",
+    "top_reader_countries": [
+     {
+      "country": "US",
+      "share": 0.47
+     },
+     {
+      "country": "SG",
+      "share": 0.05
+     },
+     {
+      "country": "JP",
+      "share": 0.05
+     }
+    ],
+    "hidden_countries": [
+     "Vietnam (VN)"
+    ],
+    "hidden_country_codes": [
+     "VN"
+    ],
+    "monthly_unique_devices": 13227617,
+    "month": "2026-08"
+   },
+   "pt": {
+    "language": "Portuguese",
+    "top_reader_countries": [
+     {
+      "country": "BR",
+      "share": 0.74
+     },
+     {
+      "country": "PT",
+      "share": 0.09
+     },
+     {
+      "country": "US",
+      "share": 0.09
+     }
+    ],
+    "hidden_countries": [],
+    "hidden_country_codes": [],
+    "monthly_unique_devices": 49256864,
+    "month": "2026-08"
+   }
+  }
+ }
+}

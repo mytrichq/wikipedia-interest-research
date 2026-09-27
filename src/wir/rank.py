@@ -4,12 +4,6 @@ import math
 
 DEFAULT_WEIGHTS = {"momentum": 0.35, "relative": 0.25, "size": 0.25, "trust": 0.15}
 ALIASES = {"growth": "momentum", "volume": "size", "audience": "size", "share": "relative"}
-DESCRIPTIONS = {
-    "momentum": "year-over-year change (-50% → 0, +100% → 1)",
-    "relative": "views per million edition views (log scale, 1000 → 1)",
-    "size": "average monthly views (log scale, 100k → 1)",
-    "trust": "trust score / 100",
-}
 
 
 def parse_weights(text: str | None) -> dict[str, float]:

@@ -23,9 +23,6 @@ class Period:
     def label(self) -> str:
         return f"{self.start:%Y-%m}..{self.end:%Y-%m}"
 
-    def shifted_start(self, months_back: int) -> dt.date:
-        return add_months(self.start, -months_back)
-
 
 def add_months(day: dt.date, months: int) -> dt.date:
     index = day.year * 12 + day.month - 1 + months

@@ -1,6 +1,7 @@
 # План тестування навички `wikipedia-interest-research`
 
 > Документ описує, **що** ми перевіряємо, **як** і **за яким критерієм** вважаємо результат прийнятним.
+> **Результати:** [baseline](../evals/results/baseline/README.md) · [ручні прогони Haiku](../evals/results/step7/README.md) · [free-моделі](../evals/results/step8/README.md) · [бенчмарк і критерії приймання](../evals/results/benchmark/README.md).
 > Тестуємо не лише код, а й поведінку агента на дешевій моделі. Саме тут навички найчастіше ламаються.
 
 ## 1. Цілі

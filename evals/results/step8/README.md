@@ -65,6 +65,6 @@
 ```bash
 cp .env.example .env   # вписати OPENROUTER_API_KEY
 uv run python evals/openrouter.py --case astronomy-uk-trust --model dots-studio/dots-3-note-preview:free --out /tmp/runs
-# або вручну, з будь-якою теkою та навичкою:
+# або вручну, з будь-якою текою та навичкою:
 uv run python dev/harness/agent.py --model <model> --skills <dir-with-skills> --workspace /tmp/ws "<запит>"
 ```
